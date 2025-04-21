@@ -65,7 +65,6 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.0.29f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Scripts/Common/BlackCover.cs" />
     <Compile Include="Assets/Scripts/Common/GameManager.cs" />
     <Compile Include="Assets/Scripts/Utils/Configs.cs" />
     <Compile Include="Assets/LeanTween/Framework/LeanTest.cs" />
@@ -79,14 +78,10 @@
     <Compile Include="Assets/Scripts/Utils/InputSecurity.cs" />
     <Compile Include="Assets/Scripts/Extensions/GameObjectExtensions.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/TestingZLegacy.cs" />
-    <Compile Include="Assets/Scripts/Game/Item/ItemController.cs" />
-    <Compile Include="Assets/Scripts/Game/GameTutorial.cs" />
     <Compile Include="Assets/Scripts/Welcome/CreateAccountLogic.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingSceneSwitching.cs" />
     <Compile Include="Assets/Scripts/Common/ToolTip.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralSequencer.cs" />
-    <Compile Include="Assets/Scripts/Game/Item/ItemCreature.cs" />
-    <Compile Include="Assets/Scripts/Game/Suggestions.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathBezier2d.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplinePerformance.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralEasingTypes.cs" />
@@ -106,17 +101,13 @@
     <Compile Include="Assets/LeanTween/Testing/PerformanceTests.cs" />
     <Compile Include="Assets/Scripts/Common/SoundManager.cs" />
     <Compile Include="Assets/Scripts/Game/GameInit.cs" />
-    <Compile Include="Assets/Scripts/Game/GameGraft.cs" />
     <Compile Include="Assets/LeanTween/Framework/LeanTween.cs" />
     <Compile Include="Assets/Scripts/Navigation/Navigator.cs" />
     <Compile Include="Assets/LeanTween/Framework/LeanSmooth.cs" />
     <Compile Include="Assets/Scripts/Game/LevelScroll.cs" />
-    <Compile Include="Assets/Scripts/Game/InformationController.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingMaxTweens.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralUISpace.cs" />
-    <Compile Include="Assets/Scripts/Game/Item/ItemLevel.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplines.cs" />
-    <Compile Include="Assets/Scripts/Classes/Serializable/FirebaseTracking.cs" />
     <Compile Include="Assets/Scripts/Classes/ScriptableObjects/Creature.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralCameraShake.cs" />
     <Compile Include="Assets/Scripts/Utils/DragTracker.cs" />
@@ -150,8 +141,7 @@
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathBezier.cs" />
     <Compile Include="Assets/Scripts/Utils/Helper.cs" />
     <Compile Include="Assets/Scripts/Utils/LoadingManager.cs" />
-    <Compile Include="Assets/Scripts/Utils/ImageFiller.cs" />
-    <Compile Include="Assets/Scripts/Game/Square/Square.cs" />
+    <Compile Include="Assets/Scripts/Classes/FirebaseTracking.cs" />
     <Compile Include="Assets/Scripts/Utils/GameHelper.cs" />
     <Compile Include="Assets/LeanTween/Testing/Testing246.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/TestingZLegacyExt.cs" />
