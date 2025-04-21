@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Game Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Game
+  m_TableCollectionNameGuidString: 09972f08cc61d4bada0aa6d10b6794a5
+  m_Entries:
+  - m_Id: 28888578351161344
+    m_Key: setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36923815073144832
+    m_Key: retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28889885619249152
+    m_Key: music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28954885096464384
+    m_Key: language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31504603710218240
+    m_Key: level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34027980324855808
+    m_Key: nextLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34046407374528512
+    m_Key: goToLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34117852284837888
+    m_Key: animalEat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34141524227776512
+    m_Key: eat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34141548118532096
+    m_Key: beEaten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34463667910074368
+    m_Key: playAgain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34775826661629952
+    m_Key: excellent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34775886271078400
+    m_Key: perfect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35061453063970816
+    m_Key: startTutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34873950650490880
+    m_Key: deliciousCheese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35079392899096576
+    m_Key: mouseLookToTheLeft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35093818410786816
+    m_Key: needToFeedTheMouse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35610831864455168
+    m_Key: wowFatWorm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35610999645003776
+    m_Key: catLikeWormRight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35612594092892160
+    m_Key: bringWormToFish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35613200643776512
+    m_Key: seeEachAnimalEat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35613517976428544
+    m_Key: letGo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35613820385746944
+    m_Key: goCreateFoodChain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35614819968081920
+    m_Key: lastCheckAnimalDirection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35615364049002496
+    m_Key: completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35748132825325568
+    m_Key: viewTutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36865451161018368
+    m_Key: needHint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36879373725327360
+    m_Key: suggestNumber
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36879434085556224
+    m_Key: tapToCreature
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36922655696216064
+    m_Key: oppSomeError
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36931199485075456
+    m_Key: watchingAds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38070963491823616
+    m_Key: askingForHelp
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1220104545343373478
+  references:
+    version: 2
+    RefIds:
+    - rid: 1220104545343373478
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1735554087191
