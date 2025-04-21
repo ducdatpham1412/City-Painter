@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager> {
     protected GameManager() { }
-
     public GameState gameState;
     public Profile profile;
-    public GameController Controller;
 
     Sprite background;
 
@@ -55,7 +53,6 @@ public class GameManager : Singleton<GameManager> {
     public void Initialize() { }
 
     public void OnQuit() {
-        Controller.SaveLevelStatus();
         string playingLevels = JsonConvert.SerializeObject(gameState.playingLevels);
         string strProfile = JsonConvert.SerializeObject(profile);
         Storage.SET(Storage.Key.playingLevels, playingLevels);
