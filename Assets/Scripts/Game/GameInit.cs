@@ -1,18 +1,30 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameInit : Singleton<GameInit> {
     public SpriteRenderer CityImage;
+    [SerializeField] Sprite sourceSprite;
 
     void Start() {
-        SetImage(CityImage.sprite);
+        SetImage(sourceSprite);
+    }
+
+    void Update() {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame) {
+            SetImage(sourceSprite);
+        }
     }
 
     void SetImage(Sprite sprite) {
-        Vector2 pivot = sprite.pivot;
+        Vector2 pivot = new Vector2(
+            sprite.pivot.x / sprite.rect.width,
+            sprite.pivot.y / sprite.rect.height
+        );
         Texture2D grayscaleTex = GenerateLineArt(Helper.SpriteToTexture(sprite));
         Rect rect = new Rect(0, 0, grayscaleTex.width, grayscaleTex.height);
         CityImage.sprite = Sprite.Create(grayscaleTex, rect, pivot);
     }
+
 
     Texture2D GenerateLineArt(Texture2D tex) {
         int width = tex.width;
@@ -30,16 +42,36 @@ public class GameInit : Singleton<GameInit> {
             for (int y = 0; y < height; y++) {
                 Color c = pixels[y * width + x];
                 gray[x, y] = c.r * 0.299f + c.g * 0.587f + c.b * 0.114f;
-
                 float g = gray[x, y];
                 output[y * width + x] = new Color(g, g, g, c.a);
             }
         }
 
         /*
-        * Wireframe line art
+        * Sobel edge detection
         */
+        int[,] gx = new int[,] { { -1, 0, 1 }, { -2, 0, 2 }, { -1, 0, 1 } };
+        int[,] gy = new int[,] { { 1, 2, 1 }, { 0, 0, 0 }, { -1, -2, -1 } };
 
+        for (int y = 1; y < height - 1; y++) {
+            for (int x = 1; x < width - 1; x++) {
+                float sumX = 0;
+                float sumY = 0;
+
+                for (int i = -1; i <= 1; i++)
+                    for (int j = -1; j <= 1; j++) {
+                        float val = gray[x + j, y + i];
+                        sumX += gx[i + 1, j + 1] * val;
+                        sumY += gy[i + 1, j + 1] * val;
+                    }
+
+                float mag = Mathf.Sqrt(sumX * sumX + sumY * sumY);
+                mag = Mathf.Clamp(mag * 0.5f, 0.1f, 0.4f);
+
+                Color c = pixels[y * width + x];
+                output[y * width + x] = new Color(mag, mag, mag, c.a);
+            }
+        }
 
         /*
         * Set result
