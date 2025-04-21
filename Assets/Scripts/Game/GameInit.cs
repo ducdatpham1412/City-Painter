@@ -1,21 +1,12 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class GameInit : Singleton<GameInit> {
     public SpriteRenderer CityImage;
-    [SerializeField] Sprite sourceSprite;
+    public SpriteRenderer WireFrame;
 
-    void Start() {
-        SetImage(sourceSprite);
-    }
+    public void SetImage(Sprite sprite) {
+        // TODO: Reset CityImage & WriteFrame to original position
 
-    void Update() {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame) {
-            SetImage(sourceSprite);
-        }
-    }
-
-    void SetImage(Sprite sprite) {
         Vector2 pivot = new Vector2(
             sprite.pivot.x / sprite.rect.width,
             sprite.pivot.y / sprite.rect.height

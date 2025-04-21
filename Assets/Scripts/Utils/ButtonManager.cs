@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour {
     [Header("GameObjects")]
     public Text Title;
+    public Image Icon;
     [SerializeField] LoadingManager loadingManager;
 
     [Header("Stats")]
