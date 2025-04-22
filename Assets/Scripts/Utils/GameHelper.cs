@@ -1,5 +1,6 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public static class GameHelper {
     public static bool TouchBegin() {
@@ -14,14 +15,24 @@ public static class GameHelper {
         return false;
     }
 
-    public static bool TouchHitGameObject(Vector3 localPos, GameObject gameObject) {
-        Vector3 worldPoint = ToWorldPoint(localPos);
-        RaycastHit2D[] hits = Physics2D.RaycastAll(worldPoint, Vector2.zero);
-        foreach (var h in hits) {
-            if (h.collider.gameObject == gameObject) return true;
-        }
-        return false;
+    public static bool TouchOverlayWorldGameObject() {
+        // 1) If pointer is over UI, abort:
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            return false;
+        return true;
     }
+
+    // public static bool TouchHitGameObject(Vector3 worldPos, GameObject gameObject) {
+    //     if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+    //         return false;
+
+    //     RaycastHit2D[] hits = Physics2D.RaycastAll(worldPos, Vector2.zero);
+    //     foreach (var h in hits) {
+    //         if (h.collider.gameObject == gameObject) return true;
+    //     }
+
+    //     return false;
+    // }
 
     public static Vector2 TouchPosition() {
         if (Touchscreen.current != null) {

@@ -30,6 +30,11 @@ MonoBehaviour:
     m_Localized: "Th\u1EED l\u1EA1i"
     m_Metadata:
       m_Items: []
+  - m_Id: 41045207750270976
+    m_Localized: "Ch\u1EBF \u0111\u1ED9 di chuy\u1EC3n khung h\xECnh\nK\xE9o \u0111\u1EC3
+      \u0111i\u1EC1u ch\u1EC9nh v\u1ECB tr\xED h\xECnh \u1EA3nh"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

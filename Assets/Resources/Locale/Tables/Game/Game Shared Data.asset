@@ -27,6 +27,10 @@ MonoBehaviour:
     m_Key: music
     m_Metadata:
       m_Items: []
+  - m_Id: 41045207750270976
+    m_Key: inPanningMode
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

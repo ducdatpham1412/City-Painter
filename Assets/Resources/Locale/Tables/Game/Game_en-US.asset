@@ -30,6 +30,10 @@ MonoBehaviour:
     m_Localized: Retry
     m_Metadata:
       m_Items: []
+  - m_Id: 41045207750270976
+    m_Localized: "You\u2019re in Panning Mode\nDrag to reposition the image"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
