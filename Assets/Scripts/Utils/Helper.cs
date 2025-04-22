@@ -52,7 +52,12 @@ public static class Helper {
     }
 
     public static string GetLocaleKey() {
-        return LocalizationSettings.SelectedLocale.Identifier.Code;
+        string key = LocalizationSettings.SelectedLocale.Identifier.Code;
+        if (key == "en-US") return "en";
+        if (key == "ja") return "jp";
+        if (key == "ko") return "ko";
+        if (key == "vi") return "vi";
+        return "";
     }
 
     public static T GetRandomInArr<T>(T[] objects) {
@@ -66,7 +71,6 @@ public static class Helper {
         return null;
     }
 
-
     public static void Shuffle<T>(List<T> list) {
         System.Random rng = new System.Random();
         int n = list.Count;
@@ -75,25 +79,6 @@ public static class Helper {
             (list[i], list[j]) = (list[j], list[i]);
         }
     }
-
-    public static Texture2D SpriteToTexture(Sprite sprite) {
-        if (sprite == null) return null;
-
-        Texture2D texture = new Texture2D((int)sprite.rect.width, (int)sprite.rect.height);
-
-        Color[] pixels = sprite.texture.GetPixels(
-            (int)sprite.rect.x,
-            (int)sprite.rect.y,
-            (int)sprite.rect.width,
-            (int)sprite.rect.height
-        );
-
-        texture.SetPixels(pixels);
-        texture.Apply();
-
-        return texture;
-    }
-
 
     public static bool InWorldSpace(GameObject gObject) {
         RectTransform rect = gObject.GetComponent<RectTransform>();

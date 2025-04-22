@@ -3,10 +3,8 @@ using UnityEngine;
 
 public static class Storage {
     public enum Key {
-        account, // AppState.Account
-        currentLevel,
-        playingLevels,
         profile,
+        gameState,
     }
 
     public static void SET(Key key, string value) {

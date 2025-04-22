@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f91e03ccafdb34639b16078ad8daf6f9, type: 3}
+  m_Name: Scrapers
+  m_EditorClassIdentifier: 
+  Scrapers:
+  - id: scraper
+    name:
+    - key: en
+      value: Paint scraper
+    - key: jp
+      value: "\u30B9\u30AF\u30EC\u30FC\u30D1\u30FC"
+    - key: ko
+      value: "\uD398\uC778\uD2B8 \uC81C\uAC70 \uB3C4\uAD6C"
+    - key: vi
+      value: "C\u1EA1o s\u01A1n"
+    sfx: 3
+    sprite: {fileID: -6165316187203191591, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    sound: {fileID: 0}
+  - id: broom
+    name:
+    - key: en
+      value: Broom
+    - key: jp
+      value: "\u307B\u3046\u304D"
+    - key: ko
+      value: "\uBE57\uC790\uB8E8"
+    - key: vi
+      value: "C\xE2y ch\u1ED5i"
+    sfx: 4
+    sprite: {fileID: 7157833450148309640, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    sound: {fileID: 0}
+  - id: mr_banana
+    name:
+    - key: en
+      value: Mr. Banana
+    - key: jp
+      value: Mr. Banana
+    - key: ko
+      value: Mr. Banana
+    - key: vi
+      value: Mr. Banana
+    sfx: 4
+    sprite: {fileID: 3209483470164172717, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    sound: {fileID: 0}
+  - id: ice_pop
+    name:
+    - key: en
+      value: Ice pop
+    - key: jp
+      value: "\u68D2\u30A2\u30A4\u30B9"
+    - key: ko
+      value: "\uB9C9\uB300 \uC544\uC774\uC2A4\uD06C\uB9BC"
+    - key: vi
+      value: "C\xE2y kem"
+    sfx: 4
+    sprite: {fileID: 7800191359963444533, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    sound: {fileID: 0}
+  - id: ms_banana
+    name:
+    - key: en
+      value: Ms. Banana
+    - key: jp
+      value: Ms. Banana
+    - key: ko
+      value: Ms. Banana
+    - key: vi
+      value: Ms. Banana
+    sfx: 4
+    sprite: {fileID: 2070645915663070006, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    sound: {fileID: 0}
+  - id: rose
+    name:
+    - key: en
+      value: Rose
+    - key: jp
+      value: "\u30D0\u30E9"
+    - key: ko
+      value: "\uC7A5\uBBF8"
+    - key: vi
+      value: "Hoa h\u1ED3ng"
+    sfx: 4
+    sprite: {fileID: 5560126941133924288, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    sound: {fileID: 0}

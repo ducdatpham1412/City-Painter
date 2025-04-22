@@ -12,17 +12,26 @@ public class Profile {
 
 
 [Serializable]
+public class Name {
+    public string key;
+    public string value;
+}
+
+[Serializable]
 public class City {
     public string id;
     public List<Name> name;
     public Sprite sprite;
 
-    [Serializable]
-    public class Name {
-        public string key;
-        public string value;
-    }
+
 }
 
-
+[Serializable]
+public class Scraper {
+    public string id;
+    public List<Name> name;
+    public SoundManager.SF sfx;
+    public Sprite sprite;
+    public Sprite sound;
+}
 
