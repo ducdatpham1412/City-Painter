@@ -68,7 +68,9 @@
     <Compile Include="Assets/Scripts/Common/GameManager.cs" />
     <Compile Include="Assets/Scripts/Utils/Configs.cs" />
     <Compile Include="Assets/LeanTween/Framework/LeanTest.cs" />
+    <Compile Include="Assets/Scripts/Classes/ScriptableObjects/Cities.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingDescr.cs" />
+    <Compile Include="Assets/Scripts/Game/PinchZoom.cs" />
     <Compile Include="Assets/Scripts/Utils/ImageLoader.cs" />
     <Compile Include="Assets/Scripts/Classes/Singleton.cs" />
     <Compile Include="Assets/Scripts/Common/CanvasBackground.cs" />
@@ -92,6 +94,7 @@
     <Compile Include="Assets/Scripts/Welcome/WelcomeLogic.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingIssue2.cs" />
     <Compile Include="Assets/Scripts/Common/GoogleAds.cs" />
+    <Compile Include="Assets/Scripts/Game/PanSprite.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplineEndless.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/Following.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingRotate.cs" />
@@ -108,7 +111,6 @@
     <Compile Include="Assets/LeanTween/Testing/TestingMaxTweens.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralUISpace.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplines.cs" />
-    <Compile Include="Assets/Scripts/Classes/ScriptableObjects/Creature.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralCameraShake.cs" />
     <Compile Include="Assets/Scripts/Utils/DragTracker.cs" />
     <Compile Include="Assets/Scripts/Utils/Storage.cs" />

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using UnityEngine;
 
 [Serializable]
@@ -13,18 +12,10 @@ public class Profile {
 
 
 [Serializable]
-public class Creature {
+public class City {
     public string id;
-    public Type type;
     public List<Name> name;
     public Sprite sprite;
-    public float rotationOffset = 0f;
-
-    public enum Type {
-        animal,
-        food,
-        plant,
-    }
 
     [Serializable]
     public class Name {
@@ -34,39 +25,4 @@ public class Creature {
 }
 
 
-[Serializable]
-public class Relationship {
-    public List<string> eat;
-    public List<string> eaten;
-}
 
-
-[Serializable]
-public class Item {
-    [JsonConverter(typeof(Vector2Converter))]
-    public Vector2 pos;
-    public string creature_id;
-    public string direction;
-
-    public enum Direction {
-        up,
-        left,
-        down,
-        right,
-    }
-}
-
-
-
-[Serializable]
-public class Level {
-    [JsonConverter(typeof(Vector2Converter))]
-    public Vector2 size;
-
-    public Item[][] data;
-
-    [JsonConverter(typeof(Vector2ArrayConverter))]
-    public Vector2[] init_pos;
-
-    public string status;
-}
