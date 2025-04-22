@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -10,11 +9,8 @@ public class GameManager : Singleton<GameManager> {
     Sprite background;
 
     void Awake() {
-        List<GameState.PlayingLevel> playingLevels = Storage.GETRef<List<GameState.PlayingLevel>>(Storage.Key.playingLevels);
-        playingLevels = playingLevels ?? new List<GameState.PlayingLevel>();
-        gameState = new GameState {
-            playingLevels = playingLevels,
-        };
+        gameState = Storage.GETRef<GameState>(Storage.Key.gameState);
+        gameState = gameState ?? new GameState { };
 
         profile = Storage.GETRef<Profile>(Storage.Key.profile);
         profile = profile ?? new Profile {
@@ -53,10 +49,8 @@ public class GameManager : Singleton<GameManager> {
     public void Initialize() { }
 
     public void OnQuit() {
-        string playingLevels = JsonConvert.SerializeObject(gameState.playingLevels);
-        string strProfile = JsonConvert.SerializeObject(profile);
-        Storage.SET(Storage.Key.playingLevels, playingLevels);
-        Storage.SET(Storage.Key.profile, strProfile);
+        Storage.SET(Storage.Key.profile, JsonConvert.SerializeObject(profile));
+        Storage.SET(Storage.Key.gameState, JsonConvert.SerializeObject(gameState));
     }
 
     public Sprite GetBackground() {

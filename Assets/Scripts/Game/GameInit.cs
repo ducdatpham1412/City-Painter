@@ -1,21 +1,23 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameInit : Singleton<GameInit> {
-    public SpriteRenderer CityImage;
-    public SpriteRenderer WireFrame;
+    public PanSprite CityImage;
+    [SerializeField] Text CityName;
 
-    public void SetImage(Sprite sprite) {
-        // TODO: Reset CityImage & WriteFrame to original position
+    public void InitCity(City city) {
+        CityName.text = city.name.Find(n => n.key == Helper.GetLocaleKey())?.value ?? "";
+        CityImage.transform.position = Vector2.zero;
+        CityImage.SetSprite(city.sprite);
 
         Vector2 pivot = new Vector2(
-            sprite.pivot.x / sprite.rect.width,
-            sprite.pivot.y / sprite.rect.height
+            city.sprite.pivot.x / city.sprite.rect.width,
+            city.sprite.pivot.y / city.sprite.rect.height
         );
-        Texture2D grayscaleTex = GenerateLineArt(Helper.SpriteToTexture(sprite));
+        Texture2D grayscaleTex = GenerateLineArt(city.sprite.texture);
         Rect rect = new Rect(0, 0, grayscaleTex.width, grayscaleTex.height);
-        CityImage.sprite = Sprite.Create(grayscaleTex, rect, pivot);
+        GameController.Instance.Scraper.SetWireFrame(Sprite.Create(texture: grayscaleTex, rect: rect, pivot: pivot, pixelsPerUnit: city.sprite.pixelsPerUnit));
     }
-
 
     Texture2D GenerateLineArt(Texture2D tex) {
         int width = tex.width;

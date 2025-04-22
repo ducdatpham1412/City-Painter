@@ -12,26 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b64bdd35368144606a4782fcbe92cf55, type: 3}
   m_Name: Cities
   m_EditorClassIdentifier: 
-  Creatures:
-  - id: 
+  Cities:
+  - id: paris
     name:
     - key: en
-      value: 
+      value: Paris
     - key: jp
-      value: 
+      value: Paris
     - key: ko
-      value: 
+      value: Paris
     - key: vi
-      value: 
-    sprite: {fileID: 0}
-  - id: 
-    name:
-    - key: en
-      value: 
-    - key: jp
-      value: 
-    - key: ko
-      value: 
-    - key: vi
-      value: 
-    sprite: {fileID: 0}
+      value: Paris
+    sprite: {fileID: 21300000, guid: 9ecc2ad96716c4da5bb409a90e036ba3, type: 3}

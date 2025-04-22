@@ -16,8 +16,7 @@ MonoBehaviour:
     m_Code: en-US
   m_SharedData: {fileID: 11400000, guid: 09972f08cc61d4bada0aa6d10b6794a5, type: 2}
   m_Metadata:
-    m_Items:
-    - rid: 2334271123874906213
+    m_Items: []
   m_TableData:
   - m_Id: 28889885619249152
     m_Localized: Music
@@ -27,144 +26,10 @@ MonoBehaviour:
     m_Localized: Setting
     m_Metadata:
       m_Items: []
-  - m_Id: 28954885096464384
-    m_Localized: Language
-    m_Metadata:
-      m_Items: []
-  - m_Id: 31504603710218240
-    m_Localized: Level
-    m_Metadata:
-      m_Items: []
-  - m_Id: 34027980324855808
-    m_Localized: Next level
-    m_Metadata:
-      m_Items: []
-  - m_Id: 34046407374528512
-    m_Localized: Go to level {0}
-    m_Metadata:
-      m_Items: []
-  - m_Id: 34117852284837888
-    m_Localized: What do animals eat?
-    m_Metadata:
-      m_Items: []
-  - m_Id: 34141524227776512
-    m_Localized: Eat
-    m_Metadata:
-      m_Items: []
-  - m_Id: 34141548118532096
-    m_Localized: Be eaten
-    m_Metadata:
-      m_Items: []
-  - m_Id: 34463667910074368
-    m_Localized: Play again
-    m_Metadata:
-      m_Items: []
-  - m_Id: 34775886271078400
-    m_Localized: "Perfect \U0001F9C0"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 34775826661629952
-    m_Localized: "Excellent \U0001F496"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 34873950650490880
-    m_Localized: "Oh wow! Look!\nA super yummy piece of cheese! \U0001F9C0\U0001F496"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 35061453063970816
-    m_Localized: 'Welcome to NomNom
-
-      Let''s get a quick tutorial
-
-'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 35079392899096576
-    m_Localized: "A little mousey looking to the left! \U0001F42D\U0001F4AB"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 35093818410786816
-    m_Localized: "We need to feed our little mousey by dragging him to the right
-      square on the board! \U0001F42D\U0001F496"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 35610831864455168
-    m_Localized: "Wow! Such a chubby wubby lil\u2019 wormy. So cute! \U0001F41B\U0001F497"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 35610999645003776
-    m_Localized: "Fish like to eat worms, right? And he\u2019s looking down there!
-      \U0001F41F\U0001F41B\U0001F440"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 35612594092892160
-    m_Localized: "Let\u2019s bring this lil\u2019 worm over to our fish friend!"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 35613200643776512
-    m_Localized: "You can see what each animal eats by pressing the button at the
-      top right! \U0001F43E\U0001F37D"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 35613517976428544
-    m_Localized: "Let\u2019s go"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 35613820385746944
-    m_Localized: "Nice! Now let\u2019s go create your very own food chain! \U0001F42D\u27A1\uFE0F\U0001F41F\u27A1\uFE0F\U0001F985"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 35614819968081920
-    m_Localized: "Last one!\nCheck the animal\u2019s direction, they can only eat
-      where they\u2019re looking! \U0001F42D\U0001F440"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 35615364049002496
-    m_Localized: Completed
-    m_Metadata:
-      m_Items: []
-  - m_Id: 35748132825325568
-    m_Localized: View tutorial
-    m_Metadata:
-      m_Items: []
-  - m_Id: 36865451161018368
-    m_Localized: Need a hint?
-    m_Metadata:
-      m_Items: []
-  - m_Id: 36879373725327360
-    m_Localized: Suggest {0}
-    m_Metadata:
-      m_Items:
-      - rid: 2334271123874906213
-  - m_Id: 36879434085556224
-    m_Localized: "You have {0} suggestions\nTap a creature  or a square to get a
-      hint! \U0001F4A1\U0001F63D"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 36922655696216064
-    m_Localized: 'Oops! Something went wrong
-
-      Please check your internet connection!'
-    m_Metadata:
-      m_Items: []
   - m_Id: 36923815073144832
     m_Localized: Retry
     m_Metadata:
       m_Items: []
-  - m_Id: 36931199485075456
-    m_Localized: Watching ad to see suggestions
-    m_Metadata:
-      m_Items: []
-  - m_Id: 38070963491823616
-    m_Localized: "Don\u2019t hesitate to ask for a hint!"
-    m_Metadata:
-      m_Items: []
   references:
     version: 2
-    RefIds:
-    - rid: 2334271123874906213
-      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
-      data:
-        m_Entries: 
-        m_SharedEntries:
-        - id: 36879373725327360
+    RefIds: []

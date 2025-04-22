@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 2f246064d681540478f0044c1b7b9787
+guid: 1c57408d6035b453c973a2139ce23fa4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6852002888974724158
-    second: ic_hand_point_0
+      213: -6399002094826877646
+    second: ic_zoom_in_0
   - first:
-      213: -4615923442392240738
-    second: ic_hand_point_1
+      213: -3552683249833393825
+    second: ic_zoom_in_1
+  - first:
+      213: 4379543029471569504
+    second: ic_zoom_in_2
+  - first:
+      213: -8868668312205133577
+    second: ic_zoom_in_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,8 +58,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.35670575, y: 0.9282559}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,6 +106,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -116,45 +135,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ic_hand_point_0
+      name: ic_zoom_in_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 20
-        width: 76
-        height: 80
+        x: 1
+        y: 21
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c316ba0dabc8e0a0800000000000000
-      internalID: -6852002888974724158
+      spriteID: 23d0dd48f7d2237a0800000000000000
+      internalID: -6399002094826877646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ic_hand_point_1
+      name: ic_zoom_in_1
       rect:
         serializedVersion: 2
         x: 21
-        y: 0
-        width: 50
-        height: 21
+        y: 21
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e9defc9d512f0ffb0800000000000000
-      internalID: -4615923442392240738
+      spriteID: f51433e386552bec0800000000000000
+      internalID: -3552683249833393825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ic_zoom_in_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 066e0367e2347cc30800000000000000
+      internalID: 4379543029471569504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ic_zoom_in_3
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f8ff3488292ce480800000000000000
+      internalID: -8868668312205133577
       vertices: []
       indices: 
       edges: []
@@ -164,7 +227,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -173,8 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ic_hand_point_0: -6852002888974724158
-      ic_hand_point_1: -4615923442392240738
+      ic_zoom_in_0: -6399002094826877646
+      ic_zoom_in_1: -3552683249833393825
+      ic_zoom_in_2: 4379543029471569504
+      ic_zoom_in_3: -8868668312205133577
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -89,6 +89,7 @@
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralEasingTypes.cs" />
     <Compile Include="Assets/Scripts/Utils/ButtonManager.cs" />
     <Compile Include="Assets/Scripts/Common/LocalizationManager.cs" />
+    <Compile Include="Assets/Scripts/Classes/ScriptableObjects/Scrapers.cs" />
     <Compile Include="Assets/LeanTween/Testing/FollowingTests.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/TestingUnitTests.cs" />
     <Compile Include="Assets/Scripts/Welcome/WelcomeLogic.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="Assets/Scripts/Classes/FirebaseTracking.cs" />
     <Compile Include="Assets/Scripts/Utils/GameHelper.cs" />
     <Compile Include="Assets/LeanTween/Testing/Testing246.cs" />
+    <Compile Include="Assets/Scripts/Game/ScraperController.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/TestingZLegacyExt.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSpline2d.cs" />
     <Compile Include="Assets/LeanTween/Framework/LTSeq.cs" />

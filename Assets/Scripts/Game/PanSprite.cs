@@ -12,8 +12,9 @@ public class PanSprite : MonoBehaviour {
     float maxVelocity = 20f;
     Bound bound;
 
-    void Start() {
+    public void SetSprite(Sprite sprite) {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.sprite = sprite;
         float width = sr.bounds.size.x;
         float height = sr.bounds.size.y;
         Vector2 pos = transform.position;
@@ -46,6 +47,7 @@ public class PanSprite : MonoBehaviour {
             Vector2 lastPos = currentPos;
             currentPos = GameHelper.ToWorldPoint(GameHelper.TouchPosition());
             transform.position = pivotPos + (currentPos - touchPos);
+            GameController.Instance.Scraper.transform.position = currentPos;
 
             Vector2 delta = currentPos - lastPos;
             velocity = delta / Time.deltaTime;

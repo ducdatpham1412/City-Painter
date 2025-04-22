@@ -21,14 +21,7 @@ public class SoundManager : Singleton<SoundManager> {
         MusicSources[MusicSource.Kid] = LoadMusic("mc_kid");
 
         SFSources[SF.Pop_01] = LoadSF("sf_pop_01");
-        SFSources[SF.Marimba_01] = LoadSF("sf_marimba_01");
-        SFSources[SF.Marimba_02] = LoadSF("sf_marimba_02");
-        SFSources[SF.Marimba_03] = LoadSF("sf_marimba_03");
-        SFSources[SF.Marimba_04] = LoadSF("sf_marimba_04");
         SFSources[SF.Whoosh_Transition] = LoadSF("sf_whoosh_transition");
-        SFSources[SF.Bubble] = LoadSF("sf_bubble");
-        SFSources[SF.Win01] = LoadSF("sf_win_01");
-        SFSources[SF.Win02] = LoadSF("sf_win_02");
     }
 
     public void PauseUnPauseMusicBackground(MusicSource source = MusicSource.Kid) {
@@ -94,15 +87,11 @@ public class SoundManager : Singleton<SoundManager> {
     public enum SF {
         None,
         Pop_01,
-        Pop_02,
-        Marimba_01,
-        Marimba_02,
-        Marimba_03,
-        Marimba_04,
         Whoosh_Transition,
-        Bubble,
-        Win01,
-        Win02,
+        Scrape,
+        Brush,
+        IceScream,
+        Banana,
     }
     public enum MusicSource {
         Kid,
