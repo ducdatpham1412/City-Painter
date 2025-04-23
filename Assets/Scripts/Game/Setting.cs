@@ -1,24 +1,39 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Setting : MonoBehaviour {
-    [SerializeField] Switch MusicSwitch;
-    [SerializeField] Switch SfxSwitch;
+    [Header("GameObjects")]
     [SerializeField] List<LanguageButton> LanguageButtons = new List<LanguageButton>();
+    [SerializeField] RectTransform BgSoundContainer;
+    [SerializeField] RectTransform SfxSoundContainer;
+    [SerializeField] RectTransform ScrapersContainer;
+    [SerializeField] RectTransform Content;
 
-    void Start() {
-        MusicSwitch.ActionChange += MusicChanged;
-        SfxSwitch.ActionChange += SfxChanged;
-        MusicSwitch.SetValue(GameManager.Instance.profile.music);
-        SfxSwitch.SetValue(GameManager.Instance.profile.sfx);
+    [Header("Prefabs")]
+    [SerializeField] GameObject ItemSoundPrefab;
+    [SerializeField] GameObject ItemScraperPrefab;
+
+    void Awake() {
         SetLocale(GameManager.Instance.profile.localeID ?? 0);
     }
 
-    void OnDestroy() {
-        MusicSwitch.ActionChange -= MusicChanged;
-        SfxSwitch.ActionChange -= SfxChanged;
+    void Start() {
+        foreach (BackgroundSound sound in GameManager.Instance.resources.backgroundSounds.data) {
+            ItemSound itemSound = Instantiate(ItemSoundPrefab, BgSoundContainer).GetComponent<ItemSound>();
+            itemSound.SetSound(sound);
+        }
+        foreach (SfxSound sound in GameManager.Instance.resources.sfxSounds.data) {
+            ItemSound itemSound = Instantiate(ItemSoundPrefab, SfxSoundContainer).GetComponent<ItemSound>();
+            itemSound.SetSound(sound);
+        }
+        foreach (Scraper scraper in GameManager.Instance.resources.scrapers.data) {
+            ItemScraper itemScraper = Instantiate(ItemScraperPrefab, ScrapersContainer).GetComponent<ItemScraper>();
+            itemScraper.SetScraper(scraper);
+            StartCoroutine(RebuildLayout());
+        }
     }
 
     public void SetLocale(int localeID) {
@@ -35,15 +50,9 @@ public class Setting : MonoBehaviour {
         }
     }
 
-    void MusicChanged(bool isActive) {
-        Helper.Haptic();
-        GameManager.Instance.profile.music = isActive;
-        SoundManager.Instance.PauseUnPauseMusicBackground();
-    }
-
-    void SfxChanged(bool isActive) {
-        Helper.Haptic();
-        GameManager.Instance.profile.sfx = isActive;
+    IEnumerator RebuildLayout() {
+        yield return null;
+        LayoutRebuilder.ForceRebuildLayoutImmediate(Content);
     }
 
     [Serializable]

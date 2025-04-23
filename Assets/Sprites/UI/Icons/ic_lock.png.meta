@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 84a3ca7d79e8f478e82708b3d9f0769f
+guid: 09a3615533ebb4e1895278b48d430d20
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6195674290893004964
-    second: button-13_0
+      213: 8813436240505770132
+    second: ic_lock_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 41, y: 40, z: 41, w: 40}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,7 +110,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button-13_0
+      name: ic_lock_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 351
-        height: 108
+        x: 5
+        y: 3
+        width: 38
+        height: 42
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a0a2b401f47bf550800000000000000
-      internalID: 6195674290893004964
+      spriteID: 49096eda09d9f4a70800000000000000
+      internalID: 8813436240505770132
       vertices: []
       indices: 
       edges: []
@@ -152,7 +152,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      button-13_0: 6195674290893004964
+      ic_lock_0: 8813436240505770132
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

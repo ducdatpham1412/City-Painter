@@ -205,7 +205,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6195674290893004964, guid: 84a3ca7d79e8f478e82708b3d9f0769f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 84a3ca7d79e8f478e82708b3d9f0769f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -284,6 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Title: {fileID: 3446676114259374912}
+  Icon: {fileID: 0}
   loadingManager: {fileID: 528005866367838817}
   audioClick: 0
   animationClick: 34
