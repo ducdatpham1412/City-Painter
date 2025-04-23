@@ -44,14 +44,15 @@ public class PanSprite : MonoBehaviour {
                 return;
             }
 
-            Vector2 lastPos = currentPos;
-            currentPos = GameHelper.ToWorldPoint(GameHelper.TouchPosition());
-            transform.position = pivotPos + (currentPos - touchPos);
-            GameController.Instance.Scraper.transform.position = currentPos;
-
-            Vector2 delta = currentPos - lastPos;
-            velocity = delta / Time.deltaTime;
-            velocity = Vector2.ClampMagnitude(velocity, maxVelocity);
+            if (GameHelper.TouchOverlayWorldGameObject()) {
+                Vector2 lastPos = currentPos;
+                currentPos = GameHelper.ToWorldPoint(GameHelper.TouchPosition());
+                transform.position = pivotPos + (currentPos - touchPos);
+                GameController.Instance.Scraper.transform.position = currentPos;
+                Vector2 delta = currentPos - lastPos;
+                velocity = delta / Time.deltaTime;
+                velocity = Vector2.ClampMagnitude(velocity, maxVelocity);
+            }
         }
 
         else {

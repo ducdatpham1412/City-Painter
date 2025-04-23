@@ -6,12 +6,15 @@ public class ScraperController : MonoBehaviour {
     [SerializeField] Transform Pointer;
 
     bool isScraping = false;
-    Vector3 touchWorldPos;
     int brushSize = 20;
     SpriteRenderer Renderer;
 
     void Awake() {
         Renderer = GetComponent<SpriteRenderer>();
+    }
+
+    void OnDisable() {
+        isScraping = false;
     }
 
     void Update() {
@@ -31,18 +34,12 @@ public class ScraperController : MonoBehaviour {
                 // Notice wining
                 GameController.Instance.NoticeWinning();
             }
-            touchWorldPos = GameHelper.ToWorldPoint(GameHelper.TouchPosition());
-            transform.position = touchWorldPos;
-            ScrapeWireFrame(WireFrame.transform.InverseTransformPoint(Pointer.position));
+            if (GameHelper.TouchOverlayWorldGameObject()) {
+                Vector2 touchPos = GameHelper.ToWorldPoint(GameHelper.TouchPosition());
+                transform.position = touchPos;
+                ScrapeWireFrame(WireFrame.transform.InverseTransformPoint(Pointer.position));
+            }
         }
-    }
-
-    public void SwitchPanMode() {
-        Renderer.sprite = GameController.Instance.PanSprite;
-    }
-
-    public void SwitchScrapeMode() {
-        Renderer.sprite = currentScraper.sprite;
     }
 
     public void SetScraper(Scraper scraper) {
