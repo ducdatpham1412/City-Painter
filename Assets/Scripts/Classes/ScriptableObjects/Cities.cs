@@ -3,5 +3,5 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Cities", menuName = "Scriptable Objects/Cities")]
 public class CitiesObject : ScriptableObject {
-    public List<City> Cities = new List<City>();
+    public List<City> data = new List<City>();
 }

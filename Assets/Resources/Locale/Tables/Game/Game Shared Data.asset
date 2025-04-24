@@ -15,20 +15,108 @@ MonoBehaviour:
   m_TableCollectionName: Game
   m_TableCollectionNameGuidString: 09972f08cc61d4bada0aa6d10b6794a5
   m_Entries:
+  - m_Id: 41427034855956480
+    m_Key: null
+    m_Metadata:
+      m_Items: []
   - m_Id: 28888578351161344
     m_Key: setting
     m_Metadata:
       m_Items: []
-  - m_Id: 36923815073144832
-    m_Key: retry
-    m_Metadata:
-      m_Items: []
-  - m_Id: 28889885619249152
-    m_Key: music
-    m_Metadata:
-      m_Items: []
   - m_Id: 41045207750270976
     m_Key: inPanningMode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416453247721472
+    m_Key: backgroundSound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416482502991872
+    m_Key: sfxSound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416536261386240
+    m_Key: lightRain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416561041334272
+    m_Key: heavyRain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41422000831324160
+    m_Key: language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416512823615488
+    m_Key: scraper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41587553940267008
+    m_Key: broom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588149967642624
+    m_Key: mrBanana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588229122547712
+    m_Key: msBanana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588427462795264
+    m_Key: icePop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41589008248070144
+    m_Key: rose
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634619005591552
+    m_Key: Paris
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634654363574272
+    m_Key: Tokyo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634679638450176
+    m_Key: Ottawa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634860253569024
+    m_Key: London
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634910316781568
+    m_Key: NewYork
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635052369469440
+    m_Key: Seoul
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635184687177728
+    m_Key: Beijing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635343479332864
+    m_Key: HaNoi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635649105682432
+    m_Key: Geneva
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635885043671040
+    m_Key: Berlin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41662280746655744
+    m_Key: reachCityOpenScraper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41670138326409216
+    m_Key: scrapingTool
     m_Metadata:
       m_Items: []
   m_Metadata:

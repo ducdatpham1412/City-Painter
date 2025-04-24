@@ -1,48 +1,26 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : Singleton<SoundManager> {
-    Dictionary<MusicSource, AudioClip> MusicSources = new Dictionary<MusicSource, AudioClip>();
+    Dictionary<SoundSource, AudioClip> SoundSources = new Dictionary<SoundSource, AudioClip>();
     Dictionary<SF, AudioClip> SFSources = new Dictionary<SF, AudioClip>();
-    List<AudioSource> SFAudios = new List<AudioSource>();
 
-    public AudioSource Music;
+    List<SoundAudio> SoundAudios = new List<SoundAudio>();
+    List<AudioSource> SfAudios = new List<AudioSource>();
+
 
     void Awake() {
-        Music = gameObject.AddComponent<AudioSource>();
-        AudioSource sfx = gameObject.AddComponent<AudioSource>();
-        SFAudios.Add(sfx);
-
-        Music.playOnAwake = true;
-        Music.loop = true;
-        sfx.playOnAwake = false;
-        sfx.loop = false;
-
-        MusicSources[MusicSource.Kid] = LoadMusic("mc_kid");
+        SoundSources[SoundSource.Kid] = LoadSound("mc_kid");
+        SoundSources[SoundSource.Pop_01] = LoadSF("sf_pop_01");
 
         SFSources[SF.Pop_01] = LoadSF("sf_pop_01");
         SFSources[SF.Whoosh_Transition] = LoadSF("sf_whoosh_transition");
     }
 
-    public void PauseUnPauseMusicBackground(MusicSource source = MusicSource.Kid) {
-        if (Music == null) return;
-
-        if (Music.isPlaying) {
-            Music.Pause();
-            return;
-        }
-
-        if (Music.clip == null) {
-            PlayMusic(source);
-        }
-        else {
-            Music.UnPause();
-        }
-    }
-
     public AudioSource PlaySF(SF sf, [UnityEngine.Internal.DefaultValue("1.0F")] float volumeScale = 1f) {
-        if (GameManager.Instance.profile.sfx && SFSources.ContainsKey(sf)) {
-            AudioSource sfFree = SFAudios.Find(audio => !audio.isPlaying);
+        if (SFSources.ContainsKey(sf)) {
+            AudioSource sfFree = SfAudios.Find(audio => !audio.isPlaying);
             if (sfFree != null) {
                 sfFree.PlayOneShot(SFSources[sf], volumeScale);
                 return sfFree;
@@ -50,33 +28,76 @@ public class SoundManager : Singleton<SoundManager> {
             AudioSource newAudio = gameObject.AddComponent<AudioSource>();
             newAudio.playOnAwake = false;
             newAudio.PlayOneShot(SFSources[sf], volumeScale);
-            SFAudios.Add(newAudio);
+            SfAudios.Add(newAudio);
             return newAudio;
         }
         return null;
     }
 
-    public void PlayMusic(MusicSource source) {
-        if (MusicSources.ContainsKey(source)) {
-            if (Music.isPlaying) {
-                Music.Pause();
+    public void PlayStopBackgroundSound(BackgroundSound sound) {
+        SoundSource source = Helper.GetRandomInArr(sound.sources);
+        SoundAudio audio = SoundAudios.Find(s => s.sound.id == sound.id);
+
+        if (audio == null) {
+            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = true;
+            audioSource.loop = true;
+            audioSource.clip = SoundSources[source];
+            audioSource.Play();
+            SoundAudios.Add(new SoundAudio {
+                sound = sound,
+                audioSource = audioSource,
+                coroutine = null,
+            });
+            if (!GameManager.Instance.profile.backgroundSounds.Contains(sound.id)) {
+                GameManager.Instance.profile.backgroundSounds.Add(sound.id);
             }
-            Music.clip = MusicSources[source];
-            Music.Play();
-            Music.volume = 0.27f;
+            return;
         }
+
+        if (audio.coroutine != null) StopCoroutine(audio.coroutine);
+        Destroy(audio.audioSource);
+        SoundAudios.Remove(audio);
+        GameManager.Instance.profile.backgroundSounds.Remove(sound.id);
     }
 
-    public void RemoveAudioSource(AudioSource audio) {
-        if (SFAudios.Contains(audio)) {
-            SFAudios.Remove(audio);
-            Destroy(audio);
+    public void PlayStopSfxSound(SfxSound sound) {
+        SoundAudio audio = SoundAudios.Find(s => s.sound.id == sound.id);
+
+        if (audio == null) {
+            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.loop = false;
+            Coroutine coroutine = StartCoroutine(PlaySfxSoundCoroutine(audioSource, sound));
+            SoundAudios.Add(new SoundAudio {
+                sound = sound,
+                audioSource = audioSource,
+                coroutine = coroutine,
+            });
+            if (!GameManager.Instance.profile.sfxSounds.Contains(sound.id)) {
+                GameManager.Instance.profile.sfxSounds.Add(sound.id);
+            }
+            return;
         }
+
+        if (audio.coroutine != null) StopCoroutine(audio.coroutine);
+        Destroy(audio.audioSource);
+        SoundAudios.Remove(audio);
+        GameManager.Instance.profile.sfxSounds.Remove(sound.id);
     }
 
     public void Initialize() { }
 
-    AudioClip LoadMusic(string name) {
+    IEnumerator PlaySfxSoundCoroutine(AudioSource audio, SfxSound sound) {
+        while (true) {
+            audio.clip = SoundSources[Helper.GetRandomInArr(sound.sources)];
+            audio.Play();
+            yield return new WaitUntil(() => !audio.isPlaying);
+            yield return new WaitForSeconds(Random.Range(sound.minInterval, sound.maxInterval));
+        }
+    }
+
+    AudioClip LoadSound(string name) {
         return Resources.Load<AudioClip>($"Sounds/Musics/{name}");
     }
 
@@ -93,7 +114,17 @@ public class SoundManager : Singleton<SoundManager> {
         IceScream,
         Banana,
     }
-    public enum MusicSource {
+
+    public enum SoundSource {
         Kid,
+        Pop_01,
+    }
+
+
+    [System.Serializable]
+    class SoundAudio {
+        public BackgroundSound sound;
+        public AudioSource audioSource;
+        public Coroutine coroutine;
     }
 }

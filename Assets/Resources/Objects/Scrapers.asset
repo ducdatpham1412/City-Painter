@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f91e03ccafdb34639b16078ad8daf6f9, type: 3}
+  m_Name: Scrapers
+  m_EditorClassIdentifier: 
+  data:
+  - id: scraper
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 41416512823615488
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sfx: 0
+    sprite: {fileID: -6165316187203191591, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    sound: {fileID: 0}
+    cityUnlock: paris
+  - id: broom
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 41587553940267008
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sfx: 0
+    sprite: {fileID: 7157833450148309640, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    sound: {fileID: 0}
+    cityUnlock: tokyo
+  - id: mr_banna
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 41588149967642624
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sfx: 0
+    sprite: {fileID: 3209483470164172717, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    sound: {fileID: 0}
+    cityUnlock: ottawa
+  - id: ice_pop
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 41588427462795264
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sfx: 0
+    sprite: {fileID: 7800191359963444533, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    sound: {fileID: 0}
+    cityUnlock: london
+  - id: ms_banana
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 41588229122547712
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sfx: 0
+    sprite: {fileID: 2070645915663070006, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    sound: {fileID: 0}
+    cityUnlock: seoul
+  - id: rose
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 41589008248070144
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sfx: 0
+    sprite: {fileID: 5560126941133924288, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    sound: {fileID: 0}
+    cityUnlock: hanoi
+  references:
+    version: 2
+    RefIds: []

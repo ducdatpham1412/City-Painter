@@ -1,12 +1,13 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Localization.Components;
 
 public class GameInit : Singleton<GameInit> {
     public PanSprite CityImage;
-    [SerializeField] Text CityName;
+    [SerializeField] LocalizeStringEvent CityName;
 
     public void InitCity(City city) {
-        CityName.text = city.name.Find(n => n.key == Helper.GetLocaleKey())?.value ?? "";
+        CityName.StringReference = city.name;
+        CityName.RefreshString();
         CityImage.transform.position = Vector2.zero;
         CityImage.SetSprite(city.sprite);
 

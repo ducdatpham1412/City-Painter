@@ -22,17 +22,101 @@ MonoBehaviour:
     m_Localized: "\uC124\uC815"
     m_Metadata:
       m_Items: []
-  - m_Id: 28889885619249152
-    m_Localized: "\uC74C\uC545"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 36923815073144832
-    m_Localized: "\uB2E4\uC2DC \uC2DC\uB3C4"
+  - m_Id: 41416453247721472
+    m_Localized: "\uD658\uACBD\uC74C"
     m_Metadata:
       m_Items: []
   - m_Id: 41045207750270976
     m_Localized: "\uD328\uB2DD \uBAA8\uB4DC\uC5D0 \uC788\uC2B5\uB2C8\uB2E4\n\uC774\uBBF8\uC9C0\uB97C
       \uB4DC\uB798\uADF8\uD558\uC5EC \uC704\uCE58\uB97C \uC870\uC815\uD558\uC138\uC694"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416482502991872
+    m_Localized: "\uD6A8\uACFC\uC74C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416536261386240
+    m_Localized: Light rain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416561041334272
+    m_Localized: Heavy rain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416512823615488
+    m_Localized: "\uAE01\uB294 \uB3C4\uAD6C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41422000831324160
+    m_Localized: "\uC5B8\uC5B4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41587553940267008
+    m_Localized: "\uBE57\uC790\uB8E8"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588149967642624
+    m_Localized: Mr. Banana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588229122547712
+    m_Localized: Ms. Banana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588427462795264
+    m_Localized: "\uB9C9\uB300 \uC544\uC774\uC2A4\uD06C\uB9BC "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41589008248070144
+    m_Localized: "\uC7A5\uBBF8"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634619005591552
+    m_Localized: Paris
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634654363574272
+    m_Localized: Tokyo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634679638450176
+    m_Localized: Ottawa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634860253569024
+    m_Localized: London
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634910316781568
+    m_Localized: New York
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635052369469440
+    m_Localized: Seoul
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635184687177728
+    m_Localized: Beijing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635343479332864
+    m_Localized: Ha Noi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635649105682432
+    m_Localized: Geneva
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635885043671040
+    m_Localized: Berlin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41662280746655744
+    m_Localized: "{0}\uC5D0 \uAC00\uBA74 \uC774 \uBE0C\uB7EC\uC2DC \uC5F4\uB824\uC694"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41670138326409216
+    m_Localized: "\uAE01\uB294 \uB3C4\uAD6C"
     m_Metadata:
       m_Items: []
   references:

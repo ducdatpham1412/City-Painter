@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class GameController : Singleton<GameController> {
     [Header("Data")]
-    public CitiesObject Cities;
-    public ScrapersObject Scrapers;
     public Sprite PanSprite;
     [SerializeField] Sprite ZoomOutSprite;
     [SerializeField] Sprite ZoomInSprite;
@@ -15,6 +13,7 @@ public class GameController : Singleton<GameController> {
     [SerializeField] ButtonManager SwitchModeBtn;
     [SerializeField] Image ZoomIcon;
     [SerializeField] Text TextPanningMode;
+    [SerializeField] InfoDialog InfoDialog;
     public ScraperController Scraper;
 
     [Header("Stats")]
@@ -23,14 +22,8 @@ public class GameController : Singleton<GameController> {
 
 
     void Start() {
-        if (GameManager.Instance.gameState.city == "") {
-            GameManager.Instance.gameState.city = Cities.Cities[0].id;
-        }
-        if (GameManager.Instance.gameState.scraper == "") {
-            GameManager.Instance.gameState.scraper = Scrapers.Scrapers[0].id;
-        }
-        City city = Cities.Cities.Find(c => c.id == GameManager.Instance.gameState.city);
-        Scraper.SetScraper(Scrapers.Scrapers.Find(s => s.id == GameManager.Instance.gameState.scraper));
+        City city = GameManager.Instance.resources.cities.data.Find(c => c.id == GameManager.Instance.gameState.city);
+        Scraper.SetScraper(GameManager.Instance.resources.scrapers.data.Find(s => s.id == GameManager.Instance.gameState.scraper));
         SwitchModeBtn.Icon.sprite = PanSprite;
         GameInit.Instance.InitCity(city);
     }
@@ -55,19 +48,30 @@ public class GameController : Singleton<GameController> {
         SettingDialog.SetActive(!SettingDialog.activeInHierarchy);
     }
 
+    public void PlayCityToUnlock(string city) {
+        InfoDialog.Open(new InfoDialog.Info {
+            title = Helper.GetLocalizedValue("reachCityOpenScraper", new string[] { city }),
+            fontSize = 16,
+            btnTitle = "Ok",
+            OnClick = () => InfoDialog.Close(),
+        });
+    }
+
     public void NoticeWinning() {
 
     }
 
     public void ChangeScraper(string id) {
-        Scraper temp = Scrapers.Scrapers.Find(s => s.id == id);
-        if (temp != null) {
-            GameManager.Instance.gameState.scraper = id;
-            Scraper.SetScraper(temp);
-            SwitchModeBtn.Icon.sprite = temp.sprite;
+        Scraper s = GameManager.Instance.resources.scrapers.data.Find(s => s.id == id);
+        if (s != null) {
+            GameManager.Instance.gameState.scraper = s.id;
+            Scraper.SetScraper(s);
+            SwitchModeBtn.Icon.sprite = s.sprite;
+            foreach (var item in GameManager.Instance.ItemScrapers) {
+                item.UpdateEnable();
+            }
         }
     }
-
 
     public void Zoom() {
         float duration = 0.6f;

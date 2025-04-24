@@ -13,8 +13,10 @@ public class Utilities {
         }
     }
 
-    [MenuItem("Tools/Test")]
+    [MenuItem("Tools/Get Storage")]
     public static void Test() {
+        var profile = Storage.GETRef<Profile>(Storage.Key.profile);
+        Debug.Log($"Profile: {JsonConvert.SerializeObject(profile)}");
     }
 }
 

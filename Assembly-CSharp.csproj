@@ -89,6 +89,7 @@
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralEasingTypes.cs" />
     <Compile Include="Assets/Scripts/Utils/ButtonManager.cs" />
     <Compile Include="Assets/Scripts/Common/LocalizationManager.cs" />
+    <Compile Include="Assets/Scripts/Classes/ScriptableObjects/BackgroundSounds.cs" />
     <Compile Include="Assets/Scripts/Classes/ScriptableObjects/Scrapers.cs" />
     <Compile Include="Assets/LeanTween/Testing/FollowingTests.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/TestingUnitTests.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplineEndless.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/Following.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingRotate.cs" />
+    <Compile Include="Assets/Scripts/Game/ItemScraper.cs" />
     <Compile Include="Assets/LeanTween/Testing/Testing240.cs" />
     <Compile Include="Assets/LeanTween/Testing/Scripts/LeanPool.cs" />
     <Compile Include="Assets/Scripts/Welcome/LoginLogic.cs" />
@@ -119,12 +121,14 @@
     <Compile Include="Assets/Scripts/Game/Setting.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplineTrack.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSpline.cs" />
+    <Compile Include="Assets/Scripts/Game/ItemSound.cs" />
     <Compile Include="Assets/Scripts/Utils/ApiManager.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingSequencer.cs" />
     <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/LogoCinematic.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralAdvancedTechniques.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralEventsListeners.cs" />
+    <Compile Include="Assets/Scripts/Classes/ScriptableObjects/SfxSounds.cs" />
     <Compile Include="Assets/LeanTween/Framework/LeanTweenExt.cs" />
     <Compile Include="Assets/LeanTween/Framework/LeanAudio.cs" />
     <Compile Include="Assets/LeanTween/Framework/LTDescrOptional.cs" />

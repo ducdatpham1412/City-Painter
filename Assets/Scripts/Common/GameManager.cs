@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -5,26 +6,47 @@ public class GameManager : Singleton<GameManager> {
     protected GameManager() { }
     public GameState gameState;
     public Profile profile;
-
+    public GameResources resources;
+    public List<ItemSound> ItemSounds = new();
+    public List<ItemScraper> ItemScrapers = new();
     Sprite background;
 
     void Awake() {
+        resources = new GameResources {
+            backgroundSounds = Resources.Load<BackgroundSoundsObject>("Objects/SoundsBackground"),
+            sfxSounds = Resources.Load<SfxSoundsObject>("Objects/SoundsSfx"),
+            scrapers = Resources.Load<ScrapersObject>("Objects/Scrapers"),
+            cities = Resources.Load<CitiesObject>("Objects/Cities")
+        };
+
         gameState = Storage.GETRef<GameState>(Storage.Key.gameState);
-        gameState = gameState ?? new GameState { };
+        gameState = gameState ?? new GameState {
+            city = resources.cities.data[0].id,
+            scraper = resources.scrapers.data[0].id,
+        };
 
         profile = Storage.GETRef<Profile>(Storage.Key.profile);
         profile = profile ?? new Profile {
             device_id = SystemInfo.deviceUniqueIdentifier,
             localeID = null,
-            music = true,
-            sfx = true,
+            backgroundSounds = new List<string> { resources.backgroundSounds.data[0].id },
+            sfxSounds = new List<string> { resources.sfxSounds.data[0].id },
+            lastCity = resources.cities.data[0].id,
         };
 
         SoundManager.Instance.Initialize();
         FirebaseTracking.Instance.Initialize();
-        if (profile.music) {
-            SoundManager.Instance.PlayMusic(SoundManager.MusicSource.Kid);
+
+        foreach (string soundID in profile.backgroundSounds) {
+            BackgroundSound sound = resources.backgroundSounds.data.Find(s => s.id == soundID);
+            SoundManager.Instance.PlayStopBackgroundSound(sound);
         }
+
+        foreach (string soundID in profile.sfxSounds) {
+            SfxSound sound = resources.sfxSounds.data.Find(s => s.id == soundID);
+            SoundManager.Instance.PlayStopSfxSound(sound);
+        }
+
         if (profile.localeID != null) {
             LocalizationManager.Instance.SetLocale((int)profile.localeID);
         }
@@ -58,6 +80,15 @@ public class GameManager : Singleton<GameManager> {
         Sprite[] bgSprites = Resources.LoadAll<Sprite>("Images/Background");
         background = bgSprites[Random.Range(0, bgSprites.Length)];
         return background;
+    }
+
+
+    [System.Serializable]
+    public class GameResources {
+        public BackgroundSoundsObject backgroundSounds;
+        public SfxSoundsObject sfxSounds;
+        public ScrapersObject scrapers;
+        public CitiesObject cities;
     }
 }
 

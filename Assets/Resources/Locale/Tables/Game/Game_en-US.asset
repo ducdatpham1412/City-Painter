@@ -18,20 +18,104 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 28889885619249152
-    m_Localized: Music
+  - m_Id: 41416453247721472
+    m_Localized: Background sound
     m_Metadata:
       m_Items: []
   - m_Id: 28888578351161344
     m_Localized: Setting
     m_Metadata:
       m_Items: []
-  - m_Id: 36923815073144832
-    m_Localized: Retry
-    m_Metadata:
-      m_Items: []
   - m_Id: 41045207750270976
     m_Localized: "You\u2019re in Panning Mode\nDrag to reposition the image"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416482502991872
+    m_Localized: Sound effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416536261386240
+    m_Localized: Light rain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416561041334272
+    m_Localized: Heavy rain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416512823615488
+    m_Localized: Scraper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41422000831324160
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41587553940267008
+    m_Localized: Broom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588149967642624
+    m_Localized: Mr. Banana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588229122547712
+    m_Localized: Ms. Banana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588427462795264
+    m_Localized: Ice pop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41589008248070144
+    m_Localized: Rose
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634619005591552
+    m_Localized: Paris
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634654363574272
+    m_Localized: Tokyo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634679638450176
+    m_Localized: Ottawa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634860253569024
+    m_Localized: London
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634910316781568
+    m_Localized: New York
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635052369469440
+    m_Localized: Seoul
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635184687177728
+    m_Localized: Beijing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635343479332864
+    m_Localized: Ha Noi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635649105682432
+    m_Localized: Geneva
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635885043671040
+    m_Localized: Berlin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41662280746655744
+    m_Localized: Reach {0} to unlock this brush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41670138326409216
+    m_Localized: Scraping tool
     m_Metadata:
       m_Items: []
   references:
