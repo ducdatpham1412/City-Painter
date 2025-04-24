@@ -23,7 +23,7 @@ public class ItemScraper : MonoBehaviour {
 
     public void OnPress() {
         if (IsCurrentUsed()) return;
-        if (IsUnlocked()) {
+        if (GameManager.Instance.IsCityUnlocked(scraper.cityUnlock)) {
             GameController.Instance.ChangeScraper(scraper.id);
         }
         else {
@@ -33,7 +33,7 @@ public class ItemScraper : MonoBehaviour {
     }
 
     public void UpdateEnable() {
-        if (IsUnlocked()) {
+        if (GameManager.Instance.IsCityUnlocked(scraper.cityUnlock)) {
             Lock.gameObject.SetActive(false);
             bool isCurrentUsing = IsCurrentUsed();
             Background.enabled = isCurrentUsing;
@@ -42,14 +42,6 @@ public class ItemScraper : MonoBehaviour {
             Background.enabled = false;
             Lock.gameObject.SetActive(true);
         }
-    }
-
-    bool IsUnlocked() {
-        var cities = GameManager.Instance.resources.cities.data;
-        int index = cities.FindIndex(c => c.id == scraper.cityUnlock);
-        int lastIndex = cities.FindIndex(c => c.id == GameManager.Instance.profile.lastCity);
-        bool unlocked = index <= lastIndex;
-        return unlocked;
     }
 
     bool IsCurrentUsed() {

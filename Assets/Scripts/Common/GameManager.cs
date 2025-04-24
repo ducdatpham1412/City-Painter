@@ -82,6 +82,14 @@ public class GameManager : Singleton<GameManager> {
         return background;
     }
 
+    public bool IsCityUnlocked(string cityID) {
+        var cities = resources.cities.data;
+        int index = cities.FindIndex(c => c.id == cityID);
+        int lastIndex = cities.FindIndex(c => c.id == profile.lastCity);
+        bool unlocked = index <= lastIndex;
+        return unlocked;
+    }
+
 
     [System.Serializable]
     public class GameResources {

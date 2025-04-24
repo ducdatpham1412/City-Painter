@@ -100,17 +100,16 @@
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplineEndless.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/Following.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingRotate.cs" />
-    <Compile Include="Assets/Scripts/Game/ItemScraper.cs" />
     <Compile Include="Assets/LeanTween/Testing/Testing240.cs" />
     <Compile Include="Assets/LeanTween/Testing/Scripts/LeanPool.cs" />
     <Compile Include="Assets/Scripts/Welcome/LoginLogic.cs" />
+    <Compile Include="Assets/Scripts/Game/CitiesController.cs" />
     <Compile Include="Assets/LeanTween/Testing/PerformanceTests.cs" />
     <Compile Include="Assets/Scripts/Common/SoundManager.cs" />
     <Compile Include="Assets/Scripts/Game/GameInit.cs" />
     <Compile Include="Assets/LeanTween/Framework/LeanTween.cs" />
     <Compile Include="Assets/Scripts/Navigation/Navigator.cs" />
     <Compile Include="Assets/LeanTween/Framework/LeanSmooth.cs" />
-    <Compile Include="Assets/Scripts/Game/LevelScroll.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingMaxTweens.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralUISpace.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplines.cs" />
@@ -121,10 +120,10 @@
     <Compile Include="Assets/Scripts/Game/Setting.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplineTrack.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSpline.cs" />
-    <Compile Include="Assets/Scripts/Game/ItemSound.cs" />
     <Compile Include="Assets/Scripts/Utils/ApiManager.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingSequencer.cs" />
     <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
+    <Compile Include="Assets/Scripts/Game/Components/ItemSound.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/LogoCinematic.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralAdvancedTechniques.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralEventsListeners.cs" />
@@ -132,6 +131,7 @@
     <Compile Include="Assets/LeanTween/Framework/LeanTweenExt.cs" />
     <Compile Include="Assets/LeanTween/Framework/LeanAudio.cs" />
     <Compile Include="Assets/LeanTween/Framework/LTDescrOptional.cs" />
+    <Compile Include="Assets/Scripts/Game/Components/ItemCity.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingIssue.cs" />
     <Compile Include="Assets/Scripts/Game/ShakeManager.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingOptionalCancel.cs" />
@@ -141,6 +141,7 @@
     <Compile Include="Assets/Scripts/Utils/Switch.cs" />
     <Compile Include="Assets/Scripts/Classes/Serializable/Profile.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralSimpleUI.cs" />
+    <Compile Include="Assets/Scripts/Game/SwipePaging.cs" />
     <Compile Include="Assets/Scripts/Utils/ErrorBanner.cs" />
     <Compile Include="Assets/Scripts/Game/GameController.cs" />
     <Compile Include="Assets/Scripts/Classes/Serializable/Common.cs" />
@@ -155,6 +156,7 @@
     <Compile Include="Assets/LeanTween/Examples/Scripts/TestingZLegacyExt.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSpline2d.cs" />
     <Compile Include="Assets/LeanTween/Framework/LTSeq.cs" />
+    <Compile Include="Assets/Scripts/Game/Components/ItemScraper.cs" />
     <Compile Include="Assets/Scripts/Classes/Serializable/GameState.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralBasic.cs" />
   </ItemGroup>

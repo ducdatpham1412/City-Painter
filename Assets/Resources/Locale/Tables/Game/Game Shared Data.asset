@@ -119,6 +119,18 @@ MonoBehaviour:
     m_Key: scrapingTool
     m_Metadata:
       m_Items: []
+  - m_Id: 41753249932369920
+    m_Key: cities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41961302074056704
+    m_Key: goToCity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41962632943493120
+    m_Key: oppCityIsLocking
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

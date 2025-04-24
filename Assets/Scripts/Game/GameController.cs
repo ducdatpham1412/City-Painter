@@ -51,7 +51,6 @@ public class GameController : Singleton<GameController> {
     public void PlayCityToUnlock(string city) {
         InfoDialog.Open(new InfoDialog.Info {
             title = Helper.GetLocalizedValue("reachCityOpenScraper", new string[] { city }),
-            fontSize = 16,
             btnTitle = "Ok",
             OnClick = () => InfoDialog.Close(),
         });
@@ -99,6 +98,10 @@ public class GameController : Singleton<GameController> {
         }
         SwitchModeBtn.gameObject.SetActive(true);
         Scraper.transform.position = Vector3.zero;
+    }
+
+    public void GoToCitiesScene() {
+        Navigator.Instance.NavigateTo(Navigator.Scene.CitiesScene, UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     public enum Mode {

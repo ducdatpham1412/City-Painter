@@ -42,7 +42,7 @@ public class InfoDialog : MonoBehaviour {
     [SerializeField]
     public class Info {
         public string title;
-        public int fontSize = 24;
+        public int fontSize = 16;
         public string btnTitle;
         public bool canClose = true;
         public Action OnClick;
