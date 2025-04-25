@@ -61,4 +61,12 @@ public static class GameHelper {
     public static Vector3 ToWorldPoint(Vector3 localPos) {
         return Camera.main.ScreenToWorldPoint(localPos);
     }
+
+    public static Vector2 UIToScreenPos(Vector2 worldPos, Canvas canvas) {
+        Camera cam = null;
+        if (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay) {
+            cam = canvas.worldCamera;
+        }
+        return RectTransformUtility.WorldToScreenPoint(cam, worldPos);
+    }
 }

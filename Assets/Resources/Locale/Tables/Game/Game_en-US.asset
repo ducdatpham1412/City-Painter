@@ -118,6 +118,21 @@ MonoBehaviour:
     m_Localized: Scraping tool
     m_Metadata:
       m_Items: []
+  - m_Id: 41753249932369920
+    m_Localized: Cities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41961302074056704
+    m_Localized: Visit city {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41962632943493120
+    m_Localized: 'Oops, city {0} is locked
+
+      Please complete the previous cities
+      to unlock it'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

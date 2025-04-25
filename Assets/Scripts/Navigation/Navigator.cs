@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Navigator : Singleton<Navigator> {
     public enum Scene {
         GameScene,
-        InformationScene,
+        CitiesScene,
     }
     public Action<string> SceneChanged;
 
