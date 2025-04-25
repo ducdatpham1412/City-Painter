@@ -6,6 +6,7 @@ public class ItemCity : MonoBehaviour {
     [SerializeField] Image Image;
     [SerializeField] LocalizeStringEvent Name;
     [SerializeField] GameObject Lock;
+
     City city;
     bool isUnlocked;
 
@@ -15,7 +16,6 @@ public class ItemCity : MonoBehaviour {
         city = _city;
         isUnlocked = GameManager.Instance.IsCityUnlocked(city.id);
         Lock.SetActive(!isUnlocked);
-        Image.sprite = city.sprite;
         Name.StringReference = city.name;
         Name.RefreshString();
     }
@@ -31,6 +31,10 @@ public class ItemCity : MonoBehaviour {
         else {
             Punch(0.8f);
         }
+    }
+
+    public void LoadSprite(Sprite sprite) {
+        Image.sprite = sprite;
     }
 
     void Punch(float scale) {

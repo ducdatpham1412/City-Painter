@@ -6,13 +6,10 @@ public class CitiesController : MonoBehaviour {
     [SerializeField] GameObject ItemCityPrefab;
     [SerializeField] SwipePaging Swipe;
     [SerializeField] InfoDialog InfoDialog;
+    [SerializeField] LoadingManager Loading;
 
     void Start() {
-        foreach (City city in GameManager.Instance.resources.cities.data) {
-            ItemCity item = Instantiate(ItemCityPrefab, Swipe.ScrollRect.content).GetComponent<ItemCity>();
-            item.SetCity(city);
-        }
-        StartCoroutine(RebuildLayout());
+        StartCoroutine(InitCities());
     }
 
     public void GoBack() {
@@ -24,13 +21,47 @@ public class CitiesController : MonoBehaviour {
             title = Helper.GetLocalizedValue("goToCity", new string[] { city.name.GetLocalizedString() }),
             btnTitle = "Ok",
             OnClick = () => {
-                // TODO: Init city
+                GameController.Instance.InitCity(city.id);
                 GoBack();
             }
         });
     }
 
-    IEnumerator RebuildLayout() {
+    IEnumerator InitCities() {
+        Loading.StartLoading();
+        yield return null;
+        if (GameManager.Instance.citySprites.Keys.Count == 0) {
+            foreach (City city in GameManager.Instance.resources.cities.data) {
+                bool isUnlocked = GameManager.Instance.IsCityUnlocked(city.id);
+                if (isUnlocked) {
+                    GameManager.Instance.citySprites[city.id] = city.sprite;
+                }
+                else {
+                    GameManager.Instance.citySprites[city.id] = GameInit.Instance.GenerateLineArtSprite(city.sprite);
+                }
+                yield return null;
+            }
+        }
+        else {
+            City currentCity = GameManager.Instance.resources.cities.data.Find(c => c.id == GameManager.Instance.gameState.city);
+            bool isUnlocked = GameManager.Instance.IsCityUnlocked(currentCity.id);
+            if (isUnlocked) {
+                GameManager.Instance.citySprites[currentCity.id] = currentCity.sprite;
+            }
+            else {
+                GameManager.Instance.citySprites[currentCity.id] = GameInit.Instance.GenerateLineArtSprite(currentCity.sprite);
+            }
+            yield return null;
+        }
+
+        Destroy(Loading.gameObject);
+
+        foreach (City city in GameManager.Instance.resources.cities.data) {
+            ItemCity item = Instantiate(ItemCityPrefab, Swipe.ScrollRect.content).GetComponent<ItemCity>();
+            item.SetCity(city);
+            item.LoadSprite(GameManager.Instance.citySprites[city.id]);
+        }
+
         yield return null;
         LayoutRebuilder.ForceRebuildLayoutImmediate(Swipe.ScrollRect.content);
         Swipe.UpdateItems();

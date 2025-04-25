@@ -3,13 +3,14 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
-public class SwipePaging : MonoBehaviour, IEndDragHandler {
+public class SwipePaging : MonoBehaviour, IBeginDragHandler {
     public ScrollRect ScrollRect;
     [SerializeField] RectTransform Center;
-    List<RectTransform> items = new List<RectTransform>();
+    List<RectTransform> items = new();
     Canvas canvas;
     float scaleMultiplier = 1.1f;
     float normalScale = 0.65f;
+    float baseLength;
 
     void Awake() {
         canvas = GetComponentInParent<Canvas>();
@@ -19,20 +20,24 @@ public class SwipePaging : MonoBehaviour, IEndDragHandler {
         // UpdateItemStatus();
     }
 
-    public void OnEndDrag(PointerEventData eventData) {
-        // // TODO: Paging Scroll
-        // base.OnEndDrag(eventData);
-        // float dir = velocity.x;
-        // int currentIndex = GetClosestItemIndex();
-        // int targetIndex = currentIndex;
-        // if (Mathf.Abs(dir) > 20f) {
-        //     if (dir > 0)
-        //         targetIndex = Mathf.Max(0, currentIndex - 1);
-        //     else
-        //         targetIndex = Mathf.Min(items.Count - 1, currentIndex + 1);
-        // }
-        // StartCoroutine(SmoothScrollToItem(targetIndex));
+    public void OnBeginDrag(PointerEventData eventData) {
+        baseLength = ScrollRect.viewport.rect.width * canvas.scaleFactor * 0.6f; // This is = Screen.width
     }
+
+    // public void OnEndDrag(PointerEventData eventData) {
+    //     // // TODO: Paging Scroll
+    //     // base.OnEndDrag(eventData);
+    //     // float dir = velocity.x;
+    //     // int currentIndex = GetClosestItemIndex();
+    //     // int targetIndex = currentIndex;
+    //     // if (Mathf.Abs(dir) > 20f) {
+    //     //     if (dir > 0)
+    //     //         targetIndex = Mathf.Max(0, currentIndex - 1);
+    //     //     else
+    //     //         targetIndex = Mathf.Min(items.Count - 1, currentIndex + 1);
+    //     // }
+    //     // StartCoroutine(SmoothScrollToItem(targetIndex));
+    // }
 
     public void OnScroll() {
         UpdateItemStatus();
@@ -45,16 +50,8 @@ public class SwipePaging : MonoBehaviour, IEndDragHandler {
         }
     }
 
-    public void UpdateItemStatus() {
-        for (int i = 0; i < items.Count; i++) {
-            float distance = GetDistance(i);
-            float scale = Mathf.Lerp(scaleMultiplier, normalScale, distance / ScrollRect.viewport.rect.width * 0.4f);
-            scale = Mathf.Clamp(scale, normalScale, scaleMultiplier);
-            items[i].localScale = Vector3.one * scale;
-        }
-    }
-
     public void ScrollToIndex(int index) {
+        baseLength = ScrollRect.viewport.rect.width * canvas.scaleFactor * 0.6f;
         Vector3 currentPos = ScrollRect.content.localPosition;
         Vector3 targetPos = new Vector3(-items[index].localPosition.x, currentPos.y, currentPos.z);
         LeanTween.value(gameObject, 0, 1, 0.3f).setOnUpdate((float v) => {
@@ -65,10 +62,19 @@ public class SwipePaging : MonoBehaviour, IEndDragHandler {
         }).setEase(LeanTweenType.easeOutQuad);
     }
 
-    float GetDistance(int index) {
+    public float GetDistance(int index) {
         Vector2 screenPos = GameHelper.UIToScreenPos(items[index].position, canvas);
         float distance = Vector2.Distance(screenPos, Center.position);
         return distance;
+    }
+
+    void UpdateItemStatus() {
+        for (int i = 0; i < items.Count; i++) {
+            float distance = GetDistance(i);
+            float scale = Mathf.Lerp(scaleMultiplier, normalScale, distance / baseLength);
+            scale = Mathf.Clamp(scale, normalScale, scaleMultiplier);
+            items[i].localScale = Vector3.one * scale;
+        }
     }
 
     // float GetNormalizedPosition(int index) {

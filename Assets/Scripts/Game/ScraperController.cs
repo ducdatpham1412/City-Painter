@@ -2,16 +2,12 @@ using UnityEngine;
 
 public class ScraperController : MonoBehaviour {
     public Scraper currentScraper;
-    [SerializeField] SpriteRenderer WireFrame;
+    [SerializeField] SpriteRenderer Renderer;
+    public SpriteRenderer WireFrame;
     [SerializeField] Transform Pointer;
 
     bool isScraping = false;
     int brushSize = 20;
-    SpriteRenderer Renderer;
-
-    void Awake() {
-        Renderer = GetComponent<SpriteRenderer>();
-    }
 
     void OnDisable() {
         isScraping = false;

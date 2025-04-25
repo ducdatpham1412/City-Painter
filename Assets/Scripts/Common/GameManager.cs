@@ -9,6 +9,7 @@ public class GameManager : Singleton<GameManager> {
     public GameResources resources;
     public List<ItemSound> ItemSounds = new();
     public List<ItemScraper> ItemScrapers = new();
+    public Dictionary<string, Sprite> citySprites = new();
     Sprite background;
 
     void Awake() {
@@ -68,11 +69,10 @@ public class GameManager : Singleton<GameManager> {
         }
     }
 
-    public void Initialize() { }
-
     public void OnQuit() {
         Storage.SET(Storage.Key.profile, JsonConvert.SerializeObject(profile));
         Storage.SET(Storage.Key.gameState, JsonConvert.SerializeObject(gameState));
+        GameController.Instance.SaveCityWireFrame();
     }
 
     public Sprite GetBackground() {
