@@ -4,7 +4,6 @@ public class WelcomeLogic : MonoBehaviour {
     [SerializeField] Canvas SelectLanguage;
 
     void Start() {
-        GameManager.Instance.Initialize();
         if (GameManager.Instance.profile.localeID == null) {
             SelectLanguage.gameObject.SetActive(true);
         }

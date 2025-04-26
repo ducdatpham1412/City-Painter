@@ -34,7 +34,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sprite: {fileID: 21300000, guid: 9ecc2ad96716c4da5bb409a90e036ba3, type: 3}
+    sprite: {fileID: 21300000, guid: 48bbbbe5a2750469e8d0aa6a95553750, type: 3}
   - id: ottawa
     name:
       m_TableReference:

@@ -10,14 +10,25 @@ public class GameInit : Singleton<GameInit> {
         CityName.RefreshString();
         CityImage.transform.position = Vector2.zero;
         CityImage.SetSprite(city.sprite);
+        GameController.Instance.Scraper.SetWireFrame(GenerateLineArtSprite(sprite: city.sprite, texCached: city.id));
+    }
 
+    public Sprite GenerateLineArtSprite(Sprite sprite, string texCached = "") {
         Vector2 pivot = new Vector2(
-            city.sprite.pivot.x / city.sprite.rect.width,
-            city.sprite.pivot.y / city.sprite.rect.height
-        );
-        Texture2D grayscaleTex = GenerateLineArt(city.sprite.texture);
+           sprite.pivot.x / sprite.rect.width,
+           sprite.pivot.y / sprite.rect.height
+       );
+        Texture2D grayscaleTex;
+        if (texCached == "") {
+            grayscaleTex = GenerateLineArt(sprite.texture);
+        }
+        else {
+            grayscaleTex = Storage.GET_TEXTURE(texCached);
+            grayscaleTex = grayscaleTex == null ? GenerateLineArt(sprite.texture) : grayscaleTex;
+        }
+
         Rect rect = new Rect(0, 0, grayscaleTex.width, grayscaleTex.height);
-        GameController.Instance.Scraper.SetWireFrame(Sprite.Create(texture: grayscaleTex, rect: rect, pivot: pivot, pixelsPerUnit: city.sprite.pixelsPerUnit));
+        return Sprite.Create(texture: grayscaleTex, rect: rect, pivot: pivot, pixelsPerUnit: sprite.pixelsPerUnit);
     }
 
     Texture2D GenerateLineArt(Texture2D tex) {

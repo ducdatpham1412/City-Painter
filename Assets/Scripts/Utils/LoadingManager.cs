@@ -3,8 +3,8 @@ using LottiePlugin.UI;
 using UnityEngine;
 
 public class LoadingManager : MonoBehaviour {
-    private AnimatedImage animatedImage;
-    private CanvasGroup canvasGroup;
+    AnimatedImage animatedImage;
+    CanvasGroup canvasGroup;
 
     void Awake() {
         animatedImage = GetComponent<AnimatedImage>();

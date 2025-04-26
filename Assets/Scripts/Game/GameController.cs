@@ -13,19 +13,34 @@ public class GameController : Singleton<GameController> {
     [SerializeField] ButtonManager SwitchModeBtn;
     [SerializeField] Image ZoomIcon;
     [SerializeField] Text TextPanningMode;
-    [SerializeField] InfoDialog InfoDialog;
+    public InfoDialog InfoDialog;
     public ScraperController Scraper;
 
     [Header("Stats")]
     public Mode mode = Mode.scrape;
     CityImageState lastCityImgState = new();
+    City currentCity;
 
 
     void Start() {
-        City city = GameManager.Instance.resources.cities.data.Find(c => c.id == GameManager.Instance.gameState.city);
+        InitCity(GameManager.Instance.gameState.city);
         Scraper.SetScraper(GameManager.Instance.resources.scrapers.data.Find(s => s.id == GameManager.Instance.gameState.scraper));
-        SwitchModeBtn.Icon.sprite = PanSprite;
+    }
+
+    public void InitCity(string cityID) {
+        SaveCityWireFrame();
+        GameManager.Instance.gameState.city = cityID;
+        City city = GameManager.Instance.resources.cities.data.Find(c => c.id == cityID);
+        currentCity = city;
         GameInit.Instance.InitCity(city);
+        if (mode == Mode.pan) {
+            SwitchMode();
+        }
+        if (InZoomMode()) {
+            lastCityImgState.localScale = Vector3.one;
+            lastCityImgState.position = Vector3.zero;
+            Zoom(false);
+        }
     }
 
     public void SwitchMode() {
@@ -48,16 +63,9 @@ public class GameController : Singleton<GameController> {
         SettingDialog.SetActive(!SettingDialog.activeInHierarchy);
     }
 
-    public void PlayCityToUnlock(string city) {
-        InfoDialog.Open(new InfoDialog.Info {
-            title = Helper.GetLocalizedValue("reachCityOpenScraper", new string[] { city }),
-            btnTitle = "Ok",
-            OnClick = () => InfoDialog.Close(),
-        });
-    }
-
     public void NoticeWinning() {
-
+        Storage.DELETE_TEXTURE(currentCity.id);
+        // TODO: Notice winning modal
     }
 
     public void ChangeScraper(string id) {
@@ -72,36 +80,46 @@ public class GameController : Singleton<GameController> {
         }
     }
 
-    public void Zoom() {
+    public void Zoom(bool playSF = true) {
         float duration = 0.6f;
         LeanTweenType TweenType = LeanTweenType.easeOutQuad;
 
         Transform cityTransform = GameInit.Instance.CityImage.transform;
-        if (cityTransform.localScale.Equals(Vector3.one)) {
-            lastCityImgState.position = cityTransform.position;
-            lastCityImgState.localScale = cityTransform.localScale;
-            LeanTween.scale(cityTransform.gameObject, Vector3.one / 2f, duration).setEase(TweenType);
-            LeanTween.move(cityTransform.gameObject, Vector3.zero, duration).setEase(TweenType);
-            ZoomIcon.sprite = ZoomInSprite;
-            SoundManager.Instance.PlaySF(SoundManager.SF.Whoosh_Transition);
-            Scraper.gameObject.SetActive(false);
-            SwitchModeBtn.gameObject.SetActive(false);
+
+        if (InZoomMode()) {
+            LeanTween.scale(cityTransform.gameObject, lastCityImgState.localScale, duration).setEase(TweenType);
+            LeanTween.move(cityTransform.gameObject, lastCityImgState.position, duration).setEase(TweenType);
+            ZoomIcon.sprite = ZoomOutSprite;
+            if (playSF) SoundManager.Instance.PlaySF(SoundManager.SF.Whoosh_Transition);
+            if (mode == Mode.scrape) {
+                Scraper.gameObject.SetActive(true);
+            }
+            SwitchModeBtn.gameObject.SetActive(true);
+            Scraper.transform.position = Vector3.zero;
             return;
         }
 
-        LeanTween.scale(cityTransform.gameObject, lastCityImgState.localScale, duration).setEase(TweenType);
-        LeanTween.move(cityTransform.gameObject, lastCityImgState.position, duration).setEase(TweenType);
-        ZoomIcon.sprite = ZoomOutSprite;
-        SoundManager.Instance.PlaySF(SoundManager.SF.Whoosh_Transition);
-        if (mode == Mode.scrape) {
-            Scraper.gameObject.SetActive(true);
-        }
-        SwitchModeBtn.gameObject.SetActive(true);
-        Scraper.transform.position = Vector3.zero;
+        lastCityImgState.position = cityTransform.position;
+        lastCityImgState.localScale = cityTransform.localScale;
+        LeanTween.scale(cityTransform.gameObject, Vector3.one / 2f, duration).setEase(TweenType);
+        LeanTween.move(cityTransform.gameObject, Vector3.zero, duration).setEase(TweenType);
+        ZoomIcon.sprite = ZoomInSprite;
+        if (playSF) SoundManager.Instance.PlaySF(SoundManager.SF.Whoosh_Transition);
+        Scraper.gameObject.SetActive(false);
+        SwitchModeBtn.gameObject.SetActive(false);
     }
 
     public void GoToCitiesScene() {
         Navigator.Instance.NavigateTo(Navigator.Scene.CitiesScene, UnityEngine.SceneManagement.LoadSceneMode.Additive);
+    }
+
+    public void SaveCityWireFrame() {
+        if (currentCity == null) return;
+        Storage.SET_TEXTURE(currentCity.id, Scraper.WireFrame.sprite.texture);
+    }
+
+    bool InZoomMode() {
+        return !GameInit.Instance.CityImage.transform.localScale.Equals(Vector3.one);
     }
 
     public enum Mode {
