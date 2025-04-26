@@ -25,7 +25,7 @@ public class Scraper {
     public LocalizedString name;
     public SoundManager.SF sfx;
     public Sprite sprite;
-    public SoundManager.SF sound;
+    public Texture2D particle;
     public string cityUnlock;
 }
 

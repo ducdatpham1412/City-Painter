@@ -73,7 +73,9 @@ public class GameController : Singleton<GameController> {
         if (s != null) {
             GameManager.Instance.gameState.scraper = s.id;
             Scraper.SetScraper(s);
-            SwitchModeBtn.Icon.sprite = s.sprite;
+            if (mode == Mode.pan) {
+                SwitchModeBtn.Icon.sprite = s.sprite;
+            }
             foreach (var item in GameManager.Instance.ItemScrapers) {
                 item.UpdateEnable();
             }

@@ -99,6 +99,24 @@ public static class Helper {
         return DateTimeOffset.Now.ToUnixTimeMilliseconds();
     }
 
+    // public static Texture2D SpriteToTexture(Sprite sprite) {
+    //     if (sprite == null) return null;
+
+    //     Texture2D texture = new Texture2D((int)sprite.rect.width, (int)sprite.rect.height);
+
+    //     Color[] pixels = sprite.texture.GetPixels(
+    //         (int)sprite.rect.x,
+    //         (int)sprite.rect.y,
+    //         (int)sprite.rect.width,
+    //         (int)sprite.rect.height
+    //     );
+
+    //     texture.SetPixels(pixels);
+    //     texture.Apply();
+
+    //     return texture;
+    // }
+
     public enum Tag {
         Square,
         Item,
