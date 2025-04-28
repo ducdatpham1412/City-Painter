@@ -1,13 +1,28 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ScraperController : MonoBehaviour {
-    public Scraper currentScraper;
-    [SerializeField] SpriteRenderer Renderer;
+    [Header("GameObjects")]
     public SpriteRenderer WireFrame;
     [SerializeField] Transform Pointer;
+    [SerializeField] Transform ParticlesContainer;
 
+    [Header("Prefabs")]
+    [SerializeField] GameObject ScraperParticlesPrefab;
+    [SerializeField] Material ParticlesMaterial;
+
+    [Header("Stats")]
+    public Scraper currentScraper { get; private set; }
+
+    SpriteRenderer Renderer;
+    List<ParticleSystem> particlesPool = new();
     bool isScraping = false;
-    int brushSize = 20;
+    int brushSize = 30;
+    bool readyForVFX = true;
+
+    void Awake() {
+        Renderer = GetComponent<SpriteRenderer>();
+    }
 
     void OnDisable() {
         isScraping = false;
@@ -41,16 +56,24 @@ public class ScraperController : MonoBehaviour {
     public void SetScraper(Scraper scraper) {
         currentScraper = scraper;
         Renderer.sprite = scraper.sprite;
+        ParticlesMaterial.SetTexture("_MainTex", scraper.particle);
     }
 
     public void SetWireFrame(Sprite _sprite) {
         WireFrame.sprite = _sprite;
     }
 
+    void EnableVFX() {
+        readyForVFX = true;
+    }
+
+
     void ScrapeWireFrame(Vector2 localPos) {
         Vector2 pivot = WireFrame.sprite.pivot;
         int x = Mathf.RoundToInt(pivot.x + localPos.x * WireFrame.sprite.pixelsPerUnit);
         int y = Mathf.RoundToInt(pivot.y + localPos.y * WireFrame.sprite.pixelsPerUnit);
+
+        bool hasScraped = false;
 
         for (int i = -brushSize; i <= brushSize; i++) {
             for (int j = -brushSize; j <= brushSize; j++) {
@@ -59,6 +82,7 @@ public class ScraperController : MonoBehaviour {
                 if (px >= 0 && px < WireFrame.sprite.texture.width && py >= 0 && py < WireFrame.sprite.texture.height) {
                     Color color = WireFrame.sprite.texture.GetPixel(px, py);
                     if (color.a > 0f) {
+                        hasScraped = true;
                         color.a = 0f;
                         WireFrame.sprite.texture.SetPixel(px, py, color);
                     }
@@ -66,6 +90,25 @@ public class ScraperController : MonoBehaviour {
             }
         }
 
-        WireFrame.sprite.texture.Apply();
+        if (hasScraped) {
+            WireFrame.sprite.texture.Apply();
+
+            // TODO: Playing sound
+
+            if (readyForVFX) {
+                readyForVFX = false;
+                var freeParticle = particlesPool.Find(p => !p.isPlaying);
+                if (freeParticle == null) {
+                    ParticleSystem newParticles = Instantiate(ScraperParticlesPrefab, ParticlesContainer).GetComponent<ParticleSystem>();
+                    newParticles.GetComponent<Renderer>().sharedMaterial = ParticlesMaterial;
+                    newParticles.Play();
+                    particlesPool.Add(newParticles);
+                }
+                else {
+                    freeParticle.Play();
+                }
+                Invoke(nameof(EnableVFX), 1);
+            }
+        }
     }
 }
