@@ -18,7 +18,7 @@ public class ItemSound : MonoBehaviour {
     [SerializeField] LocalizeStringEvent Title;
 
     RectTransform rect;
-    BackgroundSound sound;
+    BaseSound sound;
 
     Status currentStatus;
 
@@ -31,16 +31,16 @@ public class ItemSound : MonoBehaviour {
         return GameManager.Instance.profile.backgroundSounds.Find(s => s == soundID) != null || GameManager.Instance.profile.sfxSounds.Find(s => s == soundID) != null;
     }
 
-    static void ToggleSound(BackgroundSound sound) {
-        if (sound.type == BackgroundSound.Type.background) {
-            SoundManager.Instance.PlayStopBackgroundSound(sound);
+    static void ToggleSound(BaseSound sound) {
+        if (sound.type == BaseSound.Type.background) {
+            SoundManager.Instance.PlayStopBackgroundSound((BackgroundSound)sound);
         }
         else {
             SoundManager.Instance.PlayStopSfxSound((SfxSound)sound);
         }
     }
 
-    public void SetSound(BackgroundSound _sound) {
+    public void SetSound(BaseSound _sound) {
         sound = _sound;
         bool isSelected = IsSelected(sound.id);
         Icon.sprite = sound.icon;

@@ -90,6 +90,14 @@ public class GameManager : Singleton<GameManager> {
         return unlocked;
     }
 
+    public bool IsLatestCity(string cityID) {
+        return cityID == profile.lastCity;
+    }
+
+    public bool ShouldCityPlayAgain(string cityID) {
+        bool isPlayed = IsCityUnlocked(cityID) && !IsLatestCity(cityID);
+        return isPlayed && Storage.GET_TEXTURE(cityID) == null;
+    }
 
     [System.Serializable]
     public class GameResources {

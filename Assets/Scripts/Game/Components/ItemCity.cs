@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class ItemCity : MonoBehaviour {
     [SerializeField] Image Image;
+    [SerializeField] Image WireFrame;
     [SerializeField] LocalizeStringEvent Name;
     [SerializeField] GameObject Lock;
 
@@ -18,6 +19,8 @@ public class ItemCity : MonoBehaviour {
         Lock.SetActive(!isUnlocked);
         Name.StringReference = city.name;
         Name.RefreshString();
+        Image.sprite = city.sprite;
+        WireFrame.sprite = GameManager.Instance.citySprites[city.id];
     }
 
     public void OnPress() {
@@ -31,10 +34,6 @@ public class ItemCity : MonoBehaviour {
         else {
             Punch(0.8f);
         }
-    }
-
-    public void LoadSprite(Sprite sprite) {
-        Image.sprite = sprite;
     }
 
     void Punch(float scale) {

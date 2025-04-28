@@ -10,25 +10,31 @@ public class GameInit : Singleton<GameInit> {
         CityName.RefreshString();
         CityImage.transform.position = Vector2.zero;
         CityImage.SetSprite(city.sprite);
-        GameController.Instance.Scraper.SetWireFrame(GenerateLineArtSprite(sprite: city.sprite, texCached: city.id));
+
+        if (GameManager.Instance.ShouldCityPlayAgain(city.id)) {
+            GameController.Instance.Scraper.SetWireFrame(city.sprite);
+            GameController.Instance.Scraper.gameObject.SetActive(false);
+            GameController.Instance.BtnPlayAgain.gameObject.SetActive(true);
+            return;
+        }
+
+
+        GameController.Instance.Scraper.gameObject.SetActive(true);
+        GameController.Instance.BtnPlayAgain.gameObject.SetActive(false);
+        GameController.Instance.Scraper.SetWireFrame(GenerateLineArtSprite(city));
     }
 
-    public Sprite GenerateLineArtSprite(Sprite sprite, string texCached = "") {
+    public Sprite GenerateLineArtSprite(City city) {
         Vector2 pivot = new Vector2(
-           sprite.pivot.x / sprite.rect.width,
-           sprite.pivot.y / sprite.rect.height
+           city.sprite.pivot.x / city.sprite.rect.width,
+           city.sprite.pivot.y / city.sprite.rect.height
        );
-        Texture2D grayscaleTex;
-        if (texCached == "") {
-            grayscaleTex = GenerateLineArt(sprite.texture);
-        }
-        else {
-            grayscaleTex = Storage.GET_TEXTURE(texCached);
-            grayscaleTex = grayscaleTex == null ? GenerateLineArt(sprite.texture) : grayscaleTex;
-        }
+        Texture2D grayscaleTex = Storage.GET_TEXTURE(city.id);
+        grayscaleTex = grayscaleTex == null ? GenerateLineArt(city.sprite.texture) : grayscaleTex;
 
         Rect rect = new Rect(0, 0, grayscaleTex.width, grayscaleTex.height);
-        return Sprite.Create(texture: grayscaleTex, rect: rect, pivot: pivot, pixelsPerUnit: sprite.pixelsPerUnit);
+
+        return Sprite.Create(texture: grayscaleTex, rect: rect, pivot: pivot, pixelsPerUnit: city.sprite.pixelsPerUnit);
     }
 
     Texture2D GenerateLineArt(Texture2D tex) {

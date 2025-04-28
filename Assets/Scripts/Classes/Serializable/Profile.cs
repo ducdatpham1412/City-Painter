@@ -31,12 +31,11 @@ public class Scraper {
 
 
 [Serializable]
-public class BackgroundSound {
+public class BaseSound {
     public string id;
     public Type type;
     public Sprite icon;
     public LocalizedString name;
-    public SoundManager.SoundSource[] sources;
 
     public enum Type {
         background,
@@ -45,7 +44,13 @@ public class BackgroundSound {
 }
 
 [Serializable]
-public class SfxSound : BackgroundSound {
+public class BackgroundSound : BaseSound {
+    public SoundManager.SoundSource[] sources;
+}
+
+[Serializable]
+public class SfxSound : BaseSound {
+    public SoundManager.SF[] sources;
     public float minInterval; // seconds
     public float maxInterval; // seconds
 }

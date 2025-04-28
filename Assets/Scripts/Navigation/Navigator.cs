@@ -1,4 +1,3 @@
-using System;
 using UnityEngine.SceneManagement;
 
 public class Navigator : Singleton<Navigator> {
@@ -6,16 +5,16 @@ public class Navigator : Singleton<Navigator> {
         GameScene,
         CitiesScene,
     }
-    public Action<string> SceneChanged;
+    public string currentScene;
 
     public void NavigateTo(Scene scene, LoadSceneMode mode = LoadSceneMode.Single) {
         string name = scene.ToString();
         SceneManager.LoadScene(name, mode);
-        SceneChanged?.Invoke(name);
+        currentScene = name;
     }
 
     public void UnloadSceneAsync(Scene scene) {
         SceneManager.UnloadSceneAsync(scene.ToString());
-        SceneChanged?.Invoke(SceneManager.GetActiveScene().name);
+        currentScene = SceneManager.GetActiveScene().name;
     }
 }

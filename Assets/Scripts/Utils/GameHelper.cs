@@ -22,17 +22,17 @@ public static class GameHelper {
         return true;
     }
 
-    // public static bool TouchHitGameObject(Vector3 worldPos, GameObject gameObject) {
-    //     if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-    //         return false;
+    public static bool TouchHitGameObject(Vector3 worldPos, GameObject gameObject) {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            return false;
 
-    //     RaycastHit2D[] hits = Physics2D.RaycastAll(worldPos, Vector2.zero);
-    //     foreach (var h in hits) {
-    //         if (h.collider.gameObject == gameObject) return true;
-    //     }
+        RaycastHit2D[] hits = Physics2D.RaycastAll(worldPos, Vector2.zero);
+        foreach (var h in hits) {
+            if (h.collider.gameObject == gameObject) return true;
+        }
 
-    //     return false;
-    // }
+        return false;
+    }
 
     public static Vector2 TouchPosition() {
         if (Touchscreen.current != null) {

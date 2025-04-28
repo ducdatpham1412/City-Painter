@@ -12,10 +12,10 @@ public class SoundManager : Singleton<SoundManager> {
 
     void Awake() {
         SoundSources[SoundSource.Kid] = LoadSound("mc_kid");
-        SoundSources[SoundSource.Pop_01] = LoadSF("sf_pop_01");
 
         SFSources[SF.Pop_01] = LoadSF("sf_pop_01");
         SFSources[SF.Whoosh_Transition] = LoadSF("sf_whoosh_transition");
+        SFSources[SF.Win_01] = LoadSF("sf_win_01");
     }
 
     public AudioSource PlaySF(SF sf, [UnityEngine.Internal.DefaultValue("1.0F")] float volumeScale = 1f) {
@@ -90,7 +90,7 @@ public class SoundManager : Singleton<SoundManager> {
 
     IEnumerator PlaySfxSoundCoroutine(AudioSource audio, SfxSound sound) {
         while (true) {
-            audio.clip = SoundSources[Helper.GetRandomInArr(sound.sources)];
+            audio.clip = SFSources[Helper.GetRandomInArr(sound.sources)];
             audio.Play();
             yield return new WaitUntil(() => !audio.isPlaying);
             yield return new WaitForSeconds(Random.Range(sound.minInterval, sound.maxInterval));
@@ -110,20 +110,20 @@ public class SoundManager : Singleton<SoundManager> {
         Pop_01,
         Whoosh_Transition,
         Scrape,
-        Brush,
+        Broom,
         IceScream,
         Banana,
+        Win_01,
     }
 
     public enum SoundSource {
         Kid,
-        Pop_01,
     }
 
 
     [System.Serializable]
     class SoundAudio {
-        public BackgroundSound sound;
+        public BaseSound sound;
         public AudioSource audioSource;
         public Coroutine coroutine;
     }
