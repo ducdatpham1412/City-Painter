@@ -30,7 +30,6 @@ public class ItemScraper : MonoBehaviour {
             City city = GameManager.Instance.resources.cities.data.Find(c => c.id == scraper.cityUnlock);
             GameController.Instance.InfoDialog.Open(new InfoDialog.Info {
                 title = Helper.GetLocalizedValue("reachCityOpenScraper", new string[] { city.name.GetLocalizedString() }),
-                btnTitle = "Ok",
                 OnClick = () => GameController.Instance.InfoDialog.Close(),
             });
         }

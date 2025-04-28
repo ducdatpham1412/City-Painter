@@ -43,7 +43,7 @@ public class InfoDialog : MonoBehaviour {
     public class Info {
         public string title;
         public int fontSize = 16;
-        public string btnTitle;
+        public string btnTitle = "Ok";
         public bool canClose = true;
         public Action OnClick;
         public SoundManager.SF sfx = SoundManager.SF.Pop_01;

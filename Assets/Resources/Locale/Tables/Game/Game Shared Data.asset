@@ -131,6 +131,22 @@ MonoBehaviour:
     m_Key: oppCityIsLocking
     m_Metadata:
       m_Items: []
+  - m_Id: 43016637937344512
+    m_Key: finishCity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43017207830011904
+    m_Key: letGo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43019941748662272
+    m_Key: finishedAll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43185110600638464
+    m_Key: redraw
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

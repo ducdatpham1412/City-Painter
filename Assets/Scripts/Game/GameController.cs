@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,22 +14,44 @@ public class GameController : Singleton<GameController> {
     [SerializeField] ButtonManager SwitchModeBtn;
     [SerializeField] Image ZoomIcon;
     [SerializeField] Text TextPanningMode;
+    public ButtonManager BtnPlayAgain;
     public InfoDialog InfoDialog;
     public ScraperController Scraper;
 
     [Header("Stats")]
     public Mode mode = Mode.scrape;
-    CityImageState lastCityImgState = new();
+    public bool ended { get; private set; } = false;
     City currentCity;
+    CityImageState lastCityImgState = new();
+    Transform cityImgTransform;
 
 
     void Start() {
-        InitCity(GameManager.Instance.gameState.city);
         Scraper.SetScraper(GameManager.Instance.resources.scrapers.data.Find(s => s.id == GameManager.Instance.gameState.scraper));
+        cityImgTransform = GameInit.Instance.CityImage.transform;
+        InitCity(GameManager.Instance.gameState.city);
+    }
+
+    void Update() {
+        if (!InZoomMode()) return;
+        if (GameHelper.TouchBegin()) {
+            Vector3 worldPos = GameHelper.ToWorldPoint(GameHelper.TouchPosition());
+            if (GameHelper.TouchHitGameObject(worldPos, cityImgTransform.gameObject
+            )) {
+                Vector3 localPos = cityImgTransform.InverseTransformPoint(worldPos);
+                lastCityImgState.position = -localPos;
+                Zoom();
+            }
+        }
     }
 
     public void InitCity(string cityID) {
-        SaveCityWireFrame();
+        if (!ended) {
+            SaveCityWireFrame();
+        }
+        else {
+            ended = false;
+        }
         GameManager.Instance.gameState.city = cityID;
         City city = GameManager.Instance.resources.cities.data.Find(c => c.id == cityID);
         currentCity = city;
@@ -37,7 +60,6 @@ public class GameController : Singleton<GameController> {
             SwitchMode();
         }
         if (InZoomMode()) {
-            lastCityImgState.localScale = Vector3.one;
             lastCityImgState.position = Vector3.zero;
             Zoom(false);
         }
@@ -64,8 +86,50 @@ public class GameController : Singleton<GameController> {
     }
 
     public void NoticeWinning() {
+        ended = true;
         Storage.DELETE_TEXTURE(currentCity.id);
-        // TODO: Notice winning modal
+        SoundManager.Instance.PlaySF(SoundManager.SF.Win_01);
+        if (GameManager.Instance.citySprites.ContainsKey(currentCity.id)) {
+            GameManager.Instance.citySprites[currentCity.id] = currentCity.sprite;
+        }
+        var cities = GameManager.Instance.resources.cities.data;
+        int index = cities.FindIndex(c => c.id == currentCity.id);
+        bool hasNextCity = index < (cities.Count - 1);
+
+        void OnNextCity() {
+            if (hasNextCity) {
+                InfoDialog.Close();
+                int nextIndex = index + 1;
+                string nextCityID = cities[nextIndex].id;
+                int lastIndex = GameManager.Instance.resources.cities.data.FindIndex(c => c.id == GameManager.Instance.profile.lastCity);
+                if (lastIndex < nextIndex) {
+                    GameManager.Instance.profile.lastCity = nextCityID;
+                }
+                InitCity(nextCityID);
+                return;
+            }
+            StartCoroutine(FinishedAll());
+        }
+
+        IEnumerator FinishedAll() {
+            InfoDialog.Close();
+            yield return new WaitForSeconds(0.3f);
+            InfoDialog.Open(new InfoDialog.Info {
+                title = Helper.GetLocalizedValue("finishedAll"),
+                sfx = SoundManager.SF.None,
+                OnClick = () => {
+                    InfoDialog.Close();
+                    Navigator.Instance.NavigateTo(Navigator.Scene.CitiesScene, UnityEngine.SceneManagement.LoadSceneMode.Additive);
+                },
+            });
+        }
+
+        InfoDialog.Open(new InfoDialog.Info {
+            title = Helper.GetLocalizedValue("finishCity", new string[] { currentCity.name.GetLocalizedString() }),
+            btnTitle = Helper.GetLocalizedValue("letGo"),
+            sfx = SoundManager.SF.None,
+            OnClick = OnNextCity,
+        });
     }
 
     public void ChangeScraper(string id) {
@@ -86,11 +150,9 @@ public class GameController : Singleton<GameController> {
         float duration = 0.6f;
         LeanTweenType TweenType = LeanTweenType.easeOutQuad;
 
-        Transform cityTransform = GameInit.Instance.CityImage.transform;
-
         if (InZoomMode()) {
-            LeanTween.scale(cityTransform.gameObject, lastCityImgState.localScale, duration).setEase(TweenType);
-            LeanTween.move(cityTransform.gameObject, lastCityImgState.position, duration).setEase(TweenType);
+            LeanTween.scale(cityImgTransform.gameObject, Vector3.one, duration).setEase(TweenType);
+            LeanTween.move(cityImgTransform.gameObject, lastCityImgState.position, duration).setEase(TweenType);
             ZoomIcon.sprite = ZoomOutSprite;
             if (playSF) SoundManager.Instance.PlaySF(SoundManager.SF.Whoosh_Transition);
             if (mode == Mode.scrape) {
@@ -101,10 +163,9 @@ public class GameController : Singleton<GameController> {
             return;
         }
 
-        lastCityImgState.position = cityTransform.position;
-        lastCityImgState.localScale = cityTransform.localScale;
-        LeanTween.scale(cityTransform.gameObject, Vector3.one / 2f, duration).setEase(TweenType);
-        LeanTween.move(cityTransform.gameObject, Vector3.zero, duration).setEase(TweenType);
+        lastCityImgState.position = cityImgTransform.position;
+        LeanTween.scale(cityImgTransform.gameObject, Vector3.one / 2f, duration).setEase(TweenType);
+        LeanTween.move(cityImgTransform.gameObject, Vector3.zero, duration).setEase(TweenType);
         ZoomIcon.sprite = ZoomInSprite;
         if (playSF) SoundManager.Instance.PlaySF(SoundManager.SF.Whoosh_Transition);
         Scraper.gameObject.SetActive(false);
@@ -117,11 +178,26 @@ public class GameController : Singleton<GameController> {
 
     public void SaveCityWireFrame() {
         if (currentCity == null) return;
+        if (GameManager.Instance.ShouldCityPlayAgain(currentCity.id)) return;
         Storage.SET_TEXTURE(currentCity.id, Scraper.WireFrame.sprite.texture);
+        if (GameManager.Instance.citySprites.ContainsKey(currentCity.id)) {
+            GameManager.Instance.citySprites[currentCity.id] = Scraper.WireFrame.sprite;
+        }
     }
 
+    public void PlayAgain() {
+        ended = true;
+        Storage.SET_TEXTURE(currentCity.id, GameInit.Instance.GenerateLineArtSprite(currentCity).texture);
+        if (GameManager.Instance.citySprites.ContainsKey(currentCity.id)) {
+            GameManager.Instance.citySprites[currentCity.id] = Scraper.WireFrame.sprite;
+        }
+        InitCity(currentCity.id);
+    }
+
+
+
     bool InZoomMode() {
-        return !GameInit.Instance.CityImage.transform.localScale.Equals(Vector3.one);
+        return !cityImgTransform.localScale.Equals(Vector3.one);
     }
 
     public enum Mode {
@@ -132,6 +208,5 @@ public class GameController : Singleton<GameController> {
     [Serializable]
     class CityImageState {
         public Vector3 position;
-        public Vector3 localScale;
     }
 }

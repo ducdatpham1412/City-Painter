@@ -133,6 +133,27 @@ MonoBehaviour:
       to unlock it'
     m_Metadata:
       m_Items: []
+  - m_Id: 43016637937344512
+    m_Localized: 'City {0} completed
+
+      Move to the next city'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43017207830011904
+    m_Localized: Let's go
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43019941748662272
+    m_Localized: 'You have explored all available cities
+
+      We will add more
+      cities soon'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43185110600638464
+    m_Localized: Redraw
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

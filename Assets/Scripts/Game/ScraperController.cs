@@ -17,7 +17,7 @@ public class ScraperController : MonoBehaviour {
     SpriteRenderer Renderer;
     List<ParticleSystem> particlesPool = new();
     bool isScraping = false;
-    int brushSize = 30;
+    int brushSize = 200;
     bool readyForVFX = true;
 
     void Awake() {
@@ -31,19 +31,13 @@ public class ScraperController : MonoBehaviour {
     void Update() {
         if (!isScraping && GameHelper.TouchBegin()) {
             if (GameController.Instance.mode != GameController.Mode.scrape) return;
-            // Vector3 _touch = GameHelper.TouchPosition();
-            // isScraping = GameHelper.TouchHitGameObject(_touch, gameObject);
             isScraping = true;
         }
 
         if (isScraping) {
             if (GameHelper.TouchReleased()) {
                 isScraping = false;
-                foreach (Color px in WireFrame.sprite.texture.GetPixels()) {
-                    if (px.a > 0) return;
-                }
-                // Notice wining
-                GameController.Instance.NoticeWinning();
+                CheckEndGame();
             }
             if (GameHelper.TouchOverlayWorldGameObject()) {
                 Vector2 touchPos = GameHelper.ToWorldPoint(GameHelper.TouchPosition());
@@ -67,6 +61,25 @@ public class ScraperController : MonoBehaviour {
         readyForVFX = true;
     }
 
+    void CheckEndGame() {
+        if (GameController.Instance.ended) return;
+
+        Color[] pixels = WireFrame.sprite.texture.GetPixels();
+        int clearedPixelsCount = 0;
+
+        foreach (Color px in pixels) {
+            if (px.a < 0.1f) {
+                clearedPixelsCount++;
+            }
+        }
+
+        float ratio = (float)clearedPixelsCount / pixels.Length;
+        // Debug.Log($"Ratio: {ratio} | {clearedPixelsCount}/{pixels.Length}");
+
+        if (ratio >= 0.98f) {
+            GameController.Instance.NoticeWinning();
+        }
+    }
 
     void ScrapeWireFrame(Vector2 localPos) {
         Vector2 pivot = WireFrame.sprite.pivot;
