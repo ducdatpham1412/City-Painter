@@ -13,15 +13,25 @@ public class ScraperController : MonoBehaviour {
 
     [Header("Stats")]
     public Scraper currentScraper { get; private set; }
+    public AudioSource audioSfx;
 
     SpriteRenderer Renderer;
     List<ParticleSystem> particlesPool = new();
     bool isScraping = false;
-    int brushSize = 200;
+    int brushSize = 25;
     bool readyForVFX = true;
+    float minY = 0;
+    float screenWorldWidth = 0;
 
     void Awake() {
         Renderer = GetComponent<SpriteRenderer>();
+    }
+
+    void Start() {
+        UpdateScapeSound();
+        float maxY = Camera.main.orthographicSize * Camera.main.aspect;
+        minY = -maxY;
+        screenWorldWidth = 2 * maxY;
     }
 
     void OnDisable() {
@@ -39,12 +49,19 @@ public class ScraperController : MonoBehaviour {
         if (isScraping) {
             if (GameHelper.TouchReleased()) {
                 isScraping = false;
+                if (audioSfx != null) {
+                    audioSfx.Stop();
+                }
                 CheckEndGame();
+                return;
             }
             if (GameHelper.TouchOverlayWorldGameObject()) {
                 Vector2 touchPos = GameHelper.ToWorldPoint(GameHelper.TouchPosition());
                 transform.position = touchPos;
-                ScrapeWireFrame(WireFrame.transform.InverseTransformPoint(Pointer.position));
+                ScrapeWireFrame(
+                    localPos: WireFrame.transform.InverseTransformPoint(Pointer.position),
+                    worldPos: touchPos
+                );
             }
         }
     }
@@ -53,6 +70,25 @@ public class ScraperController : MonoBehaviour {
         currentScraper = scraper;
         Renderer.sprite = scraper.sprite;
         ParticlesMaterial.SetTexture("_MainTex", scraper.particle);
+    }
+
+    public void UpdateScapeSound() {
+        ScrapeSound sound = GameManager.Instance.resources.scrapeSounds.data.Find(s => s.id == GameManager.Instance.gameState.scape_sound);
+
+        if (sound != null) {
+            if (audioSfx == null) {
+                audioSfx = gameObject.AddComponent<AudioSource>();
+                audioSfx.playOnAwake = false;
+                audioSfx.loop = true;
+                audioSfx.clip = sound.audioClip;
+            }
+            else {
+                audioSfx.clip = sound.audioClip;
+            }
+        }
+        else if (audioSfx != null) {
+            Destroy(audioSfx);
+        }
     }
 
     public void SetWireFrame(Sprite _sprite) {
@@ -83,7 +119,7 @@ public class ScraperController : MonoBehaviour {
         }
     }
 
-    void ScrapeWireFrame(Vector2 localPos) {
+    void ScrapeWireFrame(Vector2 localPos, Vector2 worldPos) {
         Vector2 pivot = WireFrame.sprite.pivot;
         int x = Mathf.RoundToInt(pivot.x + localPos.x * WireFrame.sprite.pixelsPerUnit);
         int y = Mathf.RoundToInt(pivot.y + localPos.y * WireFrame.sprite.pixelsPerUnit);
@@ -108,7 +144,13 @@ public class ScraperController : MonoBehaviour {
         if (hasScraped) {
             WireFrame.sprite.texture.Apply();
 
-            // TODO: Playing sound
+            if (audioSfx != null) {
+                audioSfx.panStereo = Mathf.Lerp(-1, 1, (worldPos.x - minY) / screenWorldWidth);
+                if (!audioSfx.isPlaying) {
+                    audioSfx.Play();
+                }
+            }
+
 
             if (readyForVFX) {
                 readyForVFX = false;

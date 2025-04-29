@@ -23,7 +23,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sfx: 0
+    sfx: {fileID: 8300000, guid: 3c1112c297f9e45fd806146f99943262, type: 3}
     sprite: {fileID: -6165316187203191591, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
     particle: {fileID: 2800000, guid: aec3297c2fb0f48c6a471b631b9c3da1, type: 3}
     cityUnlock: paris
@@ -37,7 +37,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sfx: 0
+    sfx: {fileID: 8300000, guid: 3c1112c297f9e45fd806146f99943262, type: 3}
     sprite: {fileID: 7157833450148309640, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
     particle: {fileID: 2800000, guid: aec3297c2fb0f48c6a471b631b9c3da1, type: 3}
     cityUnlock: tokyo
@@ -51,7 +51,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sfx: 0
+    sfx: {fileID: 0}
     sprite: {fileID: 3209483470164172717, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
     particle: {fileID: 2800000, guid: aec3297c2fb0f48c6a471b631b9c3da1, type: 3}
     cityUnlock: ottawa
@@ -65,7 +65,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sfx: 0
+    sfx: {fileID: 0}
     sprite: {fileID: 7800191359963444533, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
     particle: {fileID: 2800000, guid: aec3297c2fb0f48c6a471b631b9c3da1, type: 3}
     cityUnlock: london
@@ -79,7 +79,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sfx: 0
+    sfx: {fileID: 0}
     sprite: {fileID: 2070645915663070006, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
     particle: {fileID: 2800000, guid: aec3297c2fb0f48c6a471b631b9c3da1, type: 3}
     cityUnlock: seoul
@@ -93,7 +93,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sfx: 0
+    sfx: {fileID: 0}
     sprite: {fileID: 5560126941133924288, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
     particle: {fileID: 2800000, guid: aec3297c2fb0f48c6a471b631b9c3da1, type: 3}
     cityUnlock: hanoi

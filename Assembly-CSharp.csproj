@@ -100,6 +100,7 @@
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplineEndless.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/Following.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingRotate.cs" />
+    <Compile Include="Assets/Scripts/Classes/ScriptableObjects/ScrapeSounds.cs" />
     <Compile Include="Assets/LeanTween/Testing/Testing240.cs" />
     <Compile Include="Assets/LeanTween/Testing/Scripts/LeanPool.cs" />
     <Compile Include="Assets/Scripts/Welcome/LoginLogic.cs" />

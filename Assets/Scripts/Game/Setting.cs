@@ -10,6 +10,7 @@ public class Setting : MonoBehaviour {
     [SerializeField] RectTransform BgSoundContainer;
     [SerializeField] RectTransform SfxSoundContainer;
     [SerializeField] RectTransform ScrapersContainer;
+    [SerializeField] RectTransform ScrapeSoundContainer;
     [SerializeField] RectTransform Content;
 
     [Header("Prefabs")]
@@ -32,6 +33,10 @@ public class Setting : MonoBehaviour {
         foreach (Scraper scraper in GameManager.Instance.resources.scrapers.data) {
             ItemScraper itemScraper = Instantiate(ItemScraperPrefab, ScrapersContainer).GetComponent<ItemScraper>();
             itemScraper.SetScraper(scraper);
+        }
+        foreach (ScrapeSound sound in GameManager.Instance.resources.scrapeSounds.data) {
+            ItemSound itemSound = Instantiate(ItemSoundPrefab, ScrapeSoundContainer).GetComponent<ItemSound>();
+            itemSound.SetSound(sound);
             StartCoroutine(RebuildLayout());
         }
     }

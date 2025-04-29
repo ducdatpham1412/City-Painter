@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager> {
         resources = new GameResources {
             backgroundSounds = Resources.Load<BackgroundSoundsObject>("Objects/SoundsBackground"),
             sfxSounds = Resources.Load<SfxSoundsObject>("Objects/SoundsSfx"),
+            scrapeSounds = Resources.Load<ScrapeSoundsObject>("Objects/SoundsScrape"),
             scrapers = Resources.Load<ScrapersObject>("Objects/Scrapers"),
             cities = Resources.Load<CitiesObject>("Objects/Cities")
         };
@@ -24,6 +25,7 @@ public class GameManager : Singleton<GameManager> {
         gameState = gameState ?? new GameState {
             city = resources.cities.data[0].id,
             scraper = resources.scrapers.data[0].id,
+            scape_sound = resources.scrapeSounds.data[0].id,
         };
 
         profile = Storage.GETRef<Profile>(Storage.Key.profile);
@@ -103,6 +105,7 @@ public class GameManager : Singleton<GameManager> {
     public class GameResources {
         public BackgroundSoundsObject backgroundSounds;
         public SfxSoundsObject sfxSounds;
+        public ScrapeSoundsObject scrapeSounds;
         public ScrapersObject scrapers;
         public CitiesObject cities;
     }

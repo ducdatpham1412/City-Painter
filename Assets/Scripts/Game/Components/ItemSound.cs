@@ -28,16 +28,7 @@ public class ItemSound : MonoBehaviour {
     }
 
     static bool IsSelected(string soundID) {
-        return GameManager.Instance.profile.backgroundSounds.Find(s => s == soundID) != null || GameManager.Instance.profile.sfxSounds.Find(s => s == soundID) != null;
-    }
-
-    static void ToggleSound(BaseSound sound) {
-        if (sound.type == BaseSound.Type.background) {
-            SoundManager.Instance.PlayStopBackgroundSound((BackgroundSound)sound);
-        }
-        else {
-            SoundManager.Instance.PlayStopSfxSound((SfxSound)sound);
-        }
+        return GameManager.Instance.profile.backgroundSounds.Find(s => s == soundID) != null || GameManager.Instance.profile.sfxSounds.Find(s => s == soundID) != null || GameManager.Instance.gameState.scape_sound == soundID;
     }
 
     public void SetSound(BaseSound _sound) {
@@ -52,12 +43,14 @@ public class ItemSound : MonoBehaviour {
     }
 
     public void OnPress() {
-        if (sound.id == "none") {
-            foreach (ItemSound item in GameManager.Instance.ItemSounds) {
-                item.ChangeStatus(false);
-            }
-            return;
-        }
+        // if (sound.id == "none") {
+        //     foreach (ItemSound item in GameManager.Instance.ItemSounds) {
+        //         if (item.sound.type == sound.type) {
+        //             item.ChangeStatus(false);
+        //         }
+        //     }
+        //     return;
+        // }
 
         bool isSelected = IsSelected(sound.id);
         ChangeStatus(!isSelected);
@@ -66,7 +59,18 @@ public class ItemSound : MonoBehaviour {
     void ChangeStatus(bool selected) {
         Status beforeStatus = currentStatus;
         currentStatus = selected ? selectedStatus : deselectedStatus;
-        ToggleSound(sound);
+
+        if (sound.type == BaseSound.Type.background) {
+            SoundManager.Instance.PlayStopBackgroundSound((BackgroundSound)sound);
+        }
+        else if (sound.type == BaseSound.Type.sfx) {
+            SoundManager.Instance.PlayStopSfxSound((SfxSound)sound);
+        }
+        else if (sound.type == BaseSound.Type.scrape) {
+            GameManager.Instance.gameState.scape_sound = selected ? sound.id : "";
+            GameController.Instance.Scraper.UpdateScapeSound();
+        }
+
         LeanTween.cancel(gameObject);
         LeanTween.value(gameObject, 0, 1, 0.15f).setEase(LeanTweenType.easeOutQuad).setOnUpdate((float v) => {
             rect.localScale = Vector3.Lerp(beforeStatus.localScale, currentStatus.localScale, v);

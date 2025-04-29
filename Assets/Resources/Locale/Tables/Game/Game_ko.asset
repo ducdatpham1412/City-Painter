@@ -150,6 +150,22 @@ MonoBehaviour:
     m_Localized: "\uB2E4\uC2DC \uADF8\uB9AC\uAE30"
     m_Metadata:
       m_Items: []
+  - m_Id: 43480974581817344
+    m_Localized: Paper scraper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43481058061049856
+    m_Localized: Metal scraper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43481106245214208
+    m_Localized: Stone scraper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43486591631482880
+    m_Localized: Scrape sound
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
