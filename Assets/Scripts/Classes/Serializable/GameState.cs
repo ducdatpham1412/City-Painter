@@ -4,6 +4,7 @@ using System;
 public class GameState {
     public string city = "";
     public string scraper = "";
+    public string scape_sound = "";
 }
 
 

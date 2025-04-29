@@ -147,6 +147,22 @@ MonoBehaviour:
     m_Key: redraw
     m_Metadata:
       m_Items: []
+  - m_Id: 43480974581817344
+    m_Key: scrapePaper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43481058061049856
+    m_Key: scrapeMetal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43481106245214208
+    m_Key: scrapeStone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43486591631482880
+    m_Key: scrapeSound
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

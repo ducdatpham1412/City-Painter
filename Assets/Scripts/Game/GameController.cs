@@ -155,14 +155,14 @@ public class GameController : Singleton<GameController> {
             LeanTween.scale(cityImgTransform.gameObject, Vector3.one, duration).setEase(TweenType);
             LeanTween.move(cityImgTransform.gameObject, lastCityImgState.position, duration).setEase(TweenType).setOnComplete(() => {
                 inZoomMode = false;
+                SwitchModeBtn.gameObject.SetActive(true);
+                if (mode == Mode.scrape) {
+                    Scraper.gameObject.SetActive(true);
+                }
+                Scraper.transform.position = Vector3.zero;
             });
             ZoomIcon.sprite = ZoomOutSprite;
             if (playSF) SoundManager.Instance.PlaySF(SoundManager.SF.Whoosh_Transition);
-            if (mode == Mode.scrape) {
-                Scraper.gameObject.SetActive(true);
-            }
-            SwitchModeBtn.gameObject.SetActive(true);
-            Scraper.transform.position = Vector3.zero;
             return;
         }
 

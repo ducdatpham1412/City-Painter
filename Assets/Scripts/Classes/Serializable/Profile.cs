@@ -23,7 +23,7 @@ public class City {
 public class Scraper {
     public string id;
     public LocalizedString name;
-    public SoundManager.SF sfx;
+    public AudioClip sfx;
     public Sprite sprite;
     public Texture2D particle;
     public string cityUnlock;
@@ -40,6 +40,7 @@ public class BaseSound {
     public enum Type {
         background,
         sfx,
+        scrape,
     }
 }
 
@@ -53,4 +54,9 @@ public class SfxSound : BaseSound {
     public SoundManager.SF[] sources;
     public float minInterval; // seconds
     public float maxInterval; // seconds
+}
+
+[Serializable]
+public class ScrapeSound : BaseSound {
+    public AudioClip audioClip;
 }

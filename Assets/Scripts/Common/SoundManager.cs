@@ -14,8 +14,8 @@ public class SoundManager : Singleton<SoundManager> {
         SoundSources[SoundSource.Kid] = LoadSound("mc_kid");
 
         SFSources[SF.Pop_01] = LoadSF("sf_pop_01");
-        SFSources[SF.Whoosh_Transition] = LoadSF("sf_whoosh_transition");
         SFSources[SF.Win_01] = LoadSF("sf_win_01");
+        SFSources[SF.Whoosh_Transition] = LoadSF("sf_whoosh_transition");
     }
 
     public AudioSource PlaySF(SF sf, [UnityEngine.Internal.DefaultValue("1.0F")] float volumeScale = 1f) {
@@ -27,10 +27,12 @@ public class SoundManager : Singleton<SoundManager> {
             }
             AudioSource newAudio = gameObject.AddComponent<AudioSource>();
             newAudio.playOnAwake = false;
+            newAudio.loop = false;
             newAudio.PlayOneShot(SFSources[sf], volumeScale);
             SfAudios.Add(newAudio);
             return newAudio;
         }
+
         return null;
     }
 
@@ -108,18 +110,13 @@ public class SoundManager : Singleton<SoundManager> {
     public enum SF {
         None,
         Pop_01,
-        Whoosh_Transition,
-        Scrape,
-        Broom,
-        IceScream,
-        Banana,
         Win_01,
+        Whoosh_Transition,
     }
 
     public enum SoundSource {
         Kid,
     }
-
 
     [System.Serializable]
     class SoundAudio {
