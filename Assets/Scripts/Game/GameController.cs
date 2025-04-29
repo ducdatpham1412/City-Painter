@@ -21,6 +21,7 @@ public class GameController : Singleton<GameController> {
     [Header("Stats")]
     public Mode mode = Mode.scrape;
     public bool ended { get; private set; } = false;
+    public bool inZoomMode { get; private set; } = false;
     City currentCity;
     CityImageState lastCityImgState = new();
     Transform cityImgTransform;
@@ -33,7 +34,7 @@ public class GameController : Singleton<GameController> {
     }
 
     void Update() {
-        if (!InZoomMode()) return;
+        if (!inZoomMode) return;
         if (GameHelper.TouchBegin()) {
             Vector3 worldPos = GameHelper.ToWorldPoint(GameHelper.TouchPosition());
             if (GameHelper.TouchHitGameObject(worldPos, cityImgTransform.gameObject
@@ -59,7 +60,7 @@ public class GameController : Singleton<GameController> {
         if (mode == Mode.pan) {
             SwitchMode();
         }
-        if (InZoomMode()) {
+        if (inZoomMode) {
             lastCityImgState.position = Vector3.zero;
             Zoom(false);
         }
@@ -150,9 +151,11 @@ public class GameController : Singleton<GameController> {
         float duration = 0.6f;
         LeanTweenType TweenType = LeanTweenType.easeOutQuad;
 
-        if (InZoomMode()) {
+        if (inZoomMode) {
             LeanTween.scale(cityImgTransform.gameObject, Vector3.one, duration).setEase(TweenType);
-            LeanTween.move(cityImgTransform.gameObject, lastCityImgState.position, duration).setEase(TweenType);
+            LeanTween.move(cityImgTransform.gameObject, lastCityImgState.position, duration).setEase(TweenType).setOnComplete(() => {
+                inZoomMode = false;
+            });
             ZoomIcon.sprite = ZoomOutSprite;
             if (playSF) SoundManager.Instance.PlaySF(SoundManager.SF.Whoosh_Transition);
             if (mode == Mode.scrape) {
@@ -165,7 +168,9 @@ public class GameController : Singleton<GameController> {
 
         lastCityImgState.position = cityImgTransform.position;
         LeanTween.scale(cityImgTransform.gameObject, Vector3.one / 2f, duration).setEase(TweenType);
-        LeanTween.move(cityImgTransform.gameObject, Vector3.zero, duration).setEase(TweenType);
+        LeanTween.move(cityImgTransform.gameObject, Vector3.zero, duration).setEase(TweenType).setOnComplete(() => {
+            inZoomMode = true;
+        });
         ZoomIcon.sprite = ZoomInSprite;
         if (playSF) SoundManager.Instance.PlaySF(SoundManager.SF.Whoosh_Transition);
         Scraper.gameObject.SetActive(false);
@@ -192,12 +197,6 @@ public class GameController : Singleton<GameController> {
             GameManager.Instance.citySprites[currentCity.id] = Scraper.WireFrame.sprite;
         }
         InitCity(currentCity.id);
-    }
-
-
-
-    bool InZoomMode() {
-        return !cityImgTransform.localScale.Equals(Vector3.one);
     }
 
     public enum Mode {

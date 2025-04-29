@@ -27,6 +27,8 @@ public class PanSprite : MonoBehaviour {
     }
 
     void Update() {
+        if (GameController.Instance.inZoomMode) return;
+
         if (!isPanning && GameHelper.TouchBegin()) {
             if (GameController.Instance.mode != GameController.Mode.pan) return;
             if (LeanTween.isTweening(gameObject)) LeanTween.cancel(gameObject);

@@ -273,6 +273,7 @@ MonoBehaviour:
   Swipe: {fileID: 958499853}
   InfoDialog: {fileID: 1974842780}
   Loading: {fileID: 1150405142}
+  BackBtn: {fileID: 5737984657668541309}
 --- !u!1 &106402159
 GameObject:
   m_ObjectHideFlags: 0

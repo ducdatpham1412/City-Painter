@@ -29,6 +29,8 @@ public class ScraperController : MonoBehaviour {
     }
 
     void Update() {
+        if (GameController.Instance.inZoomMode) return;
+
         if (!isScraping && GameHelper.TouchBegin()) {
             if (GameController.Instance.mode != GameController.Mode.scrape) return;
             isScraping = true;

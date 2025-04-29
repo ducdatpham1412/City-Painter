@@ -7,6 +7,7 @@ public class CitiesController : MonoBehaviour {
     [SerializeField] SwipePaging Swipe;
     [SerializeField] InfoDialog InfoDialog;
     [SerializeField] LoadingManager Loading;
+    [SerializeField] ButtonManager BackBtn;
 
     void Start() {
         StartCoroutine(InitCities());
@@ -31,6 +32,7 @@ public class CitiesController : MonoBehaviour {
     }
 
     IEnumerator InitCities() {
+        BackBtn.gameObject.SetActive(false);
         Loading.StartLoading();
         yield return null;
 
@@ -55,6 +57,7 @@ public class CitiesController : MonoBehaviour {
             yield return null;
         }
 
+        BackBtn.gameObject.SetActive(true);
         Destroy(Loading.gameObject);
 
         foreach (City city in manager.resources.cities.data) {

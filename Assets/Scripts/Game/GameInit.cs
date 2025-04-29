@@ -1,9 +1,22 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization.Components;
+using UnityEngine.UI;
 
 public class GameInit : Singleton<GameInit> {
     public PanSprite CityImage;
     [SerializeField] LocalizeStringEvent CityName;
+
+    void Awake() {
+        IEnumerator Rebuild() {
+            yield return null;
+            LayoutRebuilder.ForceRebuildLayoutImmediate(CityName.transform.parent as RectTransform);
+        }
+
+        CityName.StringReference.StringChanged += (text) => {
+            StartCoroutine(Rebuild());
+        };
+    }
 
     public void InitCity(City city) {
         CityName.StringReference = city.name;
