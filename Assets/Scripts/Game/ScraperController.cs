@@ -50,7 +50,7 @@ public class ScraperController : MonoBehaviour {
             if (GameHelper.TouchReleased()) {
                 isScraping = false;
                 if (audioSfx != null) {
-                    audioSfx.Stop();
+                    audioSfx.Pause();
                 }
                 CheckEndGame();
                 return;
@@ -114,7 +114,7 @@ public class ScraperController : MonoBehaviour {
         float ratio = (float)clearedPixelsCount / pixels.Length;
         // Debug.Log($"Ratio: {ratio} | {clearedPixelsCount}/{pixels.Length}");
 
-        if (ratio >= 0.98f) {
+        if (ratio >= 0.99f) {
             GameController.Instance.NoticeWinning();
         }
     }
@@ -166,6 +166,9 @@ public class ScraperController : MonoBehaviour {
                 }
                 Invoke(nameof(EnableVFX), 1);
             }
+        }
+        else if (audioSfx.isPlaying) {
+            audioSfx.panStereo = Mathf.Lerp(-1, 1, (worldPos.x - minY) / screenWorldWidth);
         }
     }
 }

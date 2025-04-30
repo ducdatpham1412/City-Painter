@@ -45,9 +45,9 @@ public class GameManager : Singleton<GameManager> {
             SoundManager.Instance.PlayStopBackgroundSound(sound);
         }
 
-        foreach (string soundID in profile.sfxSounds) {
-            SfxSound sound = resources.sfxSounds.data.Find(s => s.id == soundID);
-            SoundManager.Instance.PlayStopSfxSound(sound);
+        for (int i = 0; i < profile.sfxSounds.Count; i++) {
+            SfxSound sound = resources.sfxSounds.data.Find(s => s.id == profile.sfxSounds[i]);
+            SoundManager.Instance.PlayStopSfxSound(sound, playNow: i == 0);
         }
 
         if (profile.localeID != null) {

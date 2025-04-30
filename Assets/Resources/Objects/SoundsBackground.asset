@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
   - id: light_rain
-    icon: {fileID: 3209483470164172717, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    type: 0
+    icon: {fileID: 21300000, guid: 70f8b2fe484954d6ab035067b5917a21, type: 3}
     name:
       m_TableReference:
         m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
@@ -24,9 +25,11 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sources: 00000000
+    sources:
+    - {fileID: 8300000, guid: 78c1d0aef8ae8467aa8f80be4ffaa7c0, type: 3}
   - id: heavy_rain
-    icon: {fileID: 2070645915663070006, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    type: 0
+    icon: {fileID: 21300000, guid: e79ed07a87a3c4854801305741be10e7, type: 3}
     name:
       m_TableReference:
         m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
@@ -36,7 +39,50 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sources: 00000000
+    sources:
+    - {fileID: 8300000, guid: e861ece20f01b43fcb6d5e28c15902f4, type: 3}
+  - id: coffee_shop
+    type: 0
+    icon: {fileID: 21300000, guid: fc83805eabf61461892a6554ff4c3a05, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 43811424865083392
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sources:
+    - {fileID: 8300000, guid: 47ac6c75dc79b451eb149bde52dd5ef0, type: 3}
+  - id: fire
+    type: 0
+    icon: {fileID: 21300000, guid: fa7e0c66181604bf3a1238e3a1bb93fa, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 43811355470323712
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sources:
+    - {fileID: 8300000, guid: 87e0cb6ed6d52499b91a313b611b488e, type: 3}
+  - id: wind
+    type: 0
+    icon: {fileID: 21300000, guid: c0665213a4df1444f81bf585d8cfafc4, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 43811382376783872
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sources:
+    - {fileID: 8300000, guid: 973f0f9b32ddd40cb9395c2cce145490, type: 3}
   references:
     version: 2
     RefIds: []

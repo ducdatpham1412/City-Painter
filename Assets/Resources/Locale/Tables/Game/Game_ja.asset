@@ -35,11 +35,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 41416536261386240
-    m_Localized: Light rain
+    m_Localized: "\u5C0F\u96E8"
     m_Metadata:
       m_Items: []
   - m_Id: 41416561041334272
-    m_Localized: Heavy rain
+    m_Localized: "\u306B\u308F\u304B\u96E8"
     m_Metadata:
       m_Items: []
   - m_Id: 41416512823615488
@@ -71,43 +71,43 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 41634619005591552
-    m_Localized: Paris
+    m_Localized: "\u30D1\u30EA"
     m_Metadata:
       m_Items: []
   - m_Id: 41634654363574272
-    m_Localized: Tokyo
+    m_Localized: "\u6771\u4EAC"
     m_Metadata:
       m_Items: []
   - m_Id: 41634679638450176
-    m_Localized: Ottawa
+    m_Localized: "\u30AA\u30BF\u30EF"
     m_Metadata:
       m_Items: []
   - m_Id: 41634860253569024
-    m_Localized: London
+    m_Localized: "\u30ED\u30F3\u30C9\u30F3"
     m_Metadata:
       m_Items: []
   - m_Id: 41634910316781568
-    m_Localized: New York
+    m_Localized: "\u30CB\u30E5\u30FC\u30E8\u30FC\u30AF"
     m_Metadata:
       m_Items: []
   - m_Id: 41635052369469440
-    m_Localized: Seoul
+    m_Localized: "\u30BD\u30A6\u30EB"
     m_Metadata:
       m_Items: []
   - m_Id: 41635184687177728
-    m_Localized: Beijing
+    m_Localized: "\u5317\u4EAC"
     m_Metadata:
       m_Items: []
   - m_Id: 41635343479332864
-    m_Localized: Ha Noi
+    m_Localized: "\u30CF\u30CE\u30A4"
     m_Metadata:
       m_Items: []
   - m_Id: 41635649105682432
-    m_Localized: Geneva
+    m_Localized: "\u30B8\u30E5\u30CD\u30FC\u30F4"
     m_Metadata:
       m_Items: []
   - m_Id: 41635885043671040
-    m_Localized: Berlin
+    m_Localized: "\u30D9\u30EB\u30EA\u30F3"
     m_Metadata:
       m_Items: []
   - m_Id: 41662280746655744
@@ -147,7 +147,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 43480974581817344
-    m_Localized: Paper scraper
+    m_Localized: "\u7D19\u3092\u524A\u308B\u97F3"
     m_Metadata:
       m_Items: []
   - m_Id: 43481058061049856
@@ -155,11 +155,51 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 43481106245214208
-    m_Localized: Stone scraper
+    m_Localized: "\u5CA9\u3092\u524A\u308B\u97F3"
     m_Metadata:
       m_Items: []
   - m_Id: 43486591631482880
-    m_Localized: Scrape sound
+    m_Localized: "\u3053\u3059\u308B\u97F3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43811355470323712
+    m_Localized: "\u711A\u304D\u706B\u97F3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43811382376783872
+    m_Localized: "\u98A8\u306E\u97F3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43811424865083392
+    m_Localized: "\u30AB\u30D5\u30A7"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43912995405815808
+    m_Localized: "\u96F7\u3068\u7A32\u59BB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913322670579712
+    m_Localized: "\u30B3\u30AA\u30ED\u30AE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913469605437440
+    m_Localized: "\u72FC\u5420\u3048"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913650954559488
+    m_Localized: "\u30AB\u30A8\u30EB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913803933409280
+    m_Localized: "\u9418\u306E\u97F3 "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913862624305152
+    m_Localized: "\u6D77\u306E\u6CE2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43925368699084800
+    m_Localized: "\u732B\u306E\u53CB\u9054"
     m_Metadata:
       m_Items: []
   references:

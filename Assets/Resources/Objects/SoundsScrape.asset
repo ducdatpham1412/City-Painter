@@ -15,7 +15,7 @@ MonoBehaviour:
   data:
   - id: paper
     type: 2
-    icon: {fileID: 3209483470164172717, guid: 0c4107be14d0441a29d43637bacaba31, type: 3}
+    icon: {fileID: 21300000, guid: f4a267b78f2e94b7ba1548d5bd0b7aca, type: 3}
     name:
       m_TableReference:
         m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
@@ -26,6 +26,19 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     audioClip: {fileID: 8300000, guid: 3c1112c297f9e45fd806146f99943262, type: 3}
+  - id: stone
+    type: 2
+    icon: {fileID: 21300000, guid: e6d92755ffdfc4fd280f89499c9b8ebe, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 43481106245214208
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioClip: {fileID: 8300000, guid: d1965689b6e0145c1a45d616e516e0eb, type: 3}
   references:
     version: 2
     RefIds: []
