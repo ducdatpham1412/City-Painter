@@ -46,12 +46,12 @@ public class BaseSound {
 
 [Serializable]
 public class BackgroundSound : BaseSound {
-    public SoundManager.SoundSource[] sources;
+    public AudioClip[] sources;
 }
 
 [Serializable]
 public class SfxSound : BaseSound {
-    public SoundManager.SF[] sources;
+    public AudioClip[] sources;
     public float minInterval; // seconds
     public float maxInterval; // seconds
 }

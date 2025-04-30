@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 56a8e71aca4104404b3f608d3faf5250
+guid: c907a7ad094604d8a96f3d0e0f2c0498
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8211628435803740865
-    second: daisy_0
+      213: 4605104441279843055
+    second: ic_cricket_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -97,6 +97,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -113,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: daisy_0
+      name: ic_cricket_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 45
-        height: 44
+        x: 2
+        y: 5
+        width: 32
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ca14972e8095f170800000000000000
-      internalID: 8211628435803740865
+      spriteID: fea0f08271e98ef30800000000000000
+      internalID: 4605104441279843055
       vertices: []
       indices: 
       edges: []
@@ -148,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      daisy_0: 8211628435803740865
+      ic_cricket_0: 4605104441279843055
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

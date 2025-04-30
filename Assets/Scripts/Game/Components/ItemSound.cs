@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
@@ -25,6 +26,7 @@ public class ItemSound : MonoBehaviour {
     void Awake() {
         rect = GetComponent<RectTransform>();
         GameManager.Instance.ItemSounds.Add(this);
+        Title.StringReference.StringChanged += LocalizedStringChanged;
     }
 
     static bool IsSelected(string soundID) {
@@ -53,22 +55,37 @@ public class ItemSound : MonoBehaviour {
         // }
 
         bool isSelected = IsSelected(sound.id);
-        ChangeStatus(!isSelected);
+        ChangeStatus(!isSelected, true);
     }
 
-    void ChangeStatus(bool selected) {
+    void LocalizedStringChanged(string text) {
+        IEnumerator Rebuild() {
+            yield return null;
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
+        }
+        StartCoroutine(Rebuild());
+    }
+
+    void ChangeStatus(bool selected, bool isRoot) {
         Status beforeStatus = currentStatus;
         currentStatus = selected ? selectedStatus : deselectedStatus;
 
-        if (sound.type == BaseSound.Type.background) {
-            SoundManager.Instance.PlayStopBackgroundSound((BackgroundSound)sound);
-        }
-        else if (sound.type == BaseSound.Type.sfx) {
-            SoundManager.Instance.PlayStopSfxSound((SfxSound)sound);
-        }
-        else if (sound.type == BaseSound.Type.scrape) {
-            GameManager.Instance.gameState.scape_sound = selected ? sound.id : "";
-            GameController.Instance.Scraper.UpdateScapeSound();
+        if (isRoot) {
+            if (sound.type == BaseSound.Type.background) {
+                SoundManager.Instance.PlayStopBackgroundSound((BackgroundSound)sound);
+            }
+            else if (sound.type == BaseSound.Type.sfx) {
+                SoundManager.Instance.PlayStopSfxSound((SfxSound)sound);
+            }
+            else if (sound.type == BaseSound.Type.scrape) {
+                GameManager.Instance.gameState.scape_sound = selected ? sound.id : "";
+                GameController.Instance.Scraper.UpdateScapeSound();
+                foreach (ItemSound item in GameManager.Instance.ItemSounds) {
+                    if (item.sound.type == sound.type && item != this) {
+                        item.ChangeStatus(false, false);
+                    }
+                }
+            }
         }
 
         LeanTween.cancel(gameObject);

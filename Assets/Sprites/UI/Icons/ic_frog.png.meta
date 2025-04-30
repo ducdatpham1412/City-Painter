@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a551b59aca0ce4c2cbc88c76eba8f219
+guid: 376e23fd919fb41abbfc89c3dd2d6ed6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5781445747943558089
-    second: leaf_0
+      213: -465027787440206320
+    second: ic_frog_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -97,6 +97,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -113,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: leaf_0
+      name: ic_frog_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 46
-        height: 28
+        x: 3
+        y: 4
+        width: 31
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9cb4e5eb642db3050800000000000000
-      internalID: 5781445747943558089
+      spriteID: 01ec0fee0b3eb89f0800000000000000
+      internalID: -465027787440206320
       vertices: []
       indices: 
       edges: []
@@ -148,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      leaf_0: 5781445747943558089
+      ic_frog_0: -465027787440206320
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

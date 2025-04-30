@@ -37,14 +37,14 @@ public class SoundManager : Singleton<SoundManager> {
     }
 
     public void PlayStopBackgroundSound(BackgroundSound sound) {
-        SoundSource source = Helper.GetRandomInArr(sound.sources);
+        AudioClip clip = Helper.GetRandomInArr(sound.sources);
         SoundAudio audio = SoundAudios.Find(s => s.sound.id == sound.id);
 
         if (audio == null) {
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.playOnAwake = true;
             audioSource.loop = true;
-            audioSource.clip = SoundSources[source];
+            audioSource.clip = clip;
             audioSource.Play();
             SoundAudios.Add(new SoundAudio {
                 sound = sound,
@@ -63,14 +63,14 @@ public class SoundManager : Singleton<SoundManager> {
         GameManager.Instance.profile.backgroundSounds.Remove(sound.id);
     }
 
-    public void PlayStopSfxSound(SfxSound sound) {
+    public void PlayStopSfxSound(SfxSound sound, bool playNow = true) {
         SoundAudio audio = SoundAudios.Find(s => s.sound.id == sound.id);
 
         if (audio == null) {
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.playOnAwake = false;
             audioSource.loop = false;
-            Coroutine coroutine = StartCoroutine(PlaySfxSoundCoroutine(audioSource, sound));
+            Coroutine coroutine = StartCoroutine(PlaySfxSoundCoroutine(audioSource, sound, playNow));
             SoundAudios.Add(new SoundAudio {
                 sound = sound,
                 audioSource = audioSource,
@@ -90,9 +90,13 @@ public class SoundManager : Singleton<SoundManager> {
 
     public void Initialize() { }
 
-    IEnumerator PlaySfxSoundCoroutine(AudioSource audio, SfxSound sound) {
+    IEnumerator PlaySfxSoundCoroutine(AudioSource audio, SfxSound sound, bool playNow) {
+        if (!playNow) {
+            yield return new WaitUntil(() => !audio.isPlaying);
+            yield return new WaitForSeconds(Random.Range(sound.minInterval, sound.maxInterval));
+        }
         while (true) {
-            audio.clip = SFSources[Helper.GetRandomInArr(sound.sources)];
+            audio.clip = Helper.GetRandomInArr(sound.sources);
             audio.Play();
             yield return new WaitUntil(() => !audio.isPlaying);
             yield return new WaitForSeconds(Random.Range(sound.minInterval, sound.maxInterval));

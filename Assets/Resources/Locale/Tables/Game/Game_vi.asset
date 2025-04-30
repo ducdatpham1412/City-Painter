@@ -36,11 +36,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 41416536261386240
-    m_Localized: Light rain
+    m_Localized: "M\u01B0a nh\u1EB9"
     m_Metadata:
       m_Items: []
   - m_Id: 41416561041334272
-    m_Localized: Heavy rain
+    m_Localized: "M\u01B0a r\xE0o"
     m_Metadata:
       m_Items: []
   - m_Id: 41416512823615488
@@ -96,7 +96,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 41635184687177728
-    m_Localized: Beijing
+    m_Localized: "B\u1EAFc Kinh"
     m_Metadata:
       m_Items: []
   - m_Id: 41635343479332864
@@ -153,7 +153,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 43480974581817344
-    m_Localized: Paper scraper
+    m_Localized: "C\u1EA1o gi\u1EA5y"
     m_Metadata:
       m_Items: []
   - m_Id: 43481058061049856
@@ -161,11 +161,51 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 43481106245214208
-    m_Localized: Stone scraper
+    m_Localized: "Ti\u1EBFng c\u1EA1o \u0111\xE1"
     m_Metadata:
       m_Items: []
   - m_Id: 43486591631482880
-    m_Localized: Scrape sound
+    m_Localized: "\xC2m thanh c\u1EA1o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43811355470323712
+    m_Localized: "Ti\u1EBFng l\u1EEDa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43811382376783872
+    m_Localized: "Gi\xF3 h\xFA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43811424865083392
+    m_Localized: "Qu\xE1n cafe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43912995405815808
+    m_Localized: "S\u1EA5m ch\u1EDBp"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913322670579712
+    m_Localized: "D\u1EBF k\xEAu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913650954559488
+    m_Localized: "\u1EBEch k\xEAu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913803933409280
+    m_Localized: "Chu\xF4ng"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913862624305152
+    m_Localized: "S\xF3ng bi\u1EC3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913469605437440
+    m_Localized: "S\xF3i h\xFA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43925368699084800
+    m_Localized: "B\u1EA1n m\xE8o"
     m_Metadata:
       m_Items: []
   references:
