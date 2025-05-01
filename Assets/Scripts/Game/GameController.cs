@@ -20,6 +20,7 @@ public class GameController : Singleton<GameController> {
 
     [Header("Stats")]
     public Mode mode = Mode.scrape;
+    public bool isPlaying = false;
     public bool ended { get; private set; } = false;
     public bool inZoomMode { get; private set; } = false;
     City currentCity;
@@ -70,14 +71,24 @@ public class GameController : Singleton<GameController> {
         if (mode == Mode.pan) {
             mode = Mode.scrape;
             SwitchModeBtn.Icon.sprite = PanSprite;
-            Scraper.gameObject.SetActive(true);
             TextPanningMode.gameObject.SetActive(false);
+            if (isPlaying) {
+                Scraper.gameObject.SetActive(true);
+            }
+            else {
+                BtnPlayAgain.gameObject.SetActive(true);
+            }
         }
         else {
             mode = Mode.pan;
             SwitchModeBtn.Icon.sprite = Scraper.currentScraper.sprite;
-            Scraper.gameObject.SetActive(false);
             TextPanningMode.gameObject.SetActive(true);
+            if (isPlaying) {
+                Scraper.gameObject.SetActive(false);
+            }
+            else {
+                BtnPlayAgain.gameObject.SetActive(false);
+            }
         }
         Scraper.transform.position = GameHelper.ToWorldPoint(new Vector2(Screen.width / 2f, Screen.height / 2f));
     }
@@ -156,8 +167,13 @@ public class GameController : Singleton<GameController> {
             LeanTween.move(cityImgTransform.gameObject, lastCityImgState.position, duration).setEase(TweenType).setOnComplete(() => {
                 inZoomMode = false;
                 SwitchModeBtn.gameObject.SetActive(true);
-                if (mode == Mode.scrape) {
-                    Scraper.gameObject.SetActive(true);
+                if (isPlaying) {
+                    if (mode == Mode.scrape) {
+                        Scraper.gameObject.SetActive(true);
+                    }
+                }
+                else {
+                    BtnPlayAgain.gameObject.SetActive(true);
                 }
                 Scraper.transform.position = Vector3.zero;
             });
@@ -173,8 +189,13 @@ public class GameController : Singleton<GameController> {
         });
         ZoomIcon.sprite = ZoomInSprite;
         if (playSF) SoundManager.Instance.PlaySF(SoundManager.SF.Whoosh_Transition);
-        Scraper.gameObject.SetActive(false);
         SwitchModeBtn.gameObject.SetActive(false);
+        if (isPlaying) {
+            Scraper.gameObject.SetActive(false);
+        }
+        else {
+            BtnPlayAgain.gameObject.SetActive(false);
+        }
     }
 
     public void GoToCitiesScene() {

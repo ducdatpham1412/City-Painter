@@ -23,18 +23,21 @@ public class GameInit : Singleton<GameInit> {
         CityName.RefreshString();
         CityImage.transform.position = Vector2.zero;
         CityImage.SetSprite(city.sprite);
+        GameController controller = GameController.Instance;
 
         if (GameManager.Instance.ShouldCityPlayAgain(city.id)) {
-            GameController.Instance.Scraper.SetWireFrame(city.sprite);
-            GameController.Instance.Scraper.gameObject.SetActive(false);
-            GameController.Instance.BtnPlayAgain.gameObject.SetActive(true);
+            controller.Scraper.SetWireFrame(city.sprite);
+            controller.Scraper.gameObject.SetActive(false);
+            controller.BtnPlayAgain.gameObject.SetActive(true);
+            controller.isPlaying = false;
             return;
         }
 
 
-        GameController.Instance.Scraper.gameObject.SetActive(true);
-        GameController.Instance.BtnPlayAgain.gameObject.SetActive(false);
-        GameController.Instance.Scraper.SetWireFrame(GenerateLineArtSprite(city));
+        controller.Scraper.gameObject.SetActive(true);
+        controller.BtnPlayAgain.gameObject.SetActive(false);
+        controller.Scraper.SetWireFrame(GenerateLineArtSprite(city));
+        controller.isPlaying = true;
     }
 
     public Sprite GenerateLineArtSprite(City city) {
