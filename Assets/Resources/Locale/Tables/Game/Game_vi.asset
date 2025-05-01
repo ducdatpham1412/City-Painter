@@ -217,6 +217,10 @@ MonoBehaviour:
     m_Localized: "Th\u1EED ngay"
     m_Metadata:
       m_Items: []
+  - m_Id: 44287315609116672
+    m_Localized: "Ti\u1EBFng c\u1EA1o g\u1EA1ch"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -159,6 +159,10 @@ MonoBehaviour:
     m_Key: scrapeStone
     m_Metadata:
       m_Items: []
+  - m_Id: 44287315609116672
+    m_Key: scrapeBrick
+    m_Metadata:
+      m_Items: []
   - m_Id: 43486591631482880
     m_Key: scrapeSound
     m_Metadata:
