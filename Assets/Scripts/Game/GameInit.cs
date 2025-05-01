@@ -19,6 +19,7 @@ public class GameInit : Singleton<GameInit> {
     }
 
     public void InitCity(City city) {
+        FirebaseTracking.Instance.OpenCity(city.id);
         CityName.StringReference = city.name;
         CityName.RefreshString();
         CityImage.transform.position = Vector2.zero;

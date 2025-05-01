@@ -29,6 +29,9 @@ public class GameManager : Singleton<GameManager> {
         };
 
         profile = Storage.GETRef<Profile>(Storage.Key.profile);
+        if (profile == null) {
+            FirebaseTracking.Instance.UseScraper(resources.scrapers.data[0].id);
+        }
         profile = profile ?? new Profile {
             device_id = SystemInfo.deviceUniqueIdentifier,
             localeID = null,

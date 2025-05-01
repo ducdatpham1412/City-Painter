@@ -31,11 +31,30 @@ public class FirebaseTracking : Singleton<FirebaseTracking> {
         });
     }
 
-    public void OpenCity() {
-
+    public void OpenCity(string cityID) {
+        FirebaseAnalytics.LogEvent("open_city", new Parameter[] {
+            new Parameter("city_id", cityID),
+            new Parameter("device_id", GameManager.Instance.profile.device_id),
+            new Parameter("version", Application.version),
+            new Parameter("ts", Helper.TimeStamp())
+        });
     }
 
-    public void FinishCity() {
+    public void FinishCity(string cityID) {
+        FirebaseAnalytics.LogEvent("finish_city", new Parameter[] {
+            new Parameter("city_id", cityID),
+            new Parameter("device_id", GameManager.Instance.profile.device_id),
+            new Parameter("version", Application.version),
+            new Parameter("ts", Helper.TimeStamp())
+        });
+    }
 
+    public void UseScraper(string scraperID) {
+        FirebaseAnalytics.LogEvent("use_scraper", new Parameter[] {
+            new Parameter("scraper_id", scraperID),
+            new Parameter("device_id", GameManager.Instance.profile.device_id),
+            new Parameter("version", Application.version),
+            new Parameter("ts", Helper.TimeStamp())
+        });
     }
 }

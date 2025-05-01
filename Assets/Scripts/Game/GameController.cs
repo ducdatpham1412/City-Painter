@@ -99,6 +99,7 @@ public class GameController : Singleton<GameController> {
 
     public void NoticeWinning() {
         ended = true;
+        FirebaseTracking.Instance.FinishCity(currentCity.id);
         Storage.DELETE_TEXTURE(currentCity.id);
         SoundManager.Instance.PlaySF(SoundManager.SF.Win_01);
         if (GameManager.Instance.citySprites.ContainsKey(currentCity.id)) {
@@ -168,6 +169,7 @@ public class GameController : Singleton<GameController> {
     public void ChangeScraper(string id) {
         Scraper s = GameManager.Instance.resources.scrapers.data.Find(s => s.id == id);
         if (s != null) {
+            FirebaseTracking.Instance.UseScraper(id);
             GameManager.Instance.gameState.scraper = s.id;
             Scraper.SetScraper(s);
             if (mode == Mode.pan) {
