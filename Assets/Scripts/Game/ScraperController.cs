@@ -18,7 +18,7 @@ public class ScraperController : MonoBehaviour {
     SpriteRenderer Renderer;
     List<ParticleSystem> particlesPool = new();
     bool isScraping = false;
-    int brushSize = 25;
+    int brushSize = 20;
     bool readyForVFX = true;
     float minY = 0;
     float screenWorldWidth = 0;
