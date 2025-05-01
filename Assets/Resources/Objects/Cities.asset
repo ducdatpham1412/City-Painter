@@ -23,7 +23,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sprite: {fileID: 21300000, guid: 9ecc2ad96716c4da5bb409a90e036ba3, type: 3}
+    sprite: {fileID: 21300000, guid: a90d1c3a137484e8e911420b8e2b7e1e, type: 3}
   - id: tokyo
     name:
       m_TableReference:
@@ -34,7 +34,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sprite: {fileID: 21300000, guid: 48bbbbe5a2750469e8d0aa6a95553750, type: 3}
+    sprite: {fileID: 21300000, guid: d1122e1f43e1b4a458a8590f80bd7585, type: 3}
   - id: ottawa
     name:
       m_TableReference:
@@ -45,7 +45,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sprite: {fileID: 21300000, guid: 9ecc2ad96716c4da5bb409a90e036ba3, type: 3}
+    sprite: {fileID: 21300000, guid: ad1bc1b7539cd4b35920f89805a0838e, type: 3}
   - id: london
     name:
       m_TableReference:
@@ -56,7 +56,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sprite: {fileID: 21300000, guid: 9ecc2ad96716c4da5bb409a90e036ba3, type: 3}
+    sprite: {fileID: 21300000, guid: 2b01188005a8a4a6ba3b649cda40ad33, type: 3}
   - id: new_york
     name:
       m_TableReference:
@@ -67,7 +67,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sprite: {fileID: 21300000, guid: 9ecc2ad96716c4da5bb409a90e036ba3, type: 3}
+    sprite: {fileID: 21300000, guid: a2c971fd015a640ccac61973d8335be1, type: 3}
   - id: seoul
     name:
       m_TableReference:
@@ -78,7 +78,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sprite: {fileID: 21300000, guid: 9ecc2ad96716c4da5bb409a90e036ba3, type: 3}
+    sprite: {fileID: 21300000, guid: c5fd35708f6f243acb1b16910560a029, type: 3}
   - id: beijing
     name:
       m_TableReference:
@@ -89,7 +89,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sprite: {fileID: 21300000, guid: 9ecc2ad96716c4da5bb409a90e036ba3, type: 3}
+    sprite: {fileID: 21300000, guid: a08ebfa73377e46438b84e65f329f16a, type: 3}
   - id: hanoi
     name:
       m_TableReference:
@@ -100,7 +100,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sprite: {fileID: 21300000, guid: 9ecc2ad96716c4da5bb409a90e036ba3, type: 3}
+    sprite: {fileID: 21300000, guid: 5eb1190dec0f04e2c9b9384cf45cc4ab, type: 3}
   - id: geneva
     name:
       m_TableReference:
@@ -111,7 +111,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sprite: {fileID: 21300000, guid: 9ecc2ad96716c4da5bb409a90e036ba3, type: 3}
+    sprite: {fileID: 21300000, guid: 0703c6bcdfe8e413aa0a51ee3c22cd07, type: 3}
   - id: berlin
     name:
       m_TableReference:
@@ -122,7 +122,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    sprite: {fileID: 21300000, guid: 9ecc2ad96716c4da5bb409a90e036ba3, type: 3}
+    sprite: {fileID: 21300000, guid: 4967f2395880e43a6b5e1467911a43dd, type: 3}
   references:
     version: 2
     RefIds: []
