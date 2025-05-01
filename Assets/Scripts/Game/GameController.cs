@@ -99,6 +99,7 @@ public class GameController : Singleton<GameController> {
 
     public void NoticeWinning() {
         ended = true;
+        FirebaseTracking.Instance.FinishCity(currentCity.id);
         Storage.DELETE_TEXTURE(currentCity.id);
         SoundManager.Instance.PlaySF(SoundManager.SF.Win_01);
         if (GameManager.Instance.citySprites.ContainsKey(currentCity.id)) {
@@ -115,12 +116,33 @@ public class GameController : Singleton<GameController> {
                 string nextCityID = cities[nextIndex].id;
                 int lastIndex = GameManager.Instance.resources.cities.data.FindIndex(c => c.id == GameManager.Instance.profile.lastCity);
                 if (lastIndex < nextIndex) {
+                    Scraper unlockedScraper = GameManager.Instance.resources.scrapers.data.Find(s => s.cityUnlock == nextCityID);
+                    if (unlockedScraper != null) {
+                        StartCoroutine(CollectNewScraper(unlockedScraper));
+                    }
                     GameManager.Instance.profile.lastCity = nextCityID;
                 }
                 InitCity(nextCityID);
                 return;
             }
+
             StartCoroutine(FinishedAll());
+        }
+
+        IEnumerator CollectNewScraper(Scraper _scraper) {
+            InfoDialog.Close();
+            yield return new WaitForSeconds(0.3f);
+            InfoDialog.Open(new InfoDialog.Info {
+                title = Helper.GetLocalizedValue("gotNewScraper", new string[] {
+                    _scraper.name.GetLocalizedString()
+                }),
+                btnTitle = Helper.GetLocalizedValue("tryNow"),
+                icon = _scraper.sprite,
+                OnClick = () => {
+                    ChangeScraper(_scraper.id);
+                    InfoDialog.Close();
+                },
+            });
         }
 
         IEnumerator FinishedAll() {
@@ -147,6 +169,7 @@ public class GameController : Singleton<GameController> {
     public void ChangeScraper(string id) {
         Scraper s = GameManager.Instance.resources.scrapers.data.Find(s => s.id == id);
         if (s != null) {
+            FirebaseTracking.Instance.UseScraper(id);
             GameManager.Instance.gameState.scraper = s.id;
             Scraper.SetScraper(s);
             if (mode == Mode.pan) {

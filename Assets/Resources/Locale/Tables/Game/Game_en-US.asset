@@ -212,6 +212,16 @@ MonoBehaviour:
     m_Localized: Your cat
     m_Metadata:
       m_Items: []
+  - m_Id: 44178513102626816
+    m_Localized: 'You got a new brush
+
+      "{0}"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44182387196682240
+    m_Localized: Try now
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

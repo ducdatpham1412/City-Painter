@@ -24,6 +24,14 @@ public class InfoDialog : MonoBehaviour {
         OnClick = info.OnClick;
         CloseButton.SetActive(info.canClose != false);
         soundEffect = info.sfx;
+        if (info.icon != null) {
+            Image.sprite = info.icon;
+            Image.gameObject.SetActive(true);
+        }
+        else {
+            Image.sprite = null;
+            Image.gameObject.SetActive(false);
+        }
 
         gameObject.SetActive(true);
         StartCoroutine(RebuildAfterOneFrame());
@@ -44,6 +52,7 @@ public class InfoDialog : MonoBehaviour {
         public string title;
         public int fontSize = 16;
         public string btnTitle = "Ok";
+        public Sprite icon = null;
         public bool canClose = true;
         public Action OnClick;
         public SoundManager.SF sfx = SoundManager.SF.Pop_01;
