@@ -167,7 +167,7 @@ public class ScraperController : MonoBehaviour {
                 Invoke(nameof(EnableVFX), 1);
             }
         }
-        else if (audioSfx.isPlaying) {
+        else if (audioSfx != null && audioSfx.isPlaying) {
             audioSfx.panStereo = Mathf.Lerp(-1, 1, (worldPos.x - minY) / screenWorldWidth);
         }
     }

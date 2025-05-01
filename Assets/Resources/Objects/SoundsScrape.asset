@@ -25,7 +25,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    audioClip: {fileID: 8300000, guid: 3c1112c297f9e45fd806146f99943262, type: 3}
+    audioClip: {fileID: 8300000, guid: 510e42cdd0c324f7eb4c97e16e3ec3e1, type: 3}
   - id: stone
     type: 2
     icon: {fileID: 21300000, guid: e6d92755ffdfc4fd280f89499c9b8ebe, type: 3}
@@ -38,7 +38,20 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    audioClip: {fileID: 8300000, guid: d1965689b6e0145c1a45d616e516e0eb, type: 3}
+    audioClip: {fileID: 8300000, guid: 6d7c7bccae8db4a5faa74630366c605e, type: 3}
+  - id: brick
+    type: 2
+    icon: {fileID: 21300000, guid: e6d92755ffdfc4fd280f89499c9b8ebe, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 44287315609116672
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioClip: {fileID: 8300000, guid: 3fab4035817564693b149c0573b41931, type: 3}
   references:
     version: 2
     RefIds: []
