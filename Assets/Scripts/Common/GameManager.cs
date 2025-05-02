@@ -30,15 +30,16 @@ public class GameManager : Singleton<GameManager> {
 
         profile = Storage.GETRef<Profile>(Storage.Key.profile);
         if (profile == null) {
+            profile = new Profile {
+                device_id = SystemInfo.deviceUniqueIdentifier,
+                localeID = null,
+                backgroundSounds = new List<string> { resources.backgroundSounds.data[0].id },
+                sfxSounds = new List<string> { resources.sfxSounds.data[0].id },
+                lastCity = resources.cities.data[0].id,
+                items = new List<string>()
+            };
             FirebaseTracking.Instance.UseScraper(resources.scrapers.data[0].id);
         }
-        profile = profile ?? new Profile {
-            device_id = SystemInfo.deviceUniqueIdentifier,
-            localeID = null,
-            backgroundSounds = new List<string> { resources.backgroundSounds.data[0].id },
-            sfxSounds = new List<string> { resources.sfxSounds.data[0].id },
-            lastCity = resources.cities.data[0].id,
-        };
 
         SoundManager.Instance.Initialize();
         FirebaseTracking.Instance.Initialize();

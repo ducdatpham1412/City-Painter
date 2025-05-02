@@ -32,6 +32,7 @@ public class GameController : Singleton<GameController> {
         Scraper.SetScraper(GameManager.Instance.resources.scrapers.data.Find(s => s.id == GameManager.Instance.gameState.scraper));
         cityImgTransform = GameInit.Instance.CityImage.transform;
         InitCity(GameManager.Instance.gameState.city);
+        GoogleAds.Instance.Initialize();
     }
 
     void Update() {
@@ -206,7 +207,7 @@ public class GameController : Singleton<GameController> {
         }
 
         lastCityImgState.position = cityImgTransform.position;
-        LeanTween.scale(cityImgTransform.gameObject, Vector3.one / 2f, duration).setEase(TweenType);
+        LeanTween.scale(cityImgTransform.gameObject, new Vector2(0.36f, 0.36f), duration).setEase(TweenType);
         LeanTween.move(cityImgTransform.gameObject, Vector3.zero, duration).setEase(TweenType).setOnComplete(() => {
             inZoomMode = true;
         });

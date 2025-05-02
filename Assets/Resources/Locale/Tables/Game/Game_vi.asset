@@ -221,6 +221,15 @@ MonoBehaviour:
     m_Localized: "Ti\u1EBFng c\u1EA1o g\u1EA1ch"
     m_Metadata:
       m_Items: []
+  - m_Id: 44471451472879616
+    m_Localized: "\u1ED0i!\nC\xF3 m\u1ED9t v\xE0i l\u1ED7i x\u1EA3y ra"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44468302267801600
+    m_Localized: "Xem qu\u1EA3ng c\xE1o \u0111\u1EC3 s\u1EDF h\u1EEFu chi\u1EBFc
+      ch\u1ED5i th\u1EA7n k\u1EF3"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
