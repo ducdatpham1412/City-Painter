@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
@@ -23,27 +24,87 @@ public class ItemScraper : MonoBehaviour {
 
     public void OnPress() {
         if (IsCurrentUsed()) return;
-        if (GameManager.Instance.IsCityUnlocked(scraper.cityUnlock)) {
-            GameController.Instance.ChangeScraper(scraper.id);
+
+        var controller = GameController.Instance;
+        var manager = GameManager.Instance;
+
+        if (scraper.cityUnlock == "ads") {
+            if (manager.profile.items.Contains(scraper.id)) {
+                controller.ChangeScraper(scraper.id);
+            }
+            else {
+                void ShowAdToGetItem() {
+                    controller.InfoDialog.Close();
+                    GoogleAds.Instance.ShowReward(
+                        success: () => {
+                            manager.profile.items.Add(scraper.id);
+                            controller.ChangeScraper(scraper.id);
+                            controller.InfoDialog.Open(new InfoDialog.Info {
+                                title = Helper.GetLocalizedValue("gotNewScraper", new string[] { scraper.name.GetLocalizedString() }),
+                                icon = scraper.sprite,
+                                OnClick = () => {
+                                    controller.InfoDialog.Close();
+                                },
+                            });
+                        },
+                        error: () => {
+                            controller.InfoDialog.Open(new InfoDialog.Info {
+                                title = Helper.GetLocalizedValue("oppSomeError"),
+                                btnTitle = Helper.GetLocalizedValue("retry"),
+                                OnClick = ShowAdToGetItem,
+                            });
+                        }
+                    );
+                }
+
+                controller.InfoDialog.Open(new InfoDialog.Info {
+                    title = Helper.GetLocalizedValue("watchingAdToGetBroom"),
+                    btnTitle = Helper.GetLocalizedValue("tryNow"),
+                    OnClick = ShowAdToGetItem,
+                });
+            }
+            return;
+        }
+
+        if (manager.IsCityUnlocked(scraper.cityUnlock)) {
+            controller.ChangeScraper(scraper.id);
         }
         else {
-            City city = GameManager.Instance.resources.cities.data.Find(c => c.id == scraper.cityUnlock);
-            GameController.Instance.InfoDialog.Open(new InfoDialog.Info {
+            City city = manager.resources.cities.data.Find(c => c.id == scraper.cityUnlock);
+            controller.InfoDialog.Open(new InfoDialog.Info {
                 title = Helper.GetLocalizedValue("reachCityOpenScraper", new string[] { city.name.GetLocalizedString() }),
-                OnClick = () => GameController.Instance.InfoDialog.Close(),
+                OnClick = () => controller.InfoDialog.Close(),
             });
         }
     }
 
     public void UpdateEnable() {
-        if (GameManager.Instance.IsCityUnlocked(scraper.cityUnlock)) {
+        void Enable() {
             Lock.gameObject.SetActive(false);
             bool isCurrentUsing = IsCurrentUsed();
             Background.enabled = isCurrentUsing;
         }
-        else {
+
+        void Disable() {
             Background.enabled = false;
             Lock.gameObject.SetActive(true);
+        }
+
+        if (scraper.cityUnlock == "ads") {
+            if (GameManager.Instance.profile.items.Contains(scraper.id)) {
+                Enable();
+            }
+            else {
+                Disable();
+            }
+            return;
+        }
+
+        if (GameManager.Instance.IsCityUnlocked(scraper.cityUnlock)) {
+            Enable();
+        }
+        else {
+            Disable();
         }
     }
 

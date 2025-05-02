@@ -9,6 +9,7 @@ public class Profile {
     public int? localeID = null;
     public List<string> backgroundSounds;
     public List<string> sfxSounds;
+    public List<string> items;
     public string lastCity;
 }
 
