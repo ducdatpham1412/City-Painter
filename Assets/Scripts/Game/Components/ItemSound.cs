@@ -72,6 +72,12 @@ public class ItemSound : MonoBehaviour {
 
         if (isRoot) {
             if (sound.type == BaseSound.Type.background) {
+                if (selected) {
+                    GameController.Instance.PlayVFX(sound);
+                }
+                else {
+                    GameController.Instance.RemoveVFX(sound);
+                }
                 SoundManager.Instance.PlayStopBackgroundSound((BackgroundSound)sound);
             }
             else if (sound.type == BaseSound.Type.sfx) {

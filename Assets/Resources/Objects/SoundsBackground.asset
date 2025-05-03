@@ -25,6 +25,9 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    Vfx: {fileID: 3509269716912568982, guid: d422f9f9555164bc5bb7fc73e0cecf31, type: 3}
+    soundsInclude:
+    - heavy_rain
     sources:
     - {fileID: 8300000, guid: 78c1d0aef8ae8467aa8f80be4ffaa7c0, type: 3}
   - id: heavy_rain
@@ -39,6 +42,8 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    Vfx: {fileID: 3509269716912568982, guid: cb9bcf68b183848ee9061e83eb09d662, type: 3}
+    soundsInclude: []
     sources:
     - {fileID: 8300000, guid: e861ece20f01b43fcb6d5e28c15902f4, type: 3}
   - id: coffee_shop
@@ -53,6 +58,8 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    Vfx: {fileID: 3509269716912568982, guid: b49ecfc5e126049eebc8341d6484322d, type: 3}
+    soundsInclude: []
     sources:
     - {fileID: 8300000, guid: 47ac6c75dc79b451eb149bde52dd5ef0, type: 3}
   - id: fire
@@ -67,6 +74,8 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    Vfx: {fileID: 3509269716912568982, guid: b49ecfc5e126049eebc8341d6484322d, type: 3}
+    soundsInclude: []
     sources:
     - {fileID: 8300000, guid: 87e0cb6ed6d52499b91a313b611b488e, type: 3}
   - id: wind
@@ -81,6 +90,8 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    Vfx: {fileID: 3509269716912568982, guid: b49ecfc5e126049eebc8341d6484322d, type: 3}
+    soundsInclude: []
     sources:
     - {fileID: 8300000, guid: 973f0f9b32ddd40cb9395c2cce145490, type: 3}
   references:

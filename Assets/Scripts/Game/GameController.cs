@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class GameController : Singleton<GameController> {
     [SerializeField] ButtonManager SwitchModeBtn;
     [SerializeField] Image ZoomIcon;
     [SerializeField] Text TextPanningMode;
+    [SerializeField] Transform VFXContainer;
     public ButtonManager BtnPlayAgain;
     public InfoDialog InfoDialog;
     public ScraperController Scraper;
@@ -26,13 +28,20 @@ public class GameController : Singleton<GameController> {
     City currentCity;
     CityImageState lastCityImgState = new();
     Transform cityImgTransform;
-
+    List<VFXActive> vfxActives = new List<VFXActive>();
 
     void Start() {
-        Scraper.SetScraper(GameManager.Instance.resources.scrapers.data.Find(s => s.id == GameManager.Instance.gameState.scraper));
+        var manager = GameManager.Instance;
+
+        Scraper.SetScraper(manager.resources.scrapers.data.Find(s => s.id == manager.gameState.scraper));
         cityImgTransform = GameInit.Instance.CityImage.transform;
-        InitCity(GameManager.Instance.gameState.city);
+        InitCity(manager.gameState.city);
         GoogleAds.Instance.Initialize();
+
+        foreach (var soundID in manager.profile.backgroundSounds) {
+            BackgroundSound sound = manager.resources.backgroundSounds.data.Find(s => s.id == soundID);
+            PlayVFX(sound);
+        }
     }
 
     void Update() {
@@ -244,6 +253,70 @@ public class GameController : Singleton<GameController> {
         InitCity(currentCity.id);
     }
 
+    public void PlayVFX(BaseSound sound) {
+        if (sound.Vfx == null) return;
+
+        var sameVfx = vfxActives.Find(v => v.sound.Vfx == sound.Vfx);
+        if (sameVfx != null) return;
+
+        // Any vfx active include vfx of "sound"
+        var vfxInclude = vfxActives.Find(vfx => {
+            var temp = Array.Find(sound.soundsInclude, s => s == vfx.sound.id);
+            return temp != null;
+        });
+        if (vfxInclude != null) return;
+
+        // Vfx of "Sound" include any vfx active
+        var includedVfx = vfxActives.FindAll(vfx => {
+            var temp = Array.Find(vfx.sound.soundsInclude, s => s == sound.id);
+            return temp != null;
+        });
+        foreach (var vfx in includedVfx) {
+            Destroy(vfx.gameObject);
+            vfxActives.Remove(vfx);
+        }
+        var newVFX = Instantiate(sound.Vfx, VFXContainer);
+        vfxActives.Add(new VFXActive {
+            sound = sound,
+            gameObject = newVFX,
+        });
+    }
+
+    public void RemoveVFX(BaseSound sound) {
+        if (sound.Vfx == null) return;
+
+        var vfx = vfxActives.Find(v => v.sound.Vfx == sound.Vfx);
+        if (vfx == null) return;
+
+        var manager = GameManager.Instance;
+
+        // Any active background sounds has the same vfx with "sound"
+        bool anotherVFXHasTheSameVFX = false;
+        foreach (var soundID in manager.profile.backgroundSounds) {
+            if (soundID == sound.id) continue;
+            BackgroundSound _sound = manager.resources.backgroundSounds.data.Find(s => s.id == soundID);
+            if (_sound.Vfx == sound.Vfx) {
+                vfx.sound = _sound;
+                anotherVFXHasTheSameVFX = true;
+                break;
+            }
+        }
+        if (!anotherVFXHasTheSameVFX) {
+            Destroy(vfx.gameObject);
+            vfxActives.Remove(vfx);
+        }
+
+        // If "sound" include any background sounds => Play their vfx
+        foreach (var soundID in manager.profile.backgroundSounds) {
+            if (soundID == sound.id) continue;
+            BackgroundSound _sound = manager.resources.backgroundSounds.data.Find(s => s.id == soundID);
+            var temp = Array.Find(_sound.soundsInclude, s => s == sound.id);
+            if (temp != null) {
+                PlayVFX(_sound);
+            }
+        }
+    }
+
     public enum Mode {
         pan,
         scrape,
@@ -252,5 +325,11 @@ public class GameController : Singleton<GameController> {
     [Serializable]
     class CityImageState {
         public Vector3 position;
+    }
+
+    [Serializable]
+    class VFXActive {
+        public BaseSound sound;
+        public GameObject gameObject;
     }
 }
