@@ -37,6 +37,8 @@ public class BaseSound {
     public Type type;
     public Sprite icon;
     public LocalizedString name;
+    public GameObject Vfx;
+    public string[] soundsInclude;
 
     public enum Type {
         background,
