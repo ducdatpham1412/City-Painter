@@ -27,7 +27,7 @@ public class GoogleAds : Singleton<GoogleAds> {
             }
 
             if (allReady) {
-                LoadInterstitialAd();
+                // LoadInterstitialAd(); // Disable here because we init InterstitialAd when user coming app
                 LoadRewardAd();
                 ShowBanner();
             }
@@ -58,16 +58,24 @@ public class GoogleAds : Singleton<GoogleAds> {
     }
 
     public void ShowInterstitial(Action success = null, Action error = null) {
-        if (interstitialAd != null && interstitialAd.CanShowAd()) {
+        void ShowAndLoadForNext() {
             interstitialAd.OnAdFullScreenContentClosed += () => {
                 success?.Invoke();
                 LoadInterstitialAd();
             };
             interstitialAd.Show();
         }
+
+        if (interstitialAd != null && interstitialAd.CanShowAd()) {
+            ShowAndLoadForNext();
+        }
         else {
-            LoadInterstitialAd();
-            error?.Invoke();
+            void Success() {
+                if (interstitialAd != null && interstitialAd.CanShowAd()) {
+                    ShowAndLoadForNext();
+                }
+            }
+            LoadInterstitialAd(success: Success, error: error);
         }
     }
 
@@ -86,22 +94,25 @@ public class GoogleAds : Singleton<GoogleAds> {
 
     public void Initialize() { }
 
-    void LoadInterstitialAd(int retry = 0) {
+    void LoadInterstitialAd(int retry = 0, Action success = null, Action error = null) {
         if (interstitialAd != null) {
             interstitialAd.Destroy();
             interstitialAd = null;
         }
         var adRequest = new AdRequest();
         InterstitialAd.Load(Configs.Env.INTERSTITIAL_ID, adRequest,
-            (InterstitialAd ad, LoadAdError error) => {
-                if (error != null || ad == null) {
+            (InterstitialAd ad, LoadAdError err) => {
+                if (err != null || ad == null) {
                     Debug.LogError("interstitial ad failed to load an ad " +
-                                   "with error : " + error);
+                                   "with error : " + err);
                     if (retry <= 3) {
                         void Retry() {
-                            LoadInterstitialAd(retry + 1);
+                            LoadInterstitialAd(retry + 1, success, error);
                         }
                         Invoke(nameof(Retry), 2);
+                    }
+                    else {
+                        error?.Invoke();
                     }
                     return;
                 }
@@ -109,6 +120,7 @@ public class GoogleAds : Singleton<GoogleAds> {
                 Debug.Log("Interstitial ad loaded with response : "
                           + ad.GetResponseInfo());
                 interstitialAd = ad;
+                success?.Invoke();
             });
     }
 
