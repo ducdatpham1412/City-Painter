@@ -1,40 +1,40 @@
 fileFormatVersion: 2
-guid: 1bcbd798b3b724dd7a685b0c11fa3636
+guid: 87c73aaed25334f33934fba57f5b5680
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2553467890726109443
-    second: nomnom_puzzle_0
+      213: 5385421233691775150
+    second: city_painter_0
   - first:
-      213: 5988909951353197669
-    second: nomnom_puzzle_1
+      213: -107497093329216224
+    second: city_painter_1
   - first:
-      213: 3631050276450517357
-    second: nomnom_puzzle_2
+      213: 8412197212281044753
+    second: city_painter_2
   - first:
-      213: 8045284139330475435
-    second: nomnom_puzzle_3
+      213: -3588492205316798959
+    second: city_painter_3
   - first:
-      213: -1655376551386828523
-    second: nomnom_puzzle_4
+      213: -1122309842117771733
+    second: city_painter_4
   - first:
-      213: 695523731558276569
-    second: nomnom_puzzle_5
+      213: -297379595907206417
+    second: city_painter_5
   - first:
-      213: -4338831273459523139
-    second: nomnom_puzzle_6
+      213: 587827975677211469
+    second: city_painter_6
   - first:
-      213: -5475576349600971789
-    second: nomnom_puzzle_7
+      213: 2873985685898408207
+    second: city_painter_7
   - first:
-      213: -4528547321341725370
-    second: nomnom_puzzle_8
+      213: 6906746362577556348
+    second: city_painter_8
   - first:
-      213: -2719565707137706950
-    second: nomnom_puzzle_9
+      213: 2608291191621460971
+    second: city_painter_9
   - first:
-      213: -1856762863976516250
-    second: nomnom_puzzle_10
+      213: 2153991072908308193
+    second: city_painter_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -156,13 +156,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: nomnom_puzzle_0
+      name: city_painter_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 29
-        height: 24
+        x: 87
+        y: 23
+        width: 23
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,196 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 301881c848dbf6320800000000000000
-      internalID: 2553467890726109443
+      spriteID: ea05b00341cdcba40800000000000000
+      internalID: 5385421233691775150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nomnom_puzzle_1
+      name: city_painter_1
       rect:
         serializedVersion: 2
-        x: 27
-        y: 0
-        width: 22
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5649532ced1ec1350800000000000000
-      internalID: 5988909951353197669
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: nomnom_puzzle_2
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 0
-        width: 34
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d61ca610df4146230800000000000000
-      internalID: 3631050276450517357
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: nomnom_puzzle_3
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 0
-        width: 29
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ba590e98c4796af60800000000000000
-      internalID: 8045284139330475435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: nomnom_puzzle_4
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 0
-        width: 22
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 511b31d0ccbe609e0800000000000000
-      internalID: -1655376551386828523
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: nomnom_puzzle_5
-      rect:
-        serializedVersion: 2
-        x: 131
-        y: 0
-        width: 35
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9dd9268162ff6a900800000000000000
-      internalID: 695523731558276569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: nomnom_puzzle_6
-      rect:
-        serializedVersion: 2
-        x: 172
-        y: 0
-        width: 49
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: db1e615e1ff59c3c0800000000000000
-      internalID: -4338831273459523139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: nomnom_puzzle_7
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 0
-        width: 19
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3f301852258d204b0800000000000000
-      internalID: -5475576349600971789
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: nomnom_puzzle_8
-      rect:
-        serializedVersion: 2
-        x: 238
-        y: 0
-        width: 20
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 64531ea543e5721c0800000000000000
-      internalID: -4528547321341725370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: nomnom_puzzle_9
-      rect:
-        serializedVersion: 2
-        x: 257
-        y: 0
+        x: 108
+        y: 24
         width: 12
-        height: 25
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,19 +193,129 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a3419b2f569224ad0800000000000000
-      internalID: -2719565707137706950
+      spriteID: 02d99b196f7128ef0800000000000000
+      internalID: -107497093329216224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nomnom_puzzle_10
+      name: city_painter_2
       rect:
         serializedVersion: 2
-        x: 268
-        y: 0
-        width: 20
+        x: 119
+        y: 23
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11ffa8a7bc02eb470800000000000000
+      internalID: 8412197212281044753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: city_painter_3
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 17
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11685d61a5d133ec0800000000000000
+      internalID: -3588492205316798959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: city_painter_4
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 24
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e35a41521cc60f0800000000000000
+      internalID: -1122309842117771733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: city_painter_5
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 23
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe2708645de7fdbf0800000000000000
+      internalID: -297379595907206417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: city_painter_6
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 24
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d43f64fed62682800800000000000000
+      internalID: 587827975677211469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: city_painter_7
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 24
+        width: 23
         height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -391,8 +325,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 665fa8443047b36e0800000000000000
-      internalID: -1856762863976516250
+      spriteID: f01388911c272e720800000000000000
+      internalID: 2873985685898408207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: city_painter_8
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 23
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7318272931b9df50800000000000000
+      internalID: 6906746362577556348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: city_painter_9
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 23
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be3a06bf403823420800000000000000
+      internalID: 2608291191621460971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: city_painter_10
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 24
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eeef0ee77384ed10800000000000000
+      internalID: 2153991072908308193
       vertices: []
       indices: 
       edges: []
@@ -411,17 +411,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      nomnom_puzzle_0: 2553467890726109443
-      nomnom_puzzle_1: 5988909951353197669
-      nomnom_puzzle_10: -1856762863976516250
-      nomnom_puzzle_2: 3631050276450517357
-      nomnom_puzzle_3: 8045284139330475435
-      nomnom_puzzle_4: -1655376551386828523
-      nomnom_puzzle_5: 695523731558276569
-      nomnom_puzzle_6: -4338831273459523139
-      nomnom_puzzle_7: -5475576349600971789
-      nomnom_puzzle_8: -4528547321341725370
-      nomnom_puzzle_9: -2719565707137706950
+      city_painter_0: 5385421233691775150
+      city_painter_1: -107497093329216224
+      city_painter_10: 2153991072908308193
+      city_painter_2: 8412197212281044753
+      city_painter_3: -3588492205316798959
+      city_painter_4: -1122309842117771733
+      city_painter_5: -297379595907206417
+      city_painter_6: 587827975677211469
+      city_painter_7: 2873985685898408207
+      city_painter_8: 6906746362577556348
+      city_painter_9: 2608291191621460971
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

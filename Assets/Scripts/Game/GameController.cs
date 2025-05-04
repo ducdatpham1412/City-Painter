@@ -42,6 +42,16 @@ public class GameController : Singleton<GameController> {
             BackgroundSound sound = manager.resources.backgroundSounds.data.Find(s => s.id == soundID);
             PlayVFX(sound);
         }
+
+        foreach (string soundID in manager.profile.backgroundSounds) {
+            BackgroundSound sound = manager.resources.backgroundSounds.data.Find(s => s.id == soundID);
+            SoundManager.Instance.PlayStopBackgroundSound(sound);
+        }
+
+        for (int i = 0; i < manager.profile.sfxSounds.Count; i++) {
+            SfxSound sound = manager.resources.sfxSounds.data.Find(s => s.id == manager.profile.sfxSounds[i]);
+            SoundManager.Instance.PlayStopSfxSound(sound, playNow: i == 0);
+        }
     }
 
     void Update() {
@@ -58,16 +68,20 @@ public class GameController : Singleton<GameController> {
     }
 
     public void InitCity(string cityID) {
+        var manager = GameManager.Instance;
         if (!ended) {
             SaveCityWireFrame();
         }
         else {
             ended = false;
         }
-        GameManager.Instance.gameState.city = cityID;
-        City city = GameManager.Instance.resources.cities.data.Find(c => c.id == cityID);
+        manager.gameState.city = cityID;
+        City city = manager.resources.cities.data.Find(c => c.id == cityID);
         currentCity = city;
-        GameInit.Instance.InitCity(city);
+        GameInit.Instance.InitCity(city, !manager.firstTimeOpenApp);
+        if (manager.firstTimeOpenApp) {
+            manager.firstTimeOpenApp = false;
+        }
         if (mode == Mode.pan) {
             SwitchMode();
         }

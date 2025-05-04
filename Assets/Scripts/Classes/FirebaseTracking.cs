@@ -27,7 +27,7 @@ public class FirebaseTracking : Singleton<FirebaseTracking> {
         FirebaseAnalytics.LogEvent("custom_app_open", new Parameter[] {
             new Parameter("device_id", GameManager.Instance.profile.device_id),
             new Parameter("version", Application.version),
-            new Parameter("ts", Helper.TimeStamp())
+            new Parameter("ts", Helper.TimeStamp().ToString())
         });
     }
 
@@ -36,7 +36,7 @@ public class FirebaseTracking : Singleton<FirebaseTracking> {
             new Parameter("city_id", cityID),
             new Parameter("device_id", GameManager.Instance.profile.device_id),
             new Parameter("version", Application.version),
-            new Parameter("ts", Helper.TimeStamp())
+            new Parameter("ts",  Helper.TimeStamp().ToString())
         });
     }
 
@@ -45,7 +45,7 @@ public class FirebaseTracking : Singleton<FirebaseTracking> {
             new Parameter("city_id", cityID),
             new Parameter("device_id", GameManager.Instance.profile.device_id),
             new Parameter("version", Application.version),
-            new Parameter("ts", Helper.TimeStamp())
+            new Parameter("ts",  Helper.TimeStamp().ToString())
         });
     }
 
@@ -54,7 +54,7 @@ public class FirebaseTracking : Singleton<FirebaseTracking> {
             new Parameter("scraper_id", scraperID),
             new Parameter("device_id", GameManager.Instance.profile.device_id),
             new Parameter("version", Application.version),
-            new Parameter("ts", Helper.TimeStamp())
+            new Parameter("ts", Helper.TimeStamp().ToString())
         });
     }
 }
