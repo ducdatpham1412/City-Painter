@@ -18,7 +18,7 @@ public class GameInit : Singleton<GameInit> {
         };
     }
 
-    public void InitCity(City city) {
+    public void InitCity(City city, bool showAds) {
         FirebaseTracking.Instance.OpenCity(city.id);
         CityName.StringReference = city.name;
         CityName.RefreshString();
@@ -41,7 +41,9 @@ public class GameInit : Singleton<GameInit> {
         controller.Scraper.SetWireFrame(GenerateLineArtSprite(city));
         controller.isPlaying = true;
 
-        GoogleAds.Instance.ShowInterstitial();
+        if (showAds) {
+            GoogleAds.Instance.ShowInterstitial();
+        }
     }
 
     public Sprite GenerateLineArtSprite(City city) {

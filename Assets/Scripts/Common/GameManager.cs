@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager> {
     public List<ItemSound> ItemSounds = new();
     public List<ItemScraper> ItemScrapers = new();
     public Dictionary<string, Sprite> citySprites = new();
+    public bool firstTimeOpenApp = false;
     Sprite background;
 
     void Awake() {
@@ -30,6 +31,7 @@ public class GameManager : Singleton<GameManager> {
 
         profile = Storage.GETRef<Profile>(Storage.Key.profile);
         if (profile == null) {
+            firstTimeOpenApp = true;
             profile = new Profile {
                 device_id = SystemInfo.deviceUniqueIdentifier,
                 localeID = null,
@@ -43,16 +45,6 @@ public class GameManager : Singleton<GameManager> {
 
         SoundManager.Instance.Initialize();
         FirebaseTracking.Instance.Initialize();
-
-        foreach (string soundID in profile.backgroundSounds) {
-            BackgroundSound sound = resources.backgroundSounds.data.Find(s => s.id == soundID);
-            SoundManager.Instance.PlayStopBackgroundSound(sound);
-        }
-
-        for (int i = 0; i < profile.sfxSounds.Count; i++) {
-            SfxSound sound = resources.sfxSounds.data.Find(s => s.id == profile.sfxSounds[i]);
-            SoundManager.Instance.PlayStopSfxSound(sound, playNow: i == 0);
-        }
 
         if (profile.localeID != null) {
             LocalizationManager.Instance.SetLocale((int)profile.localeID);

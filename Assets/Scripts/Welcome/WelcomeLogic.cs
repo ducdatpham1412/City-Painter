@@ -10,6 +10,12 @@ public class WelcomeLogic : MonoBehaviour {
         else {
             Navigator.Instance.NavigateTo(Navigator.Scene.GameScene);
         }
+
+        Screen.orientation = ScreenOrientation.AutoRotation;
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
+        Screen.autorotateToPortrait = false;
+        Screen.autorotateToPortraitUpsideDown = false;
     }
 
     public void SetLocale(int localeID) {
