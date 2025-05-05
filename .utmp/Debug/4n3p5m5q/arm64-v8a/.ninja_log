@@ -1,0 +1,12 @@
+# ninja log v5
+15	438	1746417037510130590	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	d9ccb6570fd1e920
+439	578	1746417037641193062	/Users/user/Code/CityPainter/Library/PramData/AndroidApplicationController/Cache/com.lora.citypainter/gradle-project/unityLibrary/build/intermediates/cxx/Debug/4n3p5m5q/obj/arm64-v8a/libswappywrapper.so	a4e631670494ba2b
+3	3183	1746417040244188094	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	88f7c03bf8c5878
+1	3200	1746417040261113045	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	5c05911aecc39312
+8	3207	1746417040263302262	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	2d7c38c0cec0576d
+10	3231	1746417040293831405	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	d80ac089b25691ea
+13	3273	1746417040334901652	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	fcce9f76293a4938
+2	3374	1746417040435224702	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	aa943f09328bd2ea
+6	3557	1746417040618184872	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	63c50af57c4b5fdb
+1	3645	1746417040709877899	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	17243cac6d6c934e
+3645	3738	1746417040796146566	/Users/user/Code/CityPainter/Library/PramData/AndroidApplicationController/Cache/com.lora.citypainter/gradle-project/unityLibrary/build/intermediates/cxx/Debug/4n3p5m5q/obj/arm64-v8a/libgame.so	60c18d4ae18ad92
