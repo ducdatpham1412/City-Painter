@@ -34,7 +34,6 @@ public class GameInit : Singleton<GameInit> {
             return;
         }
 
-
         controller.Scraper.transform.position = GameHelper.ToWorldPoint(new Vector2(Screen.width / 2f, Screen.height / 2f));
         controller.Scraper.gameObject.SetActive(true);
         controller.BtnPlayAgain.gameObject.SetActive(false);

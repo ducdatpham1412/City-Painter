@@ -1,0 +1,1 @@
+/Users/user/Code/CityPainter/Library/PramData/AndroidApplicationController/Cache/com.lora.citypainter/gradle-project/unityLibrary/build/intermediates/cxx/Debug/4n3p5m5q/obj/arm64-v8a

@@ -69,6 +69,8 @@ public class PanSprite : MonoBehaviour {
     }
 
     void CheckBackToBound() {
+        if (bound == null) return;
+
         Vector2 pos = transform.position;
         Vector2 backToPos = pos;
 

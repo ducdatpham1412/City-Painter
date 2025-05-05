@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using GoogleMobileAds.Api;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class GoogleAds : Singleton<GoogleAds> {
     BannerView bannerView;
     RewardedAd rewardedAd;
     InterstitialAd interstitialAd;
+    Queue<Action> mainThreadQueue = new Queue<Action>();
 
     void Start() {
         MobileAds.Initialize((InitializationStatus status) => {
@@ -34,27 +36,32 @@ public class GoogleAds : Singleton<GoogleAds> {
         });
     }
 
+    void Update() {
+        while (mainThreadQueue.Count > 0) {
+            mainThreadQueue.Dequeue()?.Invoke();
+        }
+    }
+
+    IEnumerator LoadBanner(int delay) {
+        yield return new WaitForSeconds(delay);
+        var adRequest = new AdRequest();
+        bannerView.LoadAd(adRequest);
+    }
+
     void ShowBanner() {
         if (bannerView == null) {
             CreateBannerView();
         }
         int retry = 0;
-
-        void LoadBanner() {
-            var adRequest = new AdRequest();
-            bannerView.LoadAd(adRequest);
-        }
-
         void LoadRetry(LoadAdError err) {
+            Debug.Log($"Load banner error: {err.GetMessage()}");
             if (retry <= 3) {
                 retry++;
-                Invoke(nameof(LoadBanner), 2);
+                mainThreadQueue.Enqueue(() => StartCoroutine(LoadBanner(2)));
             }
         }
-
         bannerView.OnBannerAdLoadFailed += LoadRetry;
-
-        LoadBanner();
+        mainThreadQueue.Enqueue(() => StartCoroutine(LoadBanner(0)));
     }
 
     public void ShowInterstitial(Action success = null, Action error = null) {
@@ -103,13 +110,11 @@ public class GoogleAds : Singleton<GoogleAds> {
         InterstitialAd.Load(Configs.Env.INTERSTITIAL_ID, adRequest,
             (InterstitialAd ad, LoadAdError err) => {
                 if (err != null || ad == null) {
-                    Debug.LogError("interstitial ad failed to load an ad " +
+                    Debug.LogError("Interstitial ad failed to load an ad " +
                                    "with error : " + err);
                     if (retry <= 3) {
-                        void Retry() {
-                            LoadInterstitialAd(retry + 1, success, error);
-                        }
-                        Invoke(nameof(Retry), 2);
+                        //TODO: Make delay 2s
+                        LoadInterstitialAd(retry + 1, success, error);
                     }
                     else {
                         error?.Invoke();
@@ -138,10 +143,8 @@ public class GoogleAds : Singleton<GoogleAds> {
                     Debug.LogError("Rewarded ad failed to load an ad " +
                                    "with error : " + error);
                     if (retry <= 3) {
-                        void Retry() {
-                            LoadRewardAd(retry + 1);
-                        }
-                        Invoke(nameof(Retry), 2);
+                        //TODO: Make delay 2s
+                        LoadRewardAd(retry + 1);
                     }
                     return;
                 }
@@ -157,9 +160,9 @@ public class GoogleAds : Singleton<GoogleAds> {
             bannerView.Destroy();
             bannerView = null;
         }
-
-        float scale = MobileAds.Utils.GetDeviceScale();
-        float width = scale == 0 ? Screen.width : Screen.width / scale;
+        // float scale = MobileAds.Utils.GetDeviceScale();
+        // float width = scale == 0 ? Screen.width : Screen.width / scale;
+        float width = MobileAds.Utils.GetDeviceSafeWidth() / 2;
         AdSize size = AdSize.Banner;
         if (width >= AdSize.Leaderboard.Width) {
             size = AdSize.Leaderboard;

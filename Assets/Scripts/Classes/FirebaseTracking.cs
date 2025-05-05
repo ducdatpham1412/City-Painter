@@ -1,3 +1,4 @@
+using System;
 using Firebase;
 using Firebase.Analytics;
 using Firebase.Extensions;
@@ -5,6 +6,7 @@ using UnityEngine;
 
 public class FirebaseTracking : Singleton<FirebaseTracking> {
     static bool isReady = false;
+    static Action action;
 
     public void Initialize() {
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread((task) => {
@@ -14,6 +16,8 @@ public class FirebaseTracking : Singleton<FirebaseTracking> {
                 FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
                 isReady = true;
                 OpenApp();
+                action?.Invoke();
+                action = null;
                 Debug.Log("Firebase initialized successfully ✅");
             }
             else {
@@ -23,7 +27,6 @@ public class FirebaseTracking : Singleton<FirebaseTracking> {
     }
 
     void OpenApp() {
-        if (!isReady) return;
         FirebaseAnalytics.LogEvent("custom_app_open", new Parameter[] {
             new Parameter("device_id", GameManager.Instance.profile.device_id),
             new Parameter("version", Application.version),
@@ -32,29 +35,44 @@ public class FirebaseTracking : Singleton<FirebaseTracking> {
     }
 
     public void OpenCity(string cityID) {
-        FirebaseAnalytics.LogEvent("open_city", new Parameter[] {
-            new Parameter("city_id", cityID),
-            new Parameter("device_id", GameManager.Instance.profile.device_id),
-            new Parameter("version", Application.version),
-            new Parameter("ts",  Helper.TimeStamp().ToString())
+        CheckLog(() => {
+            FirebaseAnalytics.LogEvent("open_city", new Parameter[] {
+                new Parameter("city_id", cityID),
+                new Parameter("device_id", GameManager.Instance.profile.device_id),
+                new Parameter("version", Application.version),
+                new Parameter("ts",  Helper.TimeStamp().ToString())
+            });
         });
     }
 
     public void FinishCity(string cityID) {
-        FirebaseAnalytics.LogEvent("finish_city", new Parameter[] {
-            new Parameter("city_id", cityID),
-            new Parameter("device_id", GameManager.Instance.profile.device_id),
-            new Parameter("version", Application.version),
-            new Parameter("ts",  Helper.TimeStamp().ToString())
+        CheckLog(() => {
+            FirebaseAnalytics.LogEvent("finish_city", new Parameter[] {
+                new Parameter("city_id", cityID),
+                new Parameter("device_id", GameManager.Instance.profile.device_id),
+                new Parameter("version", Application.version),
+                new Parameter("ts",  Helper.TimeStamp().ToString())
+            });
         });
     }
 
     public void UseScraper(string scraperID) {
-        FirebaseAnalytics.LogEvent("use_scraper", new Parameter[] {
-            new Parameter("scraper_id", scraperID),
-            new Parameter("device_id", GameManager.Instance.profile.device_id),
-            new Parameter("version", Application.version),
-            new Parameter("ts", Helper.TimeStamp().ToString())
+        CheckLog(() => {
+            FirebaseAnalytics.LogEvent("use_scraper", new Parameter[] {
+                new Parameter("scraper_id", scraperID),
+                new Parameter("device_id", GameManager.Instance.profile.device_id),
+                new Parameter("version", Application.version),
+                new Parameter("ts", Helper.TimeStamp().ToString())
+            });
         });
+    }
+
+    void CheckLog(Action call) {
+        if (isReady) {
+            call.Invoke();
+        }
+        else {
+            action += call;
+        }
     }
 }
