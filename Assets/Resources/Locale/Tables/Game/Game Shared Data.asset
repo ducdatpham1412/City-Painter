@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Game Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Game
+  m_TableCollectionNameGuidString: 09972f08cc61d4bada0aa6d10b6794a5
+  m_Entries:
+  - m_Id: 41427034855956480
+    m_Key: null
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28888578351161344
+    m_Key: setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41045207750270976
+    m_Key: inPanningMode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416453247721472
+    m_Key: backgroundSound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416482502991872
+    m_Key: sfxSound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416536261386240
+    m_Key: lightRain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416561041334272
+    m_Key: heavyRain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41422000831324160
+    m_Key: language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416512823615488
+    m_Key: scraper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41587553940267008
+    m_Key: broom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588149967642624
+    m_Key: mrBanana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588229122547712
+    m_Key: msBanana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588427462795264
+    m_Key: icePop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41589008248070144
+    m_Key: rose
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634619005591552
+    m_Key: Paris
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634654363574272
+    m_Key: Tokyo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634679638450176
+    m_Key: Ottawa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634860253569024
+    m_Key: London
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634910316781568
+    m_Key: NewYork
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635052369469440
+    m_Key: Seoul
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635184687177728
+    m_Key: Beijing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635343479332864
+    m_Key: HaNoi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635649105682432
+    m_Key: Geneva
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635885043671040
+    m_Key: Berlin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41662280746655744
+    m_Key: reachCityOpenScraper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41670138326409216
+    m_Key: scrapingTool
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41753249932369920
+    m_Key: cities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41961302074056704
+    m_Key: goToCity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41962632943493120
+    m_Key: oppCityIsLocking
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43016637937344512
+    m_Key: finishCity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43017207830011904
+    m_Key: letGo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43019941748662272
+    m_Key: finishedAll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43185110600638464
+    m_Key: redraw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43480974581817344
+    m_Key: scrapePaper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43481058061049856
+    m_Key: scrapeMetal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43481106245214208
+    m_Key: scrapeStone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44287315609116672
+    m_Key: scrapeBrick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43486591631482880
+    m_Key: scrapeSound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43811355470323712
+    m_Key: fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43811382376783872
+    m_Key: wind
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43811424865083392
+    m_Key: coffeeShop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43912995405815808
+    m_Key: thunder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913322670579712
+    m_Key: cricket
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913469605437440
+    m_Key: wolf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913650954559488
+    m_Key: frog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913803933409280
+    m_Key: bell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913862624305152
+    m_Key: wave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43925368699084800
+    m_Key: cat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44178513102626816
+    m_Key: gotNewScraper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44182387196682240
+    m_Key: tryNow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44468302267801600
+    m_Key: watchingAdToGetBroom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44471451472879616
+    m_Key: oppSomeError
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1220104545343373478
+  references:
+    version: 2
+    RefIds:
+    - rid: 1220104545343373478
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1735554087191

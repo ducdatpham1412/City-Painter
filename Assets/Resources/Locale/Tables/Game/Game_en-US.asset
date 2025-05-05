@@ -1,0 +1,241 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Game_en-US
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en-US
+  m_SharedData: {fileID: 11400000, guid: 09972f08cc61d4bada0aa6d10b6794a5, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 41416453247721472
+    m_Localized: Background sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28888578351161344
+    m_Localized: Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41045207750270976
+    m_Localized: "You\u2019re in Panning Mode\nDrag to reposition the image"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416482502991872
+    m_Localized: Sound effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416536261386240
+    m_Localized: Light rain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416561041334272
+    m_Localized: Heavy rain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41416512823615488
+    m_Localized: Scraper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41422000831324160
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41587553940267008
+    m_Localized: Broom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588149967642624
+    m_Localized: Mr. Banana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588229122547712
+    m_Localized: Ms. Banana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41588427462795264
+    m_Localized: Ice pop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41589008248070144
+    m_Localized: Rose
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634619005591552
+    m_Localized: Paris
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634654363574272
+    m_Localized: Tokyo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634679638450176
+    m_Localized: Ottawa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634860253569024
+    m_Localized: London
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41634910316781568
+    m_Localized: New York
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635052369469440
+    m_Localized: Seoul
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635184687177728
+    m_Localized: Beijing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635343479332864
+    m_Localized: Ha Noi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635649105682432
+    m_Localized: Geneva
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41635885043671040
+    m_Localized: Berlin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41662280746655744
+    m_Localized: Reach {0} to unlock this brush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41670138326409216
+    m_Localized: Scraping tool
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41753249932369920
+    m_Localized: Cities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41961302074056704
+    m_Localized: Visit city {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41962632943493120
+    m_Localized: 'Oops, city {0} is locked
+
+      Please complete the previous cities
+      to unlock it'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43016637937344512
+    m_Localized: 'City {0} completed
+
+      Move to the next city'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43017207830011904
+    m_Localized: Let's go
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43019941748662272
+    m_Localized: 'You have explored all available cities
+
+      We will add more
+      cities soon'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43185110600638464
+    m_Localized: Redraw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43480974581817344
+    m_Localized: Paper scratch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43481058061049856
+    m_Localized: Metal scraper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43481106245214208
+    m_Localized: Stone scraping
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43486591631482880
+    m_Localized: Scraping sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43811355470323712
+    m_Localized: Fire sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43811382376783872
+    m_Localized: Wind sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43811424865083392
+    m_Localized: Coffee shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43912995405815808
+    m_Localized: Thunder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913322670579712
+    m_Localized: Crickets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913469605437440
+    m_Localized: Wolf howl
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913650954559488
+    m_Localized: Frog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913803933409280
+    m_Localized: 'Bell
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43913862624305152
+    m_Localized: Ocean waves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43925368699084800
+    m_Localized: Your cat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44178513102626816
+    m_Localized: 'You got a new brush
+
+      "{0}"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44182387196682240
+    m_Localized: Try now
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44287315609116672
+    m_Localized: Scraping brick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44471451472879616
+    m_Localized: 'Oops!
+
+      Something went wrong'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44468302267801600
+    m_Localized: Watch an ad to get the magic broom
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,3 @@
+/Users/user/Code/CityPainter/Library/PramData/AndroidApplicationController/Cache/com.lora.citypainter/gradle-project/unityLibrary/src/main/cpp/CMakeLists.txt
+/Users/user/Code/CityPainter/Library/PramData/AndroidApplicationController/Cache/com.lora.citypainter/gradle-project/unityLibrary/src/main/cpp/FramePacing/CMakeLists.txt
+/Users/user/Code/CityPainter/Library/PramData/AndroidApplicationController/Cache/com.lora.citypainter/gradle-project/unityLibrary/src/main/cpp/GameActivity/CMakeLists.txt

@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ac13cd795e645eeb442f09039dd8c5, type: 3}
+  m_Name: SoundsScrape
+  m_EditorClassIdentifier: 
+  data:
+  - id: paper
+    type: 2
+    icon: {fileID: 21300000, guid: f4a267b78f2e94b7ba1548d5bd0b7aca, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 43480974581817344
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioClip: {fileID: 8300000, guid: 510e42cdd0c324f7eb4c97e16e3ec3e1, type: 3}
+  - id: stone
+    type: 2
+    icon: {fileID: 21300000, guid: e6d92755ffdfc4fd280f89499c9b8ebe, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 43481106245214208
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioClip: {fileID: 8300000, guid: 6d7c7bccae8db4a5faa74630366c605e, type: 3}
+  - id: brick
+    type: 2
+    icon: {fileID: 21300000, guid: e6d92755ffdfc4fd280f89499c9b8ebe, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 44287315609116672
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    audioClip: {fileID: 8300000, guid: 3fab4035817564693b149c0573b41931, type: 3}
+  references:
+    version: 2
+    RefIds: []

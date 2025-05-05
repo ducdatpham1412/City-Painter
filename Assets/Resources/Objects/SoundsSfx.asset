@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8ed73a947864f01a094425d7c96313, type: 3}
+  m_Name: SoundsSfx
+  m_EditorClassIdentifier: 
+  data:
+  - id: thunder
+    type: 1
+    icon: {fileID: 21300000, guid: 0883dbecd31684b7e81283033a2840c9, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 43912995405815808
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sources:
+    - {fileID: 8300000, guid: 3c2434b8387ec4bd2866345867c071d5, type: 3}
+    - {fileID: 8300000, guid: fc289804dcb544df9959d4acf734d29c, type: 3}
+    - {fileID: 8300000, guid: 47ef422e2c56144dcb1e74766f533b4d, type: 3}
+    minInterval: 8
+    maxInterval: 15
+  - id: cat
+    type: 1
+    icon: {fileID: 21300000, guid: 59688ba93fd754376a2e27410b618a10, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 43925368699084800
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sources:
+    - {fileID: 8300000, guid: c44a21ca0dcdb483885ec924bbdd0048, type: 3}
+    minInterval: 6
+    maxInterval: 15
+  - id: cricket
+    type: 1
+    icon: {fileID: 21300000, guid: c907a7ad094604d8a96f3d0e0f2c0498, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 43913322670579712
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sources:
+    - {fileID: 8300000, guid: 4123d5f6742f54631a5b392071ba5072, type: 3}
+    - {fileID: 8300000, guid: 8c0d8ecb713744d53849ae59282509b7, type: 3}
+    minInterval: 8
+    maxInterval: 15
+  - id: wolf
+    type: 1
+    icon: {fileID: 21300000, guid: 5595c11e5e9db48199a068a697ee0458, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 43913469605437440
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sources:
+    - {fileID: 8300000, guid: 30e356bd26afb40f2b62a07cab039a11, type: 3}
+    minInterval: 15
+    maxInterval: 20
+  - id: frog
+    type: 1
+    icon: {fileID: 21300000, guid: 376e23fd919fb41abbfc89c3dd2d6ed6, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 43913650954559488
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sources:
+    - {fileID: 8300000, guid: 099bbeda0379149a8ac6987088ebbfbd, type: 3}
+    - {fileID: 8300000, guid: 5ad062313f5b04b40a25986e406b4095, type: 3}
+    - {fileID: 8300000, guid: ac965e3e9062b4e36a18d494ae103d79, type: 3}
+    minInterval: 8
+    maxInterval: 15
+  - id: bell
+    type: 1
+    icon: {fileID: 21300000, guid: 353783cdaa43c4c3b9f5ec54e9c68a34, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 43913803933409280
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sources:
+    - {fileID: 8300000, guid: deb91288968de4effb33a243f2a78b3f, type: 3}
+    minInterval: 10
+    maxInterval: 20
+  - id: wave
+    type: 1
+    icon: {fileID: 21300000, guid: ea3ef6d0a24da4fb9a722f787c9106a3, type: 3}
+    name:
+      m_TableReference:
+        m_TableCollectionName: GUID:09972f08cc61d4bada0aa6d10b6794a5
+      m_TableEntryReference:
+        m_KeyId: 43913862624305152
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    sources:
+    - {fileID: 8300000, guid: c481eeabbefad42e5b5f92f9f2cbdb0a, type: 3}
+    - {fileID: 8300000, guid: 9bb997ce2ff7846fbb2936c43dbf19cd, type: 3}
+    - {fileID: 8300000, guid: 70bfdf38229fe470eac32611c629326d, type: 3}
+    minInterval: 3
+    maxInterval: 12
+  references:
+    version: 2
+    RefIds: []

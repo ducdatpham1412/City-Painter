@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "722656577572",
+    "project_id": "citypainter-18c15",
+    "storage_bucket": "citypainter-18c15.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722656577572:android:dd275a93d7a0091aba70b1",
+        "android_client_info": {
+          "package_name": "com.lora.citypainter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUW7DRgRevze7AXbwIT__zDwGHPffnTA0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
