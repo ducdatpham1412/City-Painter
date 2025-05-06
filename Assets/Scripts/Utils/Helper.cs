@@ -99,6 +99,32 @@ public static class Helper {
         return DateTimeOffset.Now.ToUnixTimeMilliseconds();
     }
 
+    public static bool IsHeadphoneConnected() {
+#if UNITY_ANDROID && !UNITY_EDITOR
+            try
+            {
+                using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+                {
+                    AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+                    AndroidJavaObject audioManager = activity.Call<AndroidJavaObject>("getSystemService", "audio");
+
+                    // Check for wired headset
+                    bool isWired = audioManager.Call<bool>("isWiredHeadsetOn");
+
+                    // Check for Bluetooth A2DP
+                    bool isBT = audioManager.Call<bool>("isBluetoothA2dpOn");
+
+                    return isWired || isBT;
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogWarning("Headphone check failed: " + e.Message);
+            }
+#endif
+        return false;
+    }
+
     // public static Texture2D SpriteToTexture(Sprite sprite) {
     //     if (sprite == null) return null;
 
