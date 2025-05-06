@@ -122,6 +122,7 @@
     <Compile Include="Assets/Scripts/Common/InfoDialog.cs" />
     <Compile Include="Assets/Scripts/Game/Setting.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplineTrack.cs" />
+    <Compile Include="Assets/Scripts/Game/Components/Headphone.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSpline.cs" />
     <Compile Include="Assets/Scripts/Utils/ApiManager.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingSequencer.cs" />
@@ -165,7 +166,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
-    <None Include="Assets/AddressableAssetsData/link.xml" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile-2-Pass.shader" />
     <None Include="Assets/Firebase/Plugins/Firebase.Analytics.dll" />

@@ -236,6 +236,10 @@ MonoBehaviour:
     m_Localized: Watch an ad to get the magic broom
     m_Metadata:
       m_Items: []
+  - m_Id: 45899423169896448
+    m_Localized: Wear headphones for the best experience
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

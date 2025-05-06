@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameInit : Singleton<GameInit> {
     public PanSprite CityImage;
     [SerializeField] LocalizeStringEvent CityName;
+    [SerializeField] Headphone Headphone;
 
     void Awake() {
         IEnumerator Rebuild() {
@@ -16,6 +17,12 @@ public class GameInit : Singleton<GameInit> {
         CityName.StringReference.StringChanged += (text) => {
             StartCoroutine(Rebuild());
         };
+    }
+
+    void Start() {
+        if (!Helper.IsHeadphoneConnected()) {
+            Headphone.gameObject.SetActive(true);
+        }
     }
 
     public void InitCity(City city, bool showAds) {

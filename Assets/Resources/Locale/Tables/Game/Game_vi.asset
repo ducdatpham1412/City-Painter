@@ -230,6 +230,11 @@ MonoBehaviour:
       ch\u1ED5i th\u1EA7n k\u1EF3"
     m_Metadata:
       m_Items: []
+  - m_Id: 45899423169896448
+    m_Localized: "\u0110eo tai nghe \u0111\u1EC3 c\xF3 tr\u1EA3i nghi\u1EC7m ch\xE2n
+      th\u1EADt nh\u1EA5t"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
