@@ -67,6 +67,15 @@ public class FirebaseTracking : Singleton<FirebaseTracking> {
         });
     }
 
+    public void SetLanguage(string lan) {
+        if (!isReady) return;
+        FirebaseAnalytics.LogEvent("set_language", new Parameter[] {
+            new Parameter("device_id", GameManager.Instance.profile.device_id),
+            new Parameter("language", lan),
+            new Parameter("ts", Helper.TimeStamp().ToString())
+        });
+    }
+
     void CheckLog(Action call) {
         if (isReady) {
             call.Invoke();

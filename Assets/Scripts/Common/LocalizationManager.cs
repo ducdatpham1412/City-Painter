@@ -7,6 +7,9 @@ public class LocalizationManager : Singleton<LocalizationManager> {
     public void SetLocale(int localeID, Action callback = null) {
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[localeID];
         callback?.Invoke();
+
+        FirebaseTracking.Instance.SetLanguage(Helper.GetLocaleKey());
+        GameManager.Instance.RescheduleDailyNotification();
     }
 
     public string GetLocale() {

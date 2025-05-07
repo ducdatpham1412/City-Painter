@@ -6,6 +6,7 @@ public static class Storage {
     public enum Key {
         profile,
         gameState,
+        dailyNoti,
     }
 
     public static void SET(Key key, string value) {

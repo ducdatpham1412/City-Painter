@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Unity.Notifications.Android;
 using UnityEngine;
+using System;
 
 public class GameManager : Singleton<GameManager> {
     protected GameManager() { }
@@ -76,7 +78,7 @@ public class GameManager : Singleton<GameManager> {
     public Sprite GetBackground() {
         if (background != null) return background;
         Sprite[] bgSprites = Resources.LoadAll<Sprite>("Images/Background");
-        background = bgSprites[Random.Range(0, bgSprites.Length)];
+        background = bgSprites[UnityEngine.Random.Range(0, bgSprites.Length)];
         return background;
     }
 
@@ -97,7 +99,42 @@ public class GameManager : Singleton<GameManager> {
         return isPlayed && Storage.GET_TEXTURE(cityID) == null;
     }
 
-    [System.Serializable]
+    public void RescheduleDailyNotification() {
+        int? notiID = Storage.GETStruct<int>(Storage.Key.dailyNoti);
+        if (notiID != null) {
+            AndroidNotificationCenter.CancelNotification((int)notiID);
+            Storage.DELETE(Storage.Key.dailyNoti);
+        }
+        ScheduleDailyNotification();
+    }
+
+    void ScheduleDailyNotification() {
+        if (Storage.GETStruct<int>(Storage.Key.dailyNoti) != null) return;
+
+        var channel = new AndroidNotificationChannel() {
+            Id = "daily_reminder",
+            Name = "Daily Reminder",
+            Importance = Importance.Default,
+            Description = "Daily reminder notification",
+        };
+        AndroidNotificationCenter.RegisterNotificationChannel(channel);
+
+        var notification = new AndroidNotification {
+            Title = "City Painter 🧠 🧘‍♀️",
+            Text = Helper.GetLocalizedValue("timeToRelaxYourMind"),
+            FireTime = DateTime.Today.AddHours(20),
+            RepeatInterval = TimeSpan.FromDays(1),
+        };
+
+        if (notification.FireTime <= DateTime.Now)
+            notification.FireTime = notification.FireTime.AddDays(1);
+
+        int notiID = AndroidNotificationCenter.SendNotification(notification, channel.Id);
+
+        Storage.SET(Storage.Key.dailyNoti, notiID.ToString());
+    }
+
+    [Serializable]
     public class GameResources {
         public BackgroundSoundsObject backgroundSounds;
         public SfxSoundsObject sfxSounds;
